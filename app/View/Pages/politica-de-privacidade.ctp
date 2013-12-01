@@ -3,7 +3,7 @@
         'body_class' => 'bkgBody',
     ));
 
-	$pagina = $this->requestAction(array('controller' => 'Paginas', 'action' => 'sobre'));
+	$pagina = $this->requestAction(array('controller' => 'Paginas', 'action' => 'politica_privacidade'));
 	
 	
 	$pagina = $pagina[0];
@@ -12,7 +12,7 @@
 <!-- MATERIA ABERTA -->
 <div class="row marginTopB marginBottomB">
 	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">                    
-		<p class="TitulosInternas fonteSiteSouvLight">SOBRE</p>
+		<p class="TitulosInternas fonteSiteSouvLight">POLÍTICA DE PRIVACIDADE</p>
 		<hr class="hrTitulos" />
 	</div>
 	

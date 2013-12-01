@@ -105,4 +105,18 @@ class PaginasController extends AppController {
 	public function sobre () {
 		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'sobre'), 'limit' => 1));
 	}
+	
+	public function politica_privacidade () {
+		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'politica-de-privacidade'), 'limit' => 1));
+	}
+	
+	public function texto_sobre_rodape () {
+		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'texto-sobre-no-rodape'), 'limit' => 1));
+	}
+	
+
+
+
+
+
 }

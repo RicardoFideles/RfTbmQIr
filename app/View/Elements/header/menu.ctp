@@ -1,6 +1,5 @@
 <?php
 	$categorias = $this->requestAction(array('controller' => 'Categories', 'action' => 'menu'));
-
 ?>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -46,10 +45,23 @@
 					</ul>
 				</li>
 				
+				
 				<?php foreach($categorias as $key => $categoria): ?>
 					<li>|</li>
-					<li><a href="#"><?php echo strtoupper($categoria['categories']['name']); ?></a></li>
-				<?php endforeach; ?>
+		          		
+	          		<?php
+	          			$nome = $categoria['categories']['name'];
+						$slug = $categoria['categories']['slug'];
+						
+						$link = array('controller' => 'categories', 'action' => 'view', 'slug' => $slug);
+	          		?>
+					<li>
+						<a href="<?php echo $this->Html->url($link) ?>">
+							<?php echo strtoupper($nome); ?>
+						</a>
+					</li>
+          		<?php endforeach; ?>
+          		
 			</ul>
 		</div>
 		<div class="col-xs-12 visible-xs">

@@ -31,6 +31,18 @@
 	Router::connect('/entrevista', array('controller' => 'pages', 'action' => 'display', 'entrevista'));
 	Router::connect('/blogs', array('controller' => 'pages', 'action' => 'display', 'blogs'));
 	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
+	Router::connect('/contato', array('controller' => 'pages', 'action' => 'display', 'contato'));
+	Router::connect('/politica-de-privacidade', array('controller' => 'pages', 'action' => 'display', 'politica-de-privacidade'));
+	
+	
+	
+	#rotas dinâmicas
+    Router::connect('/categoria/:slug', array(
+        'controller' => 'categories',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z\-\.]+'
+    ));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
