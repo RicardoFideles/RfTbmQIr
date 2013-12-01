@@ -39,6 +39,8 @@
 						<td><?php echo h($category['Category']['name']); ?>&nbsp;</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $category['Category']['id'])); ?>
+							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $category['Category']['id']), null, __('Você tem certeza que deseja apagar # %s?', $category['Category']['name'])); ?>
+
 						</td>
 					</tr>
 				<?php endforeach; ?>
