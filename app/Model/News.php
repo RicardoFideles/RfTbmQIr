@@ -51,8 +51,14 @@ class News extends AppModel {
 		)
 	);
 	
-	
-	
-	
-	var $actsAs = array('Sluggable');
+	var $actsAs = array('Sluggable',
+		'MeioUpload' => array(
+	            'name' => array(
+	            'dir' => 'img',
+	            'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
+	            'allowed_ext' => array('.jpg', '.jpeg', '.png'),
+	            'default' => 'default.jpg',
+	            )
+	        )
+	);
 }
