@@ -14,6 +14,7 @@
     
      <br />
     <?php echo $this->Form->create('Pagina', array('id' => 'form2', 'class' => 'stdform stdform2',  'inputDefaults' => array('label' => false, 'div' => false)));?>
+    	<?php echo $this->Form->input('id'); ?>
 	    <p class="primeiro">
 	    	<label>Nome</label>
 	        <span class="field"><?php echo $this->Form->input('name'); ?></span>
