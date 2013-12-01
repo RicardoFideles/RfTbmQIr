@@ -34,10 +34,10 @@
         						</li>
         						<li>
 		                        	<a href="<?php 
-		                        					$link = array('controller' => 'statuses', 'action' => 'index');
+		                        					$link = array('controller' => 'paginas', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Status Notícias</span>
+		                    			class="tables"><span>Páginas</span>
 		                			</a>
         						</li>
         						<li>
