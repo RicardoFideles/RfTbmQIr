@@ -35,5 +35,24 @@ class News extends AppModel {
         )
 	);
 	
+	public $hasMany = array(
+		'Photo' => array(
+			'className' => 'Photo',
+			'foreignKey' => 'news_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+	
+	
+	
+	
 	var $actsAs = array('Sluggable');
 }
