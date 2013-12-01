@@ -50,10 +50,26 @@
         						</li>
         						<li>
 		                        	<a href="<?php 
-		                        					$link = array('controller' => 'projects', 'action' => 'index');
+		                        					$link = array('controller' => 'interviews', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Projetos</span>
+		                    			class="tables"><span>Entrevistas</span>
+		                			</a>
+        						</li>
+        						<li>
+		                        	<a href="<?php 
+		                        					$link = array('controller' => 'people', 'action' => 'index');
+		                        					echo $this->Html->url($link);
+		                        			?>" 
+		                    			class="tables"><span>Histórias</span>
+		                			</a>
+        						</li>
+        						<li>
+		                        	<a href="<?php 
+		                        					$link = array('controller' => 'interviews', 'action' => 'index');
+		                        					echo $this->Html->url($link);
+		                        			?>" 
+		                    			class="tables"><span>promox</span>
 		                			</a>
         						</li>
                 			 </ul>

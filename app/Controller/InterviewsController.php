@@ -20,7 +20,7 @@ class InterviewsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Interview->recursive = 0;
 		$this->set('interviews', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class InterviewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Interview->exists($id)) {
 			throw new NotFoundException(__('Invalid interview'));
 		}
@@ -45,7 +45,7 @@ class InterviewsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Interview->create();
 			if ($this->Interview->save($this->request->data)) {
@@ -64,7 +64,7 @@ class InterviewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Interview->exists($id)) {
 			throw new NotFoundException(__('Invalid interview'));
 		}
@@ -88,7 +88,7 @@ class InterviewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Interview->id = $id;
 		if (!$this->Interview->exists()) {
 			throw new NotFoundException(__('Invalid interview'));
@@ -100,4 +100,5 @@ class InterviewsController extends AppController {
 			$this->Session->setFlash(__('The interview could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+}

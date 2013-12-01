@@ -20,7 +20,7 @@ class PeopleController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Person->recursive = 0;
 		$this->set('people', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class PeopleController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Person->exists($id)) {
 			throw new NotFoundException(__('Invalid person'));
 		}
@@ -45,7 +45,7 @@ class PeopleController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Person->create();
 			if ($this->Person->save($this->request->data)) {
@@ -64,7 +64,7 @@ class PeopleController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Person->exists($id)) {
 			throw new NotFoundException(__('Invalid person'));
 		}
@@ -88,7 +88,7 @@ class PeopleController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Person->id = $id;
 		if (!$this->Person->exists()) {
 			throw new NotFoundException(__('Invalid person'));
@@ -100,4 +100,5 @@ class PeopleController extends AppController {
 			$this->Session->setFlash(__('The person could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+}

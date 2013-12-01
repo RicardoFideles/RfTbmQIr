@@ -1,20 +1,28 @@
-<div class="categories form">
-<?php echo $this->Form->create('Category'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Category'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('City');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Cities'), array('controller' => 'cities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New City'), array('controller' => 'cities', 'action' => 'add')); ?> </li>
+<div class="content">
+	<ul class="buttonlist">
+		<li>
+			<li><a href="<?php
+				$link = array('controller' => 'categories', 'action' => 'index');
+				echo $this->Html->url($link); ?>" class="btn btn_book"><span>Listar</span></a></li>
+		</li>
 	</ul>
+	 <div class="contenttitle">
+    	<h2 class="form"><span>Categorias</span></h2>
+    </div>
+    
+     <br />
+    <?php echo $this->Form->create('Category', array('id' => 'form2', 'class' => 'stdform stdform2',  'inputDefaults' => array('label' => false, 'div' => false)));?>
+	    <p class="primeiro">
+	    	<label>Título</label>
+	        <span class="field"><?php echo $this->Form->input('name'); ?></span>
+	    </p>
+	    <p>
+	    	<label>Cidade</label>
+	        <span class="field"><?php echo $this->Form->input('City'); ?></span>
+	    </p>
+	    <p class="stdformbutton">
+            <button class="submit radius2">Enviar</button>
+        </p>
+    <?php echo $this->Form->end();?>
 </div>
+
