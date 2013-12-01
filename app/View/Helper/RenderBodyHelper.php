@@ -23,7 +23,7 @@ class RenderBodyHelper extends AppHelper {
 				$split = split('../../app/webroot/uploads/images/', $value);
 				$imagem = $split[1];
 				
-				$path = "/uploads/images/";
+				$path = "/RfTbmQIr/uploads/images/";
 				$path.= $imagem;
 				
 			 	$novo =   str_replace($value, $path, $texto);

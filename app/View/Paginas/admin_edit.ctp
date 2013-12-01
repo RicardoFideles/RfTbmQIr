@@ -1,21 +1,47 @@
-<div class="paginas form">
-<?php echo $this->Form->create('Pagina'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Pagina'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('tipo');
-		echo $this->Form->input('texto');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php echo $this->element('editor/index'); ?>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Pagina.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Pagina.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Paginas'), array('action' => 'index')); ?></li>
+<div class="content">
+	<ul class="buttonlist">
+		<li>
+			<li><a href="<?php
+				$link = array('controller' => 'paginas', 'action' => 'index');
+				echo $this->Html->url($link); ?>" class="btn btn_book"><span>Listar</span></a></li>
+		</li>
 	</ul>
+	 <div class="contenttitle">
+    	<h2 class="form"><span>Páginas Estáticas</span></h2>
+    </div>
+    
+     <br />
+    <?php echo $this->Form->create('Pagina', array('id' => 'form2', 'class' => 'stdform stdform2',  'inputDefaults' => array('label' => false, 'div' => false)));?>
+	    <p class="primeiro">
+	    	<label>Nome</label>
+	        <span class="field"><?php echo $this->Form->input('name'); ?></span>
+	    </p>
+	    <p>
+	    	<label>Tipo</label>
+	        <span class="field">
+	        	<?php 
+	        		echo $this->Form->input('tipo', 
+						array(
+            				'options' => array('historia' => 'História', 
+            								   'sobre' => 'Sobre', 
+            								   'politica-de-privacidade' => 'Política de Privacidade',
+            								   'sobre_fotter' => 'Sobre no rodapé',
+            								   'contato' => 'contato'
+            								   
+											   )
+        				)
+					); 
+				?>
+			</span>
+	    </p>
+	    <p>
+	    	<label>Texto</label>
+	        <span class="field"><?php echo $this->Form->input('texto', array('rows'=>'5', 'cols'=>'15','class'=>'ckeditor2', 'id'=> 'editor2')); ?></span>
+	    </p>
+	    <p class="stdformbutton">
+            <button class="submit radius2">Enviar</button>
+        </p>
+    <?php echo $this->Form->end();?>
 </div>

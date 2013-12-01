@@ -30,6 +30,7 @@
 	Router::connect('/historia', array('controller' => 'pages', 'action' => 'display', 'historia'));
 	Router::connect('/entrevista', array('controller' => 'pages', 'action' => 'display', 'entrevista'));
 	Router::connect('/blogs', array('controller' => 'pages', 'action' => 'display', 'blogs'));
+	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
