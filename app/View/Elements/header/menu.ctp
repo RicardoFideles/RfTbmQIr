@@ -12,9 +12,9 @@
 		
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
 			<p class="FormBusca">
-				<form class="form-inline" role="form">
+				<form class="form-inline" role="form" action="<?php echo $this->Html->url('/busca'); ?>">
 					<div class="col-lg-9 col-md-11 col-sm-10 col-xs-8">
-			  			<input type="search" class="form-control input-sm FormBuscaInput" placeholder="">
+			  			<input type="search" class="form-control input-sm FormBuscaInput" placeholder="" name="q">
 					</div>
 					<div class="col-lg-3 col-md-1 col-sm-2 col-xs-4">
 						<button type="submit" class="btn btn-default  btn-sm btn-tbqueroirD">BUSCAR</button>
@@ -67,18 +67,23 @@
 		<div class="col-xs-12 visible-xs">
 			<form name="form" id="form">
 				<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)" class="form-control input-sm">
-				<option value="#" selected="selected">MENU</option>
-				<option value="#">• ÚLTIMAS: MATÉRIAS</option>
-				<option value="#">• ÚLTIMAS: MINHA HISTÓRIA</option>
-				<option value="#">• ÚLTIMAS: ENTREVISTA</option>
-				<option value="#">• ÚLTIMAS: BLOGS</option>
-				<option value="#">• CINEMAS</option>
-				<option value="#">• TEATROS</option>
-				<option value="#">• MUSEUS</option>
-				<option value="#">• PASSEIOS</option>
-				<option value="#">• EVENTOS</option>
-				<option value="#">• ESPORTES</option>
-				<option value="#">• BRINQUEDOS</option>
+					<option value="#" selected="selected">MENU</option>
+					<option value="#">• ÚLTIMAS: MATÉRIAS</option>
+					<option value="<?php echo $this->Html->url('/historia') ?>">• ÚLTIMAS: MINHA HISTÓRIA</option>
+					<option value="<?php echo $this->Html->url('/entrevista') ?>">• ÚLTIMAS: ENTREVISTA</option>
+					<option value=<?php echo $this->Html->url('/blogs') ?>#">• ÚLTIMAS: BLOGS</option>
+					
+					<?php foreach($categorias as $key => $categoria): ?>
+						<li>|</li>
+			          		
+		          		<?php
+		          			$nome = $categoria['categories']['name'];
+							$slug = $categoria['categories']['slug'];
+							
+							$link = array('controller' => 'categories', 'action' => 'view', 'slug' => $slug);
+		          		?>
+						<option value="<?php echo $this->Html->url($link) ?>">• <?php echo strtoupper($nome); ?></option>
+	          		<?php endforeach; ?>
 				</select>
 			</form>
 		</div>

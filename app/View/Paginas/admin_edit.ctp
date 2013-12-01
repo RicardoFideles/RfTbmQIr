@@ -29,8 +29,8 @@
             								   'sobre' => 'Sobre', 
             								   'politica-de-privacidade' => 'Política de Privacidade',
             								   'sobre_fotter' => 'Sobre no rodapé',
-            								   'contato' => 'contato'
-            								   
+            								   'contato' => 'contato',
+              								   'minha-historia' => 'Minha História'
 											   )
         				)
 					); 

@@ -31,7 +31,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="<?php if (isset($body_class)) echo $body_class ?>">
+<body class="bkgBody">
 	
     <?php echo $this->element('header/barra'); ?>
     

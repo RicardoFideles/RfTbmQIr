@@ -3,7 +3,7 @@
         'body_class' => 'bkgBody',
     ));
 
-	$pagina = $this->requestAction(array('controller' => 'Paginas', 'action' => 'sobre'));
+	$pagina = $this->requestAction(array('controller' => 'Paginas', 'action' => 'minha_historia'));
 	
 	
 	$pagina = $pagina[0];

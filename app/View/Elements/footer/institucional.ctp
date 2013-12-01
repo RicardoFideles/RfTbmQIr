@@ -5,6 +5,7 @@
 	
 	
 	$texto_sobre_rodape = $texto_sobre_rodape[0];
+	
 ?>
 
 <!-- RODAPE -->
@@ -14,9 +15,7 @@
 		<p class="fonteSiteSouvMedium RodapeTitulo">SOBRE</p>
 		<p class="RodapeTexto">
 			<?php 
-				foreach($texto_sobre_rodape as $key => $texto_sobre_rodape):
-					echo $this->RenderBody->consertaLinks($texto_sobre_rodape['texto']);
-				endforeach; 
+				echo $this->RenderBody->consertaLinks($texto_sobre_rodape['Pagina']['texto']);
 			?>
 		</p>
 	</div>
@@ -26,7 +25,7 @@
 		<p class="RodapeTexto">
 			<ul class="RodapeTextoListUL">
 				<li class="RodapeTextoListLI">
-					<a href="" class="LinkRodape">SOBRE NÓS</a>
+					<a href="<?php echo $this->Html->url('/sobre') ?>" class="LinkRodape">SOBRE NÓS</a>
 				</li>
 				<li class="RodapeTextoListLI">
 					<a href="" class="LinkRodape">MATÉRIAS</a>
@@ -83,9 +82,7 @@
   				<p class="fonteSiteSouvMedium RodapeTitulo">SOBRE</p>
   				<p class="RodapeTexto">
   					<?php 
-						foreach($texto_sobre_rodape as $key => $texto_sobre_rodape):
-							echo $this->RenderBody->consertaLinks($texto_sobre_rodape['texto']);
-						endforeach; 
+						echo $this->RenderBody->consertaLinks($texto_sobre_rodape['Pagina']['texto']);
 					?>
 				</p>
 			</div>

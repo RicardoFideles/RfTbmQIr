@@ -32,6 +32,7 @@
 	Router::connect('/blogs', array('controller' => 'pages', 'action' => 'display', 'blogs'));
 	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
 	Router::connect('/contato', array('controller' => 'pages', 'action' => 'display', 'contato'));
+	Router::connect('/busca', array('controller' => 'pages', 'action' => 'display', 'busca'));
 	Router::connect('/politica-de-privacidade', array('controller' => 'pages', 'action' => 'display', 'politica-de-privacidade'));
 	
 	

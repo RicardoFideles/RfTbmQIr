@@ -70,9 +70,17 @@
 			<!-- xs  -->
 			<div class="col-md-6 col-sm-6 col-xs-12 text-center visible-xs">&nbsp;&nbsp;SUA CIDADE: 
 				<div class="btn-group">
-					<button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown">RIO DE JANEIRO <span class="caret setaBranca-caret"></span></button>
+					<button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><?php echo strtoupper($cidadeSelecionada['City']['name']); ?> <span class="caret setaBranca-caret"></span></button>
 					<ul class="dropdown-menu tbqueroirB">
-						<li><a href="#">RIO DE JANEIRO</a></li>
+						<?php foreach($cidades as $key => $cidade): ?>
+							<li>
+								<?php
+									$nome = strtoupper($cidade['City']['name']);
+									$id = $cidade['City']['id'];
+									echo $this->Html->link($nome, array('controller'=>'Cities','action' => 'setCidade', $id));
+								?>
+							</li>
+						<?php endforeach; ?>
 					</ul>
 				</div>
 			</div>

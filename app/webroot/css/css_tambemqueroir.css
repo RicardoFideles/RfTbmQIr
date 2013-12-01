@@ -725,4 +725,12 @@ border-bottom-color: #1ca48c !important;
 		}
 
 
+#share_facebook {
+	display: inline;
+	margin-right: 30px;
+}
+
+#share_twitter {
+		display: inline;
+}
 

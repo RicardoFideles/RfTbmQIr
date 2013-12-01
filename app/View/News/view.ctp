@@ -1,49 +1,61 @@
-<div class="news view">
-<h2><?php echo __('News'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['slug']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Subtitulo'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['subtitulo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Texto'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['texto']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Updated'); ?></dt>
-		<dd>
-			<?php echo h($news['News']['updated']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<?php echo $this->element('facebook/sdk'); ?>
+
+<!-- MATERIA ABERTA -->
+<div class="row marginTopB marginBottomB">
+	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">                    
+		<p class="TitulosInternas fonteSiteSouvLight">MATÉRIAS</p>
+		<hr class="hrTitulos" />
+	</div>
+
+	<div class="col-md-9 printColH">
+		<p class="MateriasTitulo">
+			<?php echo $noticia['News']['name']; ?>
+		</p>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<p class="MateriasData">
+					<?php echo $this->Time->format('d.m.Y', $noticia['News']['created'], null, 'America/Sao_Paulo'); ?>
+				</p>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="MateriasShare">
+					<div id="share_twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweet</a>
+					</div>
+					<div id="share_facebook">
+						<?php
+							$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($noticia['News']['slug'], $noticia['News']['id'])); 
+						?>
+						
+						<div class="fb-share-button" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-type="button_count"></div>
+					</div>					
+ 					<img src="<?php echo $this->Html->url('/imagens/icon_Print.png'); ?>" />
+				</div>
+			</div>
+		</div>
+		
+		<hr />
+		
+		<p class="MateriasSubtituloGR">
+			<?php echo $noticia['News']['subtitulo']; ?>
+		</p>
+		
+		<p class="MateriasTexto">
+			<div class="MateriasFoto">
+				<div class="MateriasFotoClip">
+					<img src="imagens/MateriaFoto1.jpg" class="img-responsive" />
+				</div>
+  				<div class="MateriasFotoLegenda">
+  					<p class="MateriasLegendas">
+  						legenda
+					</p>
+				</div>
+			</div>
+			<?php echo $noticia['News']['texto']; ?>
+		</p>
+	</div>
+	<?php echo $this->element('noticias/ultimas'); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit News'), array('action' => 'edit', $news['News']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete News'), array('action' => 'delete', $news['News']['id']), null, __('Are you sure you want to delete # %s?', $news['News']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List News'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New News'), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
+  <!-- MATERIA ABERTA -->

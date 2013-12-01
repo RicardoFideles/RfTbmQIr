@@ -105,4 +105,9 @@ class NewsController extends AppController {
         
 		$this->set(compact('noticia' ));
     }
+	
+	public function ultimas () {
+		$options = array('order' => 'news.id', 'limit' => 4);
+		return $this->News->find('all', $options);
+	}
 }
