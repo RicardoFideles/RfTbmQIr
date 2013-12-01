@@ -27,6 +27,9 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/historia', array('controller' => 'pages', 'action' => 'display', 'historia'));
+	Router::connect('/entrevista', array('controller' => 'pages', 'action' => 'display', 'entrevista'));
+	Router::connect('/blogs', array('controller' => 'pages', 'action' => 'display', 'blogs'));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));

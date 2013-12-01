@@ -40,13 +40,14 @@
 	    
 	    <div class="row text-center bkgD RoundedCornerEmCima NoCutMenu">  
 		    <?php echo $this->element('header/menu'); ?>
+			<div class="col-md-12 text-left marginTopA">
+			    <?php echo $this->fetch('content'); ?>
+				
+				<?php echo $this->element('footer/institucional'); ?>
+			</div>
 		</div>
 	</div>
-				<?php echo $this->Session->flash(); ?>
-				<?php echo $this->Session->flash('auth'); ?>
-
-
-    <?php echo $this->fetch('content'); ?>
+	
     
     <?php echo $this->element('footer/index'); ?>
     <?php echo $this->element('footer/copy'); ?>
