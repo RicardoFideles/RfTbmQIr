@@ -100,4 +100,9 @@ class PaginasController extends AppController {
 			$this->Session->setFlash(__('The pagina could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	public function sobre () {
+		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'sobre'), 'limit' => 1));
+	}
+}

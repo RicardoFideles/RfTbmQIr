@@ -1,3 +1,5 @@
+<?php echo $this->element('editor/index'); ?>
+
 <div class="paginas form">
 <?php echo $this->Form->create('Pagina'); ?>
 	<fieldset>
