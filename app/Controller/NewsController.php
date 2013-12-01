@@ -20,32 +20,18 @@ class NewsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->News->recursive = 0;
 		$this->set('news', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->News->exists($id)) {
-			throw new NotFoundException(__('Invalid news'));
-		}
-		$options = array('conditions' => array('News.' . $this->News->primaryKey => $id));
-		$this->set('news', $this->News->find('first', $options));
-	}
 
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->News->create();
 			if ($this->News->save($this->request->data)) {
@@ -64,7 +50,7 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->News->exists($id)) {
 			throw new NotFoundException(__('Invalid news'));
 		}
@@ -88,7 +74,7 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->News->id = $id;
 		if (!$this->News->exists()) {
 			throw new NotFoundException(__('Invalid news'));
@@ -100,4 +86,23 @@ class NewsController extends AppController {
 			$this->Session->setFlash(__('The news could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	
+	public function view($id = null) {
+        
+        preg_match('/(?:.*?)\-([0-9]+)\.html$/', $id, $matches);
+        
+        $id = $matches[1];
+        
+        $this->News->id = $id;
+        if (!$this->News->exists()) {
+            throw new NotFoundException(__('Invalid news'));
+        }
+		
+        
+        $noticia = $this->News->read(null, $id);
+        
+		$this->set(compact('noticia' ));
+    }
+}
