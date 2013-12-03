@@ -21,25 +21,29 @@
 	<?php endforeach; ?>
 
 </div>
-<ul class="pagination">
-    <?php
-        echo $this->Paginator->prev('< ', array('tag' => 'li' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'li'));
-        echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li'));
-        $this->Paginator->current(null, null, array('class' => 'current'));
-        echo $this->Paginator->next(' >', array('tag' => 'li', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'li'));
-    ?>
-</ul>
-  <!-- BLOGS LINKS -->
 
+  <!-- BLOGS LINKS -->
 
   <!-- BLOGS PAGINACAO -->
 <div class="row">
-  <div class="col-md-4 col-sm-4 col-xs-6">                    
-  <p class="InternasPaginacao">Página 1 de 3</p>
-  </div>
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<p class="InternasPaginacao">
+			<?php
+				echo $this->Paginator->counter(array(
+				'format' => __('Página {:page} de {:pages}')
+				));
+			?>
+		</p>
+	</div>
   
-                          <div class="col-md-4 col-sm-4 col-xs-6 text-center">                    
-  <a href="#" class="LinkInternasPaginacao">Anterior</a> | <a href="#" class="LinkInternasPaginacao">Próxima</a>
-  </div>
+	<div class="col-md-4 col-sm-4 col-xs-6 text-center">
+		<ul class="pagination">
+    <?php
+        echo $this->Paginator->prev(' anterior ', array('tag' => 'span' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'span'));
+		echo " | ";
+        echo $this->Paginator->next(' próximo ', array('tag' => 'span', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'span'));
+    ?>
+</ul>
+	</div>
 </div>
   <!-- BLOGS PAGINACAO -->
