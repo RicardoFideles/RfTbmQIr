@@ -66,10 +66,10 @@
         						</li>
         						<li>
 		                        	<a href="<?php 
-		                        					$link = array('controller' => 'interviews', 'action' => 'index');
+		                        					$link = array('controller' => 'blogs', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>promox</span>
+		                    			class="tables"><span>Blogs</span>
 		                			</a>
         						</li>
                 			 </ul>
