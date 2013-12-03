@@ -28,7 +28,7 @@
 					<a href="<?php echo $this->Html->url('/sobre') ?>" class="LinkRodape">SOBRE NÓS</a>
 				</li>
 				<li class="RodapeTextoListLI">
-					<a href="" class="LinkRodape">MATÉRIAS</a>
+					<a href="<?php echo $this->Html->url('/materias') ?>" class="LinkRodape">MATÉRIAS</a>
 					</li>
 				<li class="RodapeTextoListLI">
 					<a href="<?php echo $this->Html->url('/entrevistas'); ?>" class="LinkRodape">ENTREVISTAS</a>
@@ -97,7 +97,7 @@
 							<a href="" class="LinkRodape">SOBRE NÓS</a>
 						</li>
 						<li class="RodapeTextoListLI">
-							<a href="" class="LinkRodape">MATÉRIAS</a>
+							<a href="<?php echo $this->Html->url('/materias') ?>" class="LinkRodape">MATÉRIAS</a>
 						</li>
 						<li class="RodapeTextoListLI">
 							<a href="<?php echo $this->Html->url('/entrevistas'); ?>" class="LinkRodape">ENTREVISTAS</a>

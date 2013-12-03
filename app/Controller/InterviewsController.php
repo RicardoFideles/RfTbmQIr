@@ -136,4 +136,9 @@ class InterviewsController extends AppController {
 		$this->set('interviews', $interviews);
 	
 	}
+	
+	public function ultimas() {
+		$options = array('order' => array('Interview.id' => 'desc'), 'limit' => 4);
+		return $this -> Interview -> find('all', $options);
+	}
 }

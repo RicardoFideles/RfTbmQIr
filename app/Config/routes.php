@@ -49,7 +49,7 @@
     ));
 	
 	#rotas dinâmicas
-    Router::connect('/noticias/:slug', array(
+    Router::connect('/materia/:slug', array(
         'controller' => 'news',
         'action' => 'view'), array(
             'pass' => array('slug'),        
@@ -69,6 +69,9 @@
 	
 	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
 	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
+	
+	Router::connect('/materias', array('controller' => 'news', 'action' => 'lista'));
+	Router::connect('/materias/:page', array('controller' => 'news', 'action' => 'lista'));
 	
 	Router::connect('/entrevistas', array('controller' => 'interviews', 'action' => 'lista'));
 	Router::connect('/entrevistas/:page', array('controller' => 'interviews', 'action' => 'lista'));

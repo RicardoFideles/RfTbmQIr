@@ -32,7 +32,9 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">ÚLTIMAS <b class="caret setaBranca-caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">MATÉRIAS</a></li>
+						<li>
+							<a href="<?php echo $this->Html->url('/materias') ?>">MATÉRIAS</a>
+						</li>
 						<li>
 							<a href="<?php echo $this->Html->url('/historia') ?>">MINHA HISTÓRIA</a>
 						</li>
@@ -68,7 +70,7 @@
 			<form name="form" id="form">
 				<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)" class="form-control input-sm">
 					<option value="#" selected="selected">MENU</option>
-					<option value="#">• ÚLTIMAS: MATÉRIAS</option>
+					<option value="<?php echo $this->Html->url('/materias') ?>">• ÚLTIMAS: MATÉRIAS</option>
 					<option value="<?php echo $this->Html->url('/historia') ?>">• ÚLTIMAS: MINHA HISTÓRIA</option>
 					<option value="<?php echo $this->Html->url('/entrevistas') ?>">• ÚLTIMAS: ENTREVISTA</option>
 					<option value=<?php echo $this->Html->url('/blogs') ?>#">• ÚLTIMAS: BLOGS</option>

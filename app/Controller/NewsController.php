@@ -112,8 +112,27 @@ class NewsController extends AppController {
 	}
 	
 	public function ultimas() {
-		$options = array('order' => 'news.id', 'limit' => 4);
+		$options = array('order' => array('News.id' => 'desc'), 'limit' => 4);
 		return $this -> News -> find('all', $options);
+	}
+	
+	public function lista () {
+		
+		
+		$id = $this->params['page'];    
+		
+		if (empty($id)) {
+			$id = 1;
+		}
+       
+		$this->News->recursive = 2;
+		
+		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('News.id' => 'desc'));
+
+		$news = $this->paginate();
+
+		$this->set('news', $news);
+	
 	}
 	
 }
