@@ -28,7 +28,7 @@
 
 	<ul class="buttonlist">
 		<li>
-			<a href="<?php $link = array('controller' => 'Fotos', 'action' => 'add_interview_photo',$interview['Interview']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
+			<a href="<?php $link = array('controller' => 'Photos', 'action' => 'add_interview_photo',$interview['Interview']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
 				<span>Adicionar imagens</span>
 			</a>
 		</li>
@@ -46,9 +46,9 @@
 				<img src="<?php echo $this->Html->url($url); ?>" alt="" style="opacity: 1;">
 				<span>
 					<a href="ajax/edit_photo.html" class="name ajax cboxElement"><?php echo $foto['imagem'] ?></a>
-					<?php $url_edit = array('controller' => 'Fotos', 'action' => 'edit_noticiaqi', $foto['id'],$interview['Interview']['id']); ?>
+					<?php $url_edit = array('controller' => 'Photos', 'action' => 'edit_noticiaqi', $foto['id'],$interview['Interview']['id']); ?>
 					<a href="<?php echo $this->html->url($url_edit) ;?>" class="edit ajax cboxElement"></a>
-					<?php $url_delete = array('controller' => 'Fotos', 'action' => 'delete_noticiaqi', $foto['id'],$interview['Interview']['id']); ?>
+					<?php $url_delete = array('controller' => 'Photos', 'action' => 'delete_noticiaqi', $foto['id'],$interview['Interview']['id']); ?>
 					<a class="delete" href="<?php echo $this->html->url($url_delete) ;?>"></a>
 				</span>
 			</li>

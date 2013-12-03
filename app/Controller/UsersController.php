@@ -26,12 +26,51 @@ class UsersController extends AppController {
             'title_for_layout' => 'Painel de Controle'
         ));
     }
+	
+	public function login() {
+
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->Session->write($this->Auth->sessionKey, $this->Auth->user());
+
+                return $this->redirect('/');
+            } else {
+                $this->Session->setFlash('Dados incorretos');
+            }
+        }
+
+    }
+	
+	public function add() {
+        $this->layout = 'default';
+		
+		if ($this->request->is('post')) {
+			$this->request->data['User']['role'] = 'guest';
+			
+			$data = $this->request->data;
+			
+            $this->User->create();
+            if ($this->User->save($data)) {
+                $this->Session->setFlash(__('Cadastro completo.'));
+                $this->redirect(array('action' => 'add'));
+            } else {
+                $this->Session->setFlash(__('Ocorreu um erro, por favor verifique os dados e tente novamente.'));
+            }
+        }
+
+   }
     
     
     /**
      * Logout de usuários (admin)
      */
     public function admin_logout() {
+        $this->Session->delete($this->Auth->sessionKey);
+
+        $this->redirect($this->Auth->logout());
+    }
+	
+	public function logout() {
         $this->Session->delete($this->Auth->sessionKey);
 
         $this->redirect($this->Auth->logout());

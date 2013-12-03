@@ -104,4 +104,22 @@ class PhotosController extends AppController {
 			$this->Session->setFlash(__('The photo could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	
+	public function admin_add_interview_photo ($id = null) {
+		
+		if ($this->request->is('post')) {
+			$this->Photo->create();
+			if ($this->Photo->save($this->request->data)) {
+				$this->Session->setFlash(__('Foto salva com sucesso.'));
+				$this->redirect(array('controller' =>'interviews','action' => 'view', $id));
+			} else {
+				$this->Session->setFlash(__('A foto não pode ser salva. Por favor, tente novamente.'));
+			}
+		}
+		$interviews = $this->Photo->Interview->find('list', array ('conditions' => array('Interview.id' => $id)));
+		$this->set(compact('interviews'));
+		
+	}
+}

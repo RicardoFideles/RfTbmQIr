@@ -36,6 +36,10 @@
 	Router::connect('/politica-de-privacidade', array('controller' => 'pages', 'action' => 'display', 'politica-de-privacidade'));
 	
 	
+	#cadastro de usuários
+	Router::connect('/cadastre-se', array('controller' => 'users', 'action' => 'add'));
+		
+	
 	
 	#rotas dinâmicas
     Router::connect('/categoria/:slug', array(
@@ -57,6 +61,12 @@
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
     Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
     Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true));
+	
+	
+	# Rotas do painel de controle
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'guest' => true));
+	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'guest' => true));
+   
 	
 /**
  * ...and connect the rest of 'Pages' controller's urls.

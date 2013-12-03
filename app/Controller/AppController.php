@@ -55,7 +55,7 @@ class AppController extends Controller {
         return isset($this->request->params['prefix']) &&
                $this->request->params['prefix'] === $prefix;
     }
-        
+	
          
     
     /**
@@ -73,8 +73,7 @@ class AppController extends Controller {
             'element' => 'admin/alerts/inline',
             'params' => array('class' => 'error')
         ));
-                
-                                
+		
         // Painel de Controle
         if ($this->isPrefix('admin')) {
             $this->layout = 'admin';
@@ -87,7 +86,17 @@ class AppController extends Controller {
 
         // Painel do Candidato
         } else {
-            $this->Auth->allow();
+        	
+			
+			if (isset($this->request->params['guest']) && $this->request->params['guest']) {
+				 $this->Auth->authenticate = array('Form' => array(
+	                'fields' => array('username' => 'username')
+	            ));
+				
+			} else {
+	            $this->Auth->allow();
+			}
+	        	
         }
 		
 		$cidade = $this->City->findAllById(1);

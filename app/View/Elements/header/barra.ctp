@@ -33,18 +33,40 @@
 			<div class="col-md-6 col-sm-6 text-right hidden-xs"> 
 				<ul class="nav nav-pills">
 					<li class="dropdown">
+						
+						<?php 
+							$nome = AuthComponent::user('name');
+							if (isset($nome)) {
+						?>
+							
+						<button class="btn btn-tbqueroirA btn-xs" type="button">
+							
+						<?php	
+								echo $this->Form->postLink(__($nome), array('controller' => 'users', 'action' => 'painel'));
+								
+						?>
+						
+						</button>
+						
+						<?php
+							} else {
+								
+						?>
+						
 						<button class="btn btn-tbqueroirA btn-xs dropdown-toggle" type="button" data-toggle="dropdown">LOGIN <span class="caret setaVerde-caret"></span></button>
 						<div class="dropdown-menu pull-left">
-							<form class="form-horizontal formMargin" role="form">
+							<?php echo $this->Form->create('User', array('action' => 'login', 'id'=> 'login', 'class' => 'form-horizontal formMargin', 'role' => 'form','inputDefaults' => array('div' => false, 'label' => false))) ?>
+
 								<br />
 								<div class="form-group">
 									<div class="col-sm-offset-1 col-sm-10">
-										<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+								        <?php echo $this->Form->input('username', array('id' => 'inputEmail3', 'class' => 'form-control','type' => 'text', 'placeholder' => 'Email')) ?>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-1 col-sm-10">
-										<input type="password" class="form-control" id="inputPassword3" placeholder="Senha">
+								        <?php echo $this->Form->input('password', array('type'=> 'password' ,'id' => 'inputPassword3', 'class' => 'form-control','placeholder' => 'Senha')) ?>
+
 									</div>
 								</div>
 								<div class="form-group">
@@ -60,8 +82,28 @@
 								</div>
 							</form>
 						</div>
+						
+						<?php
+								
+							}
+						?>
+						
 					</li>
-					<li><button class="btn btn-tbqueroirA btn-xs" href="#" type="button">CADASTRE-SE</button></li>
+					<li>
+						
+						
+						<button class="btn btn-tbqueroirA btn-xs" type="button">
+							<?php
+								$nome = AuthComponent::user('name');
+								if (isset($nome)){
+									echo $this->Form->postLink(__('SAIR'), array('controller' => 'users', 'action' => 'logout'));
+									
+								} else {
+									echo $this->Form->postLink(__('CADASTRE-SE'), array('controller' => 'users', 'action' => 'add'));
+								}
+							?>
+						</button>
+					</li>
 				</ul>
 			</div>
 			<!-- lg md sm  -->
@@ -109,7 +151,11 @@
 							</form>
 						</div>
 					</li>
-					<li><button class="btn btn-tbqueroirA btn-xs" href="#" type="button">CADASTRE-SE</button></li>
+					<li>
+						<button class="btn btn-tbqueroirA btn-xs" href="<?php echo $this->Html->url('/cadastre-se'); ?>" type="button">
+							CADASTRE-SE
+						</button>
+					</li>
 				</ul>
 			</div>
 			<!-- xs  -->

@@ -197,7 +197,7 @@ class MeioUploadBehavior extends ModelBehavior {
 	 * @param $model Object
 	 * @param $config Array[optional]
 	 */
-	function setup(&$model, $config=array()) {
+	function setup(Model $model, $config=array()) {
 		$this->Folder = &new Folder;
 		$this->__model = $model;
 		$this->__fields = array();
@@ -580,7 +580,7 @@ class MeioUploadBehavior extends ModelBehavior {
 	 * @return true 
 	 * @param $model Object
 	 */
-	function beforeValidate(&$model) {
+	function beforeValidate(Model $model) {
 		foreach($this->__fields as $fieldName=>$options){
 			$this->setupValidation($fieldName, $options);
 		}
@@ -593,7 +593,7 @@ class MeioUploadBehavior extends ModelBehavior {
 	 * @author Vinicius Mendes 
 	 * @param $model Object
 	 */
-	function beforeSave(&$model) {
+	function beforeSave(Model $model) {
 		foreach($this->__fields as $fieldName=>$options){
 			// if the file is marked to be deleted, use the default or set the field to null
 			if(!empty($model->data[$model->name][$fieldName]['remove'])){
@@ -663,7 +663,7 @@ class MeioUploadBehavior extends ModelBehavior {
 	 * @author Vinicius Mendes 
 	 * @param $model Object
 	 */
-	function afterSave(&$model) {
+	function afterSave(Model $model, $created) {
 		foreach($this->__filesToRemove as $file){
 			if($file['name'])
 				$this->_deleteFiles($file['name'], $file['dir']);			
@@ -678,7 +678,7 @@ class MeioUploadBehavior extends ModelBehavior {
 	 * @author Vinicius Mendes 
 	 * @param $model Object
 	 */   
-	function beforeDelete(&$model) {
+	function beforeDelete(Model $model,$cascade = true) {
 		$model->read(null, $model->id);
 		if(isset($model->data)) {
 			foreach($this->__fields as $field=>$options) {
