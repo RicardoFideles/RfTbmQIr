@@ -26,21 +26,6 @@ class CitiesController extends AppController {
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		if (!$this->City->exists($id)) {
-			throw new NotFoundException(__('Invalid city'));
-		}
-		$options = array('conditions' => array('City.' . $this->City->primaryKey => $id));
-		$this->set('city', $this->City->find('first', $options));
-	}
-
-/**
  * add method
  *
  * @return void

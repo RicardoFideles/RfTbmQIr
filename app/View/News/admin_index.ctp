@@ -42,6 +42,8 @@
 						<td><?php echo h($news['News']['emfoco']); ?>&nbsp;</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $news['News']['id'])); ?>
+							<?php echo $this->Html->link(__('Visualizar Fotos'), array('action' => 'view', $news['News']['id'])); ?>
+							<?php echo $this->Html->link(__('Adicionar Foto'), array('controller' => 'photos', 'action' => 'add_noticia', $news['News']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

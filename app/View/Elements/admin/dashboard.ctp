@@ -21,7 +21,7 @@
 		                        					$link = array('controller' => 'settings', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Preferências</span>
+		                    			class="tables"><span>Configurações do Sistema</span>
 		                			</a>
         						</li>
         						<li>

@@ -37,7 +37,7 @@ class PhotosController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Photo->save($this->request->data)) {
 				$this->Session->setFlash(__('Foto salva com sucesso.'));
-				$this->redirect(array('controller' =>'unidades','action' => 'view', $idModel));
+				$this->redirect(array('controller' =>'news','action' => 'view', $idModel));
 			} else {
 				$this->Session->setFlash(__('A foto não pode ser salva. Por favor, tente novamente.'));
 			}
@@ -45,7 +45,7 @@ class PhotosController extends AppController {
 			$this->request->data = $this->Photo->read(null, $id);
 		}
 		
-		$news = $this->Photo->News->find('list', array ('conditions' => array('News.id' => $id)));
+		$news = $this->Photo->News->find('list', array ('conditions' => array('News.id' => $idModel)));
 		$this->set(compact('news'));
 	}
 
@@ -57,7 +57,7 @@ class PhotosController extends AppController {
 		}
 		if ($this->Photo->delete()) {
 			$this->Session->setFlash(__('Imagem apagada.'));
-			$this->redirect(array('controller' =>'sliders','action' => 'view', $idModel));
+			$this->redirect(array('controller' =>'news','action' => 'view', $idModel));
 		}
 		$this->Session->setFlash(__('A imagem não pode ser apagada.'));
 		$this->redirect(array('controller' =>'sliders','action' => 'view', $idModel));
