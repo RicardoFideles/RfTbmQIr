@@ -58,7 +58,7 @@
 	
 	
 	#rotas dinâmicas
-    Router::connect('/entrevistas/:slug', array(
+    Router::connect('/entrevista/:slug', array(
         'controller' => 'interviews',
         'action' => 'view'), array(
             'pass' => array('slug'),        
@@ -69,6 +69,9 @@
 	
 	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
 	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
+	
+	Router::connect('/entrevistas', array('controller' => 'interviews', 'action' => 'lista'));
+	Router::connect('/entrevistas/:page', array('controller' => 'interviews', 'action' => 'lista'));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));

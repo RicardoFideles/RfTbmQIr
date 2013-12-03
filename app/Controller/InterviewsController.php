@@ -117,4 +117,23 @@ class InterviewsController extends AppController {
 
 		$this -> set(compact('interview'));
 	}
+	
+	public function lista () {
+		
+		
+		$id = $this->params['page'];    
+		
+		if (empty($id)) {
+			$id = 1;
+		}
+       
+		$this->Interview->recursive = 2;
+		
+		$this->paginate = array('limit' => 7 , 'page' => $id, 'order' => array('Interview.id' => 'desc'));
+
+		$interviews = $this->paginate();
+
+		$this->set('interviews', $interviews);
+	
+	}
 }

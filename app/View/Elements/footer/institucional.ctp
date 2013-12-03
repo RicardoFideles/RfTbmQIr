@@ -31,10 +31,10 @@
 					<a href="" class="LinkRodape">MATÉRIAS</a>
 					</li>
 				<li class="RodapeTextoListLI">
-					<a href="" class="LinkRodape">ENTREVISTAS</a>
+					<a href="<?php echo $this->Html->url('/entrevistas'); ?>" class="LinkRodape">ENTREVISTAS</a>
 				</li>
 				<li class="RodapeTextoListLI">
-					<a href="" class="LinkRodape">BLOGS</a>
+					<a href="<?php echo $this->Html->url('/blogs'); ?>" class="LinkRodape">BLOGS</a>
 				</li>
 				<li class="RodapeTextoListLI">
 					<a href="<?php echo $this->Html->url('/contato') ?>" class="LinkRodape">CONTATO</a>
@@ -100,10 +100,10 @@
 							<a href="" class="LinkRodape">MATÉRIAS</a>
 						</li>
 						<li class="RodapeTextoListLI">
-							<a href="" class="LinkRodape">ENTREVISTAS</a>
+							<a href="<?php echo $this->Html->url('/entrevistas'); ?>" class="LinkRodape">ENTREVISTAS</a>
 						</li>
 						<li class="RodapeTextoListLI">
-							<a href="" class="LinkRodape">BLOGS</a>
+							<a href="<?php echo $this->Html->url('/blogs'); ?>" class="LinkRodape">BLOGS</a>
 						</li>
 						<li class="RodapeTextoListLI">
 							<a href="<?php echo $this->Html->url('/contato') ?>" class="LinkRodape">CONTATO</a>

@@ -35,16 +35,7 @@ class Interview extends AppModel {
 		),
 	);
 	
-	var $actsAs = array('Sluggable',
-		'MeioUpload' => array(
-	            'name' => array(
-	            'dir' => 'img',
-	            'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
-	            'allowed_ext' => array('.jpg', '.jpeg', '.png'),
-	            'default' => 'default.jpg',
-	            )
-	        )
-	);
+	var $actsAs = array('Sluggable');
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

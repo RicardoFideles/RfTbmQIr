@@ -37,7 +37,7 @@
 							<a href="<?php echo $this->Html->url('/historia') ?>">MINHA HISTÓRIA</a>
 						</li>
 						<li>
-							<a href="<?php echo $this->Html->url('/entrevista') ?>">ENTREVISTA</a>
+							<a href="<?php echo $this->Html->url('/entrevistas') ?>">ENTREVISTA</a>
 						</li>
 						<li>
 							<a href="<?php echo $this->Html->url('/blogs') ?>">BLOGS</a>
@@ -70,7 +70,7 @@
 					<option value="#" selected="selected">MENU</option>
 					<option value="#">• ÚLTIMAS: MATÉRIAS</option>
 					<option value="<?php echo $this->Html->url('/historia') ?>">• ÚLTIMAS: MINHA HISTÓRIA</option>
-					<option value="<?php echo $this->Html->url('/entrevista') ?>">• ÚLTIMAS: ENTREVISTA</option>
+					<option value="<?php echo $this->Html->url('/entrevistas') ?>">• ÚLTIMAS: ENTREVISTA</option>
 					<option value=<?php echo $this->Html->url('/blogs') ?>#">• ÚLTIMAS: BLOGS</option>
 					
 					<?php foreach($categorias as $key => $categoria): ?>
