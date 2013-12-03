@@ -57,6 +57,15 @@
             'slug' => '[a-z0-9\-\.]+'
     ));
 	
+	
+	#rotas dinâmicas
+    Router::connect('/entrevistas/:slug', array(
+        'controller' => 'interviews',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z0-9\-\.]+'
+    ));
+	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
     Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));

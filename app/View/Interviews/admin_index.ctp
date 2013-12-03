@@ -38,8 +38,8 @@
 						<td><?php echo h($interview['Interview']['id']); ?>&nbsp;</td>
 						<td><?php echo h($interview['Interview']['name']); ?>&nbsp;</td>
 						<td class="center">
-							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $interview['Interview']['id'])); ?>
-							<?php echo $this->Html->link(__('Adicionar Foto'), array('action' => 'view', $interview['Interview']['id'])); ?>
+							<?php echo $this->Html->link(__('Editar Texto'), array('action' => 'edit', $interview['Interview']['id'])); ?>
+							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $interview['Interview']['id'])); ?>
 							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $interview['Interview']['id']), null, __('Você tem certeza que deseja apagar # %s?', $interview['Interview']['name'])); ?>
 						</td>
 					</tr>

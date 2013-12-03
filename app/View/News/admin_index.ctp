@@ -41,9 +41,9 @@
 						<td><?php echo h($news['News']['name']); ?>&nbsp;</td>
 						<td><?php echo h($news['News']['emfoco']); ?>&nbsp;</td>
 						<td class="center">
-							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $news['News']['id'])); ?>
-							<?php echo $this->Html->link(__('Visualizar Fotos'), array('action' => 'view', $news['News']['id'])); ?>
-							<?php echo $this->Html->link(__('Adicionar Foto'), array('controller' => 'photos', 'action' => 'add_noticia', $news['News']['id'])); ?>
+							<?php echo $this->Html->link(__('Editar Textos'), array('action' => 'edit', $news['News']['id'])); ?>
+							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $news['News']['id'])); ?>
+							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $news['News']['id']), null, __('Você tem certeza que deseja apagar # %s?', $news['News']['name'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

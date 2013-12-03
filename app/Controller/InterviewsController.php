@@ -101,4 +101,20 @@ class InterviewsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function view($id = null) {
+
+		preg_match('/(?:.*?)\-([0-9]+)\.html$/', $id, $matches);
+
+		$id = $matches[1];
+
+		$this -> Interview -> id = $id;
+		if (!$this -> Interview -> exists()) {
+			throw new NotFoundException(__('Invalid news'));
+		}
+
+		$interview = $this -> Interview -> read(null, $id);
+
+		$this -> set(compact('interview'));
+	}
 }
