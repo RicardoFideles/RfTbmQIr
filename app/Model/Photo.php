@@ -4,7 +4,10 @@ App::uses('AppModel', 'Model');
  * Photo Model
  *
  * @property News $News
+ * @property Interview $Interview
+ * 
  */
+ 
 class Photo extends AppModel {
 
 /**
@@ -26,6 +29,13 @@ class Photo extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Interview' => array(
+			'className' => 'Interview',
+			'foreignKey' => 'interview_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
 
 	
 	);

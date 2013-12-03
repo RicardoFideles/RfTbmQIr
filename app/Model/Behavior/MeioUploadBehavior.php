@@ -681,11 +681,17 @@ class MeioUploadBehavior extends ModelBehavior {
 	 */   
 	function beforeDelete(Model $model, $cascade = true) {
 		$model->read(null, $model->id);
+		
 		if(isset($model->data)) {
+			
 			foreach($this->__fields as $field=>$options) {
-				$file = $model->data[$model->name][$field];
-				if($file && $file != $options['default'])
-					$this->_deleteFiles($file, $options['dir']);
+				$file = $model->data[$model->name]['imagem'];
+				
+				if($file && $file != $options['default']) {
+					
+					$this->_deleteFiles($file, 'fotos');
+					
+				}
 			}
 		}
 		return true;
