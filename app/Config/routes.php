@@ -29,7 +29,6 @@
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/historia', array('controller' => 'pages', 'action' => 'display', 'historia'));
 	Router::connect('/entrevista', array('controller' => 'pages', 'action' => 'display', 'entrevista'));
-	Router::connect('/blogs', array('controller' => 'pages', 'action' => 'display', 'blogs'));
 	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
 	Router::connect('/contato', array('controller' => 'pages', 'action' => 'display', 'contato'));
 	Router::connect('/busca', array('controller' => 'pages', 'action' => 'display', 'busca'));
@@ -65,6 +64,11 @@
             'pass' => array('slug'),        
             'slug' => '[a-z0-9\-\.]+'
     ));
+	
+	
+	
+	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
+	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));

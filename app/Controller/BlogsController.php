@@ -86,4 +86,18 @@ class BlogsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function lista ($page = null) {
+		
+		
+		if (empty($page)) {
+			$page = 1;
+		}
+		
+		$this->Paginator->settings = array('order' => array('Blog.id' => 'desc'),'page' => $page,'limit' => 1);
+		
+		$blogs = $this->Paginator->paginate('Blog');
+    	$this->set('blogs', $blogs);
+	
+	}
 }
