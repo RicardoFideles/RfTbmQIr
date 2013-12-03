@@ -41,10 +41,7 @@
 							
 						<button class="btn btn-tbqueroirA btn-xs" type="button">
 							
-						<?php	
-								echo $this->Form->postLink(__($nome), array('controller' => 'users', 'action' => 'painel'));
-								
-						?>
+						<a href="<?php echo $this->Html->url('/painel') ?>"><?php echo $nome; ?></a>
 						
 						</button>
 						

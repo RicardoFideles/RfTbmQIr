@@ -41,6 +41,10 @@ class UsersController extends AppController {
 
     }
 	
+	public function painel () {
+		
+	}
+	
 	public function add() {
         $this->layout = 'default';
 		
@@ -139,6 +143,25 @@ class UsersController extends AppController {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->User->read(null, $id);
+        }
+    }
+	
+	public function edit($id = null) {
+		
+		$id = AuthComponent::user('id');
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('Cadastro alterado com sucesso.'));
+                $this->redirect(array('/painel'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
