@@ -118,4 +118,5 @@ class CategoriesController extends AppController {
 		return  $this->Category->query('Select * from categories where id in (Select category_id from categories_cities where city_id =' .$id_cidadeSelecionada.');');
 		
 	}
+	
 }

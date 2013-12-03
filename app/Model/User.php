@@ -84,7 +84,6 @@ class User extends AppModel {
          
     }
 	
-	
 	public function beforeSave($options = Array()) {
         if (isset($this->data['User']['password'])) {
             $password = AuthComponent::password($this->data['User']['password']);
@@ -92,14 +91,4 @@ class User extends AppModel {
         }
         return parent::beforeSave();
 	}
-	
-	public $actsAs = array(
-        'Upload.Upload' => array(
-            'photo' => array(
-                'fields' => array(
-                    'dir' => 'photo_dir'
-                )
-            )
-        )
-    );
 }

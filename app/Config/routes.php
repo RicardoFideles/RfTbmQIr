@@ -64,7 +64,7 @@
 	
 	
 	# Rotas do painel de controle
-    Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'guest' => true));
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'guest' => true));
 	Router::connect('/painel', array('controller' => 'users', 'action' => 'edit', 'guest' => true));
    

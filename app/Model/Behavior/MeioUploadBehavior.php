@@ -672,13 +672,14 @@ class MeioUploadBehavior extends ModelBehavior {
 		$this->__filesToRemove = array();
 	}
 	
+	
 	/**
 	 * Deletes all files associated with the record beforing delete it.
 	 * 
 	 * @author Vinicius Mendes 
 	 * @param $model Object
 	 */   
-	function beforeDelete(Model $model,$cascade = true) {
+	function beforeDelete(Model $model, $cascade = true) {
 		$model->read(null, $model->id);
 		if(isset($model->data)) {
 			foreach($this->__fields as $field=>$options) {
