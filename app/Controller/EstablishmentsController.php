@@ -129,22 +129,39 @@ class EstablishmentsController extends AppController {
 		return $this -> Establishment -> find('all', $options);
 	}
 	
-	public function lista () {
+	public function lista ($categoria = null, $page = null) {
 		
+		$this->loadModel('Category');
 		
-		$id = $this->params['page'];    
+		$this->Category->recursive = 0;
 		
-		if (empty($id)) {
-			$id = 1;
+		$catTemp = $this->Category->findBySlug($categoria);
+		
+		if ($catTemp != null && !empty($catTemp) && ($catTemp['Category']['id'] != null)) {
+			
+			$idCategoria = $catTemp['Category']['id'];
+			
+			$this->Category->id = $idCategoria;
+			
+ 			if ($this -> Category -> exists()) {
+ 				
+				if (empty($page)) {
+					$page = 1;
+				}
+						
+				$this->Establishment->recursive = 2;
+				
+				$this->paginate = array('limit' => 3 , 'page' => $page, 'conditions' => array('Establishment.category_id' => $idCategoria));
+		
+				$establishments = $this->paginate();
+		
+				$this->set('establishments', $establishments);
+ 				
+			}
+				
+		} else {
+			return $this->redirect('/');
 		}
-       
-		$this->Establishment->recursive = 2;
 		
-		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('Establishment.id' => 'desc'));
-
-		$establishments = $this->paginate();
-
-		$this->set('establishments', $establishments);
-	
 	}
 }

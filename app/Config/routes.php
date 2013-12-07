@@ -39,21 +39,24 @@
 	Router::connect('/cadastre-se', array('controller' => 'users', 'action' => 'add'));
 		
 	
+	#rotas dinâmicas
+    Router::connect('/categoria/:slug/:page', array(
+        'controller' => 'establishments',
+        'action' => 'lista'), array(
+            'pass' => array('slug','page'),        
+            'slug' => '[a-z\-\.]+',
+            'page' => '[0-9]'
+            
+    ));
+	
 	
 	#rotas dinâmicas
     Router::connect('/categoria/:slug', array(
-        'controller' => 'categories',
-        'action' => 'view'), array(
-            'pass' => array('slug'),        
-            'slug' => '[a-z\-\.]+'
-    ));
-	
-	#rotas dinâmicas
-    Router::connect('/estabelecimento/:slug', array(
         'controller' => 'establishments',
-        'action' => 'view'), array(
+        'action' => 'lista'), array(
             'pass' => array('slug'),        
             'slug' => '[a-z\-\.]+'
+            
     ));
 	
 	#rotas dinâmicas

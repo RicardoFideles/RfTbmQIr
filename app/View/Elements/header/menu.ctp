@@ -55,7 +55,7 @@
 	          			$nome = $categoria['categories']['name'];
 						$slug = $categoria['categories']['slug'];
 						
-						$link = array('controller' => 'categories', 'action' => 'view', 'slug' => $slug);
+						$link = array('controller' => 'establishments', 'action' => 'lista', 'slug' => $slug);
 	          		?>
 					<li>
 						<a href="<?php echo $this->Html->url($link) ?>">
