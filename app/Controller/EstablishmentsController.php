@@ -20,7 +20,7 @@ class EstablishmentsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Establishment->recursive = 0;
 		$this->set('establishments', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class EstablishmentsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Establishment->exists($id)) {
 			throw new NotFoundException(__('Invalid establishment'));
 		}
@@ -45,7 +45,7 @@ class EstablishmentsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Establishment->create();
 			if ($this->Establishment->save($this->request->data)) {
@@ -55,6 +55,9 @@ class EstablishmentsController extends AppController {
 				$this->Session->setFlash(__('The establishment could not be saved. Please, try again.'));
 			}
 		}
+		$categories = $this->Establishment->Category->find('list');
+		$cities = $this->Establishment->City->find('list');
+		$this->set(compact('categories', 'cities'));
 	}
 
 /**
@@ -64,7 +67,7 @@ class EstablishmentsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Establishment->exists($id)) {
 			throw new NotFoundException(__('Invalid establishment'));
 		}
@@ -79,6 +82,9 @@ class EstablishmentsController extends AppController {
 			$options = array('conditions' => array('Establishment.' . $this->Establishment->primaryKey => $id));
 			$this->request->data = $this->Establishment->find('first', $options);
 		}
+		$categories = $this->Establishment->Category->find('list');
+		$cities = $this->Establishment->City->find('list');
+		$this->set(compact('categories', 'cities'));
 	}
 
 /**
@@ -88,7 +94,7 @@ class EstablishmentsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Establishment->id = $id;
 		if (!$this->Establishment->exists()) {
 			throw new NotFoundException(__('Invalid establishment'));
@@ -100,5 +106,45 @@ class EstablishmentsController extends AppController {
 			$this->Session->setFlash(__('The establishment could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+	
+	public function view($id = null) {
+
+		preg_match('/(?:.*?)\-([0-9]+)\.html$/', $id, $matches);
+
+		$id = $matches[1];
+
+		$this -> Establishment -> id = $id;
+		if (!$this -> Establishment -> exists()) {
+			throw new NotFoundException(__('Invalid Person'));
+		}
+
+		$establishment = $this -> Establishment -> read(null, $id);
+
+		$this -> set(compact('establishment'));
+	}
+	
+	public function ultimas() {
+		$options = array('order' => array('Establishment.id' => 'desc'), 'limit' => 4);
+		return $this -> Establishment -> find('all', $options);
+	}
+	
+	public function lista () {
+		
+		
+		$id = $this->params['page'];    
+		
+		if (empty($id)) {
+			$id = 1;
+		}
+       
+		$this->Establishment->recursive = 2;
+		
+		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('Establishment.id' => 'desc'));
+
+		$establishments = $this->paginate();
+
+		$this->set('establishments', $establishments);
+	
 	}
 }

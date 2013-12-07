@@ -49,6 +49,14 @@
     ));
 	
 	#rotas dinâmicas
+    Router::connect('/estabelecimento/:slug', array(
+        'controller' => 'establishments',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z\-\.]+'
+    ));
+	
+	#rotas dinâmicas
     Router::connect('/materia/:slug', array(
         'controller' => 'news',
         'action' => 'view'), array(
@@ -74,6 +82,8 @@
     ));
 	
 	
+	Router::connect('/estabelecimentos', array('controller' => 'establishments', 'action' => 'lista'));
+	Router::connect('/estabelecimentos/:page', array('controller' => 'establishments', 'action' => 'lista'));
 	
 	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
 	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
