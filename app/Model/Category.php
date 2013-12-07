@@ -49,5 +49,21 @@ class Category extends AppModel {
 	);
 	
 	var $actsAs = array('Sluggable');
+	
+	public $hasMany = array(
+		'Photo' => array(
+			'className' => 'Photo',
+			'foreignKey' => 'category_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 
 }

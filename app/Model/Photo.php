@@ -35,9 +35,28 @@ class Photo extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Person' => array(
+			'className' => 'Person',
+			'foreignKey' => 'person_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Category' => array(
+			'className' => 'Category',
+			'foreignKey' => 'category_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Establishment' => array(
+			'className' => 'Establishment',
+			'foreignKey' => 'establishment_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
-
-	
 	);
 	
 	var $actsAs = array('MeioUpload' => array(

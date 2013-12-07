@@ -139,4 +139,20 @@ class Establishment extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	public $hasMany = array(
+		'Photo' => array(
+			'className' => 'Photo',
+			'foreignKey' => 'establishment_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 }
