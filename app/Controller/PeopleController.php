@@ -101,4 +101,44 @@ class PeopleController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function view($id = null) {
+
+		preg_match('/(?:.*?)\-([0-9]+)\.html$/', $id, $matches);
+
+		$id = $matches[1];
+
+		$this -> Person -> id = $id;
+		if (!$this -> Person -> exists()) {
+			throw new NotFoundException(__('Invalid Person'));
+		}
+
+		$person = $this -> Person -> read(null, $id);
+
+		$this -> set(compact('person'));
+	}
+	
+	public function ultimas() {
+		$options = array('order' => array('Person.id' => 'desc'), 'limit' => 4);
+		return $this -> Person -> find('all', $options);
+	}
+	
+	public function lista () {
+		
+		
+		$id = $this->params['page'];    
+		
+		if (empty($id)) {
+			$id = 1;
+		}
+       
+		$this->Person->recursive = 2;
+		
+		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('Person.id' => 'desc'));
+
+		$historias = $this->paginate();
+
+		$this->set('historias', $historias);
+	
+	}
 }

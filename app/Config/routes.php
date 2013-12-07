@@ -56,6 +56,14 @@
             'slug' => '[a-z0-9\-\.]+'
     ));
 	
+	#rotas dinâmicas
+    Router::connect('/historia/:slug', array(
+        'controller' => 'people',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z0-9\-\.]+'
+    ));
+	
 	
 	#rotas dinâmicas
     Router::connect('/entrevista/:slug', array(
@@ -69,6 +77,9 @@
 	
 	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
 	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
+	
+	Router::connect('/historias', array('controller' => 'people', 'action' => 'lista'));
+	Router::connect('/historias/:page', array('controller' => 'people', 'action' => 'lista'));
 	
 	Router::connect('/materias', array('controller' => 'news', 'action' => 'lista'));
 	Router::connect('/materias/:page', array('controller' => 'news', 'action' => 'lista'));
