@@ -72,6 +72,14 @@
 		                    			class="tables"><span>Blogs</span>
 		                			</a>
         						</li>
+        						<li>
+		                        	<a href="<?php 
+		                        					$link = array('controller' => 'establishments', 'action' => 'index');
+		                        					echo $this->Html->url($link);
+		                        			?>" 
+		                    			class="tables"><span>Estabelecimentos</span>
+		                			</a>
+        						</li>
                 			 </ul>
             			 </li>
                         
