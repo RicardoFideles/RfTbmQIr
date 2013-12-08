@@ -116,7 +116,7 @@ class EstablishmentsController extends AppController {
 
 		$this -> Establishment -> id = $id;
 		if (!$this -> Establishment -> exists()) {
-			throw new NotFoundException(__('Invalid Person'));
+			throw new NotFoundException(__('Estabelecimento inexistente'));
 		}
 
 		$establishment = $this -> Establishment -> read(null, $id);
@@ -141,10 +141,13 @@ class EstablishmentsController extends AppController {
 			
 			$idCategoria = $catTemp['Category']['id'];
 			
+			
 			$this->Category->id = $idCategoria;
 			
  			if ($this -> Category -> exists()) {
  				
+				$category = $catTemp;
+				
 				if (empty($page)) {
 					$page = 1;
 				}
@@ -155,7 +158,7 @@ class EstablishmentsController extends AppController {
 		
 				$establishments = $this->paginate();
 		
-				$this->set('establishments', $establishments);
+				$this -> set(compact('establishments', 'category'));
  				
 			}
 				

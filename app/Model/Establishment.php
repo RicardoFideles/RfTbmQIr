@@ -83,4 +83,7 @@ class Establishment extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	var $actsAs = array('Sluggable');
+	
 }

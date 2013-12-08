@@ -39,6 +39,7 @@
 	Router::connect('/cadastre-se', array('controller' => 'users', 'action' => 'add'));
 		
 	
+	
 	#rotas dinâmicas
     Router::connect('/categoria/:slug/:page', array(
         'controller' => 'establishments',
@@ -49,7 +50,6 @@
             
     ));
 	
-	
 	#rotas dinâmicas
     Router::connect('/categoria/:slug', array(
         'controller' => 'establishments',
@@ -59,9 +59,18 @@
             
     ));
 	
+	
 	#rotas dinâmicas
     Router::connect('/materia/:slug', array(
         'controller' => 'news',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z0-9\-\.]+'
+    ));
+	
+	#rotas dinâmicas
+    Router::connect('/estabelecimento/:slug', array(
+        'controller' => 'establishments',
         'action' => 'view'), array(
             'pass' => array('slug'),        
             'slug' => '[a-z0-9\-\.]+'
@@ -84,9 +93,6 @@
             'slug' => '[a-z0-9\-\.]+'
     ));
 	
-	
-	Router::connect('/estabelecimentos', array('controller' => 'establishments', 'action' => 'lista'));
-	Router::connect('/estabelecimentos/:page', array('controller' => 'establishments', 'action' => 'lista'));
 	
 	Router::connect('/blogs', array('controller' => 'blogs', 'action' => 'lista'));
 	Router::connect('/blogs/:page', array('controller' => 'blogs', 'action' => 'lista'));
