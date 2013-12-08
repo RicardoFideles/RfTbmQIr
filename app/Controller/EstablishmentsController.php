@@ -120,8 +120,13 @@ class EstablishmentsController extends AppController {
 		}
 
 		$establishment = $this -> Establishment -> read(null, $id);
-
-		$this -> set(compact('establishment'));
+		
+		
+		$this->loadModel('Category');
+		
+		$category = $this->Category->findById($establishment['Category']['id']);
+		
+		$this -> set(compact('establishment','category' ));
 	}
 	
 	public function ultimas() {
