@@ -421,8 +421,7 @@ hr { margin-top:10px; margin-bottom:10px;}
 ul.RodapeTextoListUL {list-style: none; padding:0; margin:0;}
 li.RodapeTextoListLI { padding-left: 0px; text-indent: 0px;}
 li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever color you prefer  VERMELHO e21d51    LARANJA f26c25*/}
-.RodapeCopyright { font-size:8pt;}
-
+.RodapeCopyright { font-size:8pt; margin-top:5px;}
 
 
 
