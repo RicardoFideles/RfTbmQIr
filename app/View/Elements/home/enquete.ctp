@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<?php 
-				 echo $this->Form->create(null, array('url' => array('controller' => 'enquetes', 'action' => 'edit'))); 
+				 echo $this->Form->create(null, array('url' => array('controller' => 'enquetes', 'action' => 'edit'), 'id' => 'enqueteForm')); 
 			?>
 			
 				<input name="data[Enquete][id]" value="<?php echo $enquete['Enquete']['id']; ?>" type="hidden" />

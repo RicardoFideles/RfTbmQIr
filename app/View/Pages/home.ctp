@@ -2,6 +2,9 @@
 	$this->set(array(
         'body_class' => 'bkgBody',
     ));
+	
+    echo $this->Html->script(array ('enquete'));
+	
 ?>
 
 <div class="row">
