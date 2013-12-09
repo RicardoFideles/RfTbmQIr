@@ -80,6 +80,71 @@ class EnquetesController extends AppController {
 			$this->request->data = $this->Enquete->find('first', $options);
 		}
 	}
+	
+	public function edit() {
+		
+		$this->layout = 'ajax';
+		
+		$id = $this->request->data['Enquete']['id'];
+		
+		if (!$this->Enquete->exists($id)) {
+			throw new NotFoundException(__('Invalid enquete'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			$enquete = $this->Enquete->read(null, $id);
+			
+			$opcao_1 = $enquete['Enquete']['resposta_1'];
+			$opcao_2 = $enquete['Enquete']['resposta_2'];
+			$opcao_3 = $enquete['Enquete']['resposta_3'];
+			$opcao_4 = $enquete['Enquete']['resposta_4'];
+			$opcao_5 = $enquete['Enquete']['resposta_5'];
+			
+			
+			if (!empty($this->request->data['Enquete']['resposta_1'])) {
+				$opcao_1_enviada = 1;
+				
+				$opcao_1 += $opcao_1_enviada;
+			}
+			
+			if (!empty($this->request->data['Enquete']['resposta_2'])) {
+				$opcao_2_enviada = 1;
+				$opcao_2 += $opcao_2_enviada;
+			}
+			
+			if (!empty($this->request->data['Enquete']['resposta_3'])) {
+				$opcao_3_enviada = 1;
+				$opcao_3 += $opcao_3_enviada;
+			}
+			
+			if (!empty($this->request->data['Enquete']['resposta_4'])) {
+				$opcao_4_enviada = 1;
+				$opcao_4 += $opcao_4_enviada;
+			}
+			
+			if (!empty($this->request->data['Enquete']['resposta_5'])) {
+				$opcao_5_enviada = 1;
+				$opcao_5 += $opcao_5_enviada;
+			}
+			
+			
+			$this->Enquete->set('resposta_1', $opcao_1);
+			$this->Enquete->set('resposta_2', $opcao_2);
+			$this->Enquete->set('resposta_3', $opcao_3);
+			$this->Enquete->set('resposta_4', $opcao_4);
+			$this->Enquete->set('resposta_5', $opcao_5);
+			
+			if ($this->Enquete->save()) {
+				$this->Session->setFlash(__('Votação realizada.'));
+				$enquete = $this->Enquete->read(null, $id);
+				
+				$this->set('enquete', $enquete);
+				
+			} else {
+				$this->Session->setFlash(__('Ocorreu um erro tente novamente.'));
+			}
+		} 
+	}
 
 /**
  * delete method
@@ -100,5 +165,10 @@ class EnquetesController extends AppController {
 			$this->Session->setFlash(__('The enquete could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+	
+	public function enqueteCapa () {
+		$options = array('conditions' => array('Enquete.destaque' => 'sim'));
+		return $this->Enquete->find('first', $options);
 	}
 }
