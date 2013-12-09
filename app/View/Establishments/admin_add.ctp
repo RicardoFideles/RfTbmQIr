@@ -26,9 +26,24 @@
 	    	<label>Cidade</label>
 	        <span class="field"><?php echo $this->Form->input('city_id'); ?></span>
 	    </p>
+	    
+	    <p>
+	    	<label>Destaque</label>
+	        <span class="field">
+	        	<?php 
+	        		echo $this->Form->input('destaque', array('options' => array('sim' => 'Sim','nao' => 'Não'), 'default' => 'nao')); 
+				?>
+			</span>
+	    </p>
+	    
 	     <p>
 	    	<label>Site</label>
 	        <span class="field"><?php echo $this->Form->input('site'); ?></span>
+	    </p>
+	    
+	    <p>
+    		<label>Texto breve</label>
+	        <span class="field"><?php echo $this->Form->input('breve', array('rows'=>'5', 'cols'=>'15','class'=>'ckeditor2', 'id'=> 'editor4')); ?></span>
 	    </p>
 	    
 	     <p>

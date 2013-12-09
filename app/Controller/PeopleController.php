@@ -123,6 +123,11 @@ class PeopleController extends AppController {
 		return $this -> Person -> find('all', $options);
 	}
 	
+	public function ultimasCapa() {
+		$options = array('order' => array('Person.id' => 'desc'), 'limit' => 1);
+		return $this -> Person -> find('all', $options);
+	}
+	
 	public function lista () {
 		
 		

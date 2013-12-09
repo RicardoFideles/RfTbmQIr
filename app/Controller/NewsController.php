@@ -147,7 +147,7 @@ class NewsController extends AppController {
 	}
 	
 	public function ultimasCapa() {
-		$options = array('order' => array('News.id' => 'desc'), 'limit' => 4);
+		$options = array('order' => array('News.id' => 'desc'), 'limit' => 2);
 		return $this -> News -> find('all', $options);
 	}
 	

@@ -141,4 +141,9 @@ class InterviewsController extends AppController {
 		$options = array('order' => array('Interview.id' => 'desc'), 'limit' => 4);
 		return $this -> Interview -> find('all', $options);
 	}
+	
+	public function ultimasCapa() {
+		$options = array('order' => array('Interview.id' => 'desc'), 'limit' => 1);
+		return $this -> Interview -> find('all', $options);
+	}
 }

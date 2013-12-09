@@ -21,6 +21,8 @@
 					<th class="head0"><?php echo $this->Paginator->sort('Nome');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Cidade');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Categoria');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Destaque');?></th>
+
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</thead>
@@ -30,6 +32,7 @@
 					<th class="head0"><?php echo $this->Paginator->sort('Nome');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Cidade');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Categoria');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Destaque');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</tfoot>
@@ -40,6 +43,7 @@
 						<td><?php echo h($establishment['Establishment']['name']); ?>&nbsp;</td>
 						<td><?php echo h($establishment['City']['name']); ?>&nbsp;</td>
 						<td><?php echo h($establishment['Category']['name']); ?>&nbsp;</td>
+						<td><?php echo h($establishment['Establishment']['destaque']); ?>&nbsp;</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Editar Texto'), array('action' => 'edit', $establishment['Establishment']['id'])); ?>
 							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $establishment['Establishment']['id'])); ?>
