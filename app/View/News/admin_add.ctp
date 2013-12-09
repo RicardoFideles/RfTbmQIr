@@ -27,7 +27,7 @@
 	    	<label>Em Foco</label>
 	        <span class="field">
 	        	<?php 
-	        		echo $this->Form->input('tipo', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+	        		echo $this->Form->input('emfoco', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
 				?>
 			</span>
 	    </p>

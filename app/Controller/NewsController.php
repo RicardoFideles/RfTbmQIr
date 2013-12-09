@@ -106,9 +106,9 @@ class NewsController extends AppController {
 			throw new NotFoundException(__('Invalid news'));
 		}
 
-		$noticia = $this -> News -> read(null, $id);
+		$news = $this -> News -> read(null, $id);
 
-		$this -> set(compact('noticia'));
+		$this -> set(compact('news'));
 	}
 	
 	public function ultimas() {

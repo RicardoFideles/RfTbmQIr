@@ -1,37 +1,37 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Comments Controller
- *
- * @property Comment $Comment
- * @property PaginatorComponent $Paginator
- */
+* Comments Controller
+*
+* @property Comment $Comment
+* @property PaginatorComponent $Paginator
+*/
 class CommentsController extends AppController {
 
 /**
- * Components
- *
- * @var array
- */
+* Components
+*
+* @var array
+*/
 	public $components = array('Paginator');
 
 /**
- * index method
- *
- * @return void
- */
+* index method
+*
+* @return void
+*/
 	public function index() {
 		$this->Comment->recursive = 0;
 		$this->set('comments', $this->Paginator->paginate());
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* view method
+*
+* @throws NotFoundException
+* @param string $id
+* @return void
+*/
 	public function view($id = null) {
 		if (!$this->Comment->exists($id)) {
 			throw new NotFoundException(__('Invalid comment'));
@@ -41,10 +41,10 @@ class CommentsController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
+* add method
+*
+* @return void
+*/
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Comment->create();
@@ -64,12 +64,12 @@ class CommentsController extends AppController {
 	}
 
 /**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* edit method
+*
+* @throws NotFoundException
+* @param string $id
+* @return void
+*/
 	public function edit($id = null) {
 		if (!$this->Comment->exists($id)) {
 			throw new NotFoundException(__('Invalid comment'));
@@ -94,12 +94,12 @@ class CommentsController extends AppController {
 	}
 
 /**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* delete method
+*
+* @throws NotFoundException
+* @param string $id
+* @return void
+*/
 	public function delete($id = null) {
 		$this->Comment->id = $id;
 		if (!$this->Comment->exists()) {

@@ -9,13 +9,13 @@
 
 	<div class="col-md-9 printColH">
 		<p class="MateriasTitulo">
-			<?php echo $noticia['News']['name']; ?>
+			<?php echo $news['News']['name']; ?>
 		</p>
 		
 		<div class="row">
 			<div class="col-md-6">
 				<p class="MateriasData">
-					<?php echo $this->Time->format('d.m.Y', $noticia['News']['created'], null, 'America/Sao_Paulo'); ?>
+					<?php echo $this->Time->format('d.m.Y', $news['News']['created'], null, 'America/Sao_Paulo'); ?>
 				</p>
 			</div>
 			
@@ -26,7 +26,7 @@
 					</div>
 					<div id="share_facebook">
 						<?php
-							$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($noticia['News']['slug'], $noticia['News']['id'])); 
+							$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($news['News']['slug'], $news['News']['id'])); 
 						?>
 						
 						<div class="fb-share-button" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-type="button_count"></div>
@@ -39,7 +39,7 @@
 		<hr />
 		
 		<p class="MateriasSubtituloGR">
-			<?php echo $noticia['News']['subtitulo']; ?>
+			<?php echo $news['News']['subtitulo']; ?>
 		</p>
 		
 		<p class="MateriasTexto">
@@ -53,9 +53,9 @@
 					</p>
 				</div>
 			</div>
-			<?php echo $noticia['News']['texto']; ?>
+			<?php echo $news['News']['texto']; ?>
 		</p>
 	</div>
 	<?php echo $this->element('noticias/ultimas'); ?>
-</div>
   <!-- MATERIA ABERTA -->
+  </div>
