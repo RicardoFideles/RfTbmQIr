@@ -126,4 +126,25 @@
 	<?php }?>
 
 </div>
+<div class="row">
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<p class="InternasPaginacao">
+			<?php
+				echo $this->Paginator->counter(array(
+				'format' => __('Página {:page} de {:pages}')
+				));
+			?>
+		</p>
+	</div>
+  
+	<div class="col-md-4 col-sm-4 col-xs-6 text-center">
+		<ul class="pagination">
+		    <?php
+		        echo $this->Paginator->prev(' anterior ', array('tag' => 'span' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'span'));
+				echo " | ";
+		        echo $this->Paginator->next(' próximo ', array('tag' => 'span', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'span'));
+		    ?>
+		</ul>
+	</div>
+</div>
   <!-- ESTABELECIMENTO -->

@@ -58,7 +58,7 @@
 				<div class="row marginBottomA">
 					
 					<div class="col-md-2">
-						<img src="imagens/icon_DefVisual.png" class="CategoriasIconXXS" />
+						<img src="<?php echo $this->Html->url('/imagens/icon_DefVisual.png'); ?>" class="CategoriasIconXXS" />
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						VISUAL<br />
@@ -70,7 +70,7 @@
 					</div>
 	
 					<div class="col-md-2">
-						<img src="imagens/icon_DefAuditiva.png" class="CategoriasIconXXS" />
+						<img src="<?php echo $this->Html->url('/imagens/icon_DefAuditiva.png'); ?>" class="CategoriasIconXXS" />
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						AUDITIVA<br />
@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="col-md-2">
-						<img src="imagens/icon_DefMotora.png" class="CategoriasIconXXS" />
+						<img src="<?php echo $this->Html->url('/imagens/icon_DefMotora.png'); ?>" class="CategoriasIconXXS" />
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						MOTORA<br />
@@ -94,7 +94,7 @@
 					</div>
 	
 					<div class="col-md-2">
-						<img src="imagens/icon_DefIntelectual.png" class="CategoriasIconXXS" />
+						<img src="<?php echo $this->Html->url('/imagens/icon_DefIntelectual.png'); ?>" class="CategoriasIconXXS" />
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						INTELECTUAL<br />
@@ -148,8 +148,6 @@
 					if (sizeof($establishment['Photo']) > 0) {
 						$fotoPrincipal = $establishment['Photo'][0];
 						
-						unset($fotos[0]);
-						
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 				?>
 					<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
@@ -170,7 +168,9 @@
 					<?php endforeach; ?>
 				</div>
 			</div>
+			<?php echo $this->element('estabelecimentos/ultimas'); ?>
 		</div>
 	</div>
+
 </div>
   <!-- ESTABELECIMENTO -->

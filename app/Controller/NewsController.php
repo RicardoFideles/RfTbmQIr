@@ -140,5 +140,16 @@ class NewsController extends AppController {
 		$this->set('news', $news);
 	
 	}
+
+	public function destaqueCapa() {
+		$options = array('order' => array('News.id' => 'desc'));
+		return $this -> News -> find('first', $options);
+	}
+	
+	public function ultimasCapa() {
+		$options = array('order' => array('News.id' => 'desc'), 'limit' => 4);
+		return $this -> News -> find('all', $options);
+	}
+	
 	
 }

@@ -131,7 +131,7 @@ class EstablishmentsController extends AppController {
 	
 	public function ultimas() {
 		$options = array('order' => array('Establishment.id' => 'desc'), 'limit' => 4);
-		return $this -> Establishment -> find('all', $options);
+		return $this->Establishment->find('all', $options);
 	}
 	
 	public function lista ($categoria = null, $page = null) {
@@ -159,7 +159,7 @@ class EstablishmentsController extends AppController {
 						
 				$this->Establishment->recursive = 2;
 				
-				$this->paginate = array('limit' => 3 , 'page' => $page, 'conditions' => array('Establishment.category_id' => $idCategoria));
+				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' => array('Establishment.category_id' => $idCategoria));
 		
 				$establishments = $this->paginate();
 		

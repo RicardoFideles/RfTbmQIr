@@ -44,12 +44,12 @@
   
 	<div class="col-md-4 col-sm-4 col-xs-6 text-center">
 		<ul class="pagination">
-    <?php
-        echo $this->Paginator->prev(' anterior ', array('tag' => 'span' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'span'));
-		echo " | ";
-        echo $this->Paginator->next(' próximo ', array('tag' => 'span', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'span'));
-    ?>
-</ul>
+		    <?php
+		        echo $this->Paginator->prev(' anterior ', array('tag' => 'span' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'span'));
+				echo " | ";
+		        echo $this->Paginator->next(' próximo ', array('tag' => 'span', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'span'));
+		    ?>
+		</ul>
 	</div>
 </div>
   <!-- BLOGS PAGINACAO -->

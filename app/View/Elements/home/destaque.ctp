@@ -1,8 +1,29 @@
- <!-- MATERIA -->
-  <div class="col-md-6 col-sm-8 col-xs-12 HomeAltMinA">
-  
-          <img src="imagens/MateriaPrincipalHome.jpg" class="img-responsive fotoSize marginBottomIMG">
-      <p><a href="#" class="LinkMaterias1 fonteSiteSouvLight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo.</a></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo mi in dolor faucibus, ultricies lacinia diam commodo. Nulla suscipit condimentum aliquam. In eget vehicula magna, vel blandit justo.</p> 
-          
-  </div>
+<?php
+	$destaque = $this->requestAction(array('controller' => 'news', 'action' => 'destaqueCapa'));
+?>
+
+<!-- MATERIA -->
+<div class="col-md-6 col-sm-8 col-xs-12 HomeAltMinA">
+	<?php 
+	
+		$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($destaque['News']['slug'], $destaque['News']['id'])); 
+		
+		if (sizeof($destaque['Photo']) > 0) {
+			$fotoPrincipal = $destaque['Photo'][0];
+		
+			$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
+	?>
+		<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+		
+	<?php
+		}
+	?>
+	<p>
+		<a href="<?php echo $this->Html->url($link); ?>" class="LinkMaterias1 fonteSiteSouvLight">
+			<?php echo $destaque['News']['name'] ?>
+		</a>
+	</p>
+	<p>
+		<?php echo $destaque['News']['subtitulo'] ?>
+	</p> 
+</div>
