@@ -20,7 +20,7 @@ class EnquetesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Enquete->recursive = 0;
 		$this->set('enquetes', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class EnquetesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Enquete->exists($id)) {
 			throw new NotFoundException(__('Invalid enquete'));
 		}
@@ -45,7 +45,7 @@ class EnquetesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Enquete->create();
 			if ($this->Enquete->save($this->request->data)) {
@@ -64,7 +64,7 @@ class EnquetesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Enquete->exists($id)) {
 			throw new NotFoundException(__('Invalid enquete'));
 		}
@@ -88,7 +88,7 @@ class EnquetesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Enquete->id = $id;
 		if (!$this->Enquete->exists()) {
 			throw new NotFoundException(__('Invalid enquete'));
@@ -100,4 +100,5 @@ class EnquetesController extends AppController {
 			$this->Session->setFlash(__('The enquete could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+}

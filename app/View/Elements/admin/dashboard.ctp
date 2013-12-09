@@ -80,6 +80,14 @@
 		                    			class="tables"><span>Estabelecimentos</span>
 		                			</a>
         						</li>
+        						<li>
+		                        	<a href="<?php 
+		                        					$link = array('controller' => 'enquetes', 'action' => 'index');
+		                        					echo $this->Html->url($link);
+		                        			?>" 
+		                    			class="tables"><span>Enquetes</span>
+		                			</a>
+        						</li>
                 			 </ul>
             			 </li>
                         
