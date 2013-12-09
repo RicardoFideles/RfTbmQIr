@@ -39,5 +39,8 @@
 	</div>
 	
 </div>
+
+<?php echo $this->element('estabelecimentos/outros'); ?>
+
 	
 

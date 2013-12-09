@@ -70,4 +70,6 @@
 	</div>
 	<?php echo $this->element('noticias/ultimas'); ?>
   <!-- MATERIA ABERTA -->
+
   </div>
+  
