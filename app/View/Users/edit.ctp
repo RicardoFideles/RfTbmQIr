@@ -1,6 +1,5 @@
 <?php
-	//var_dump($this->request->data);
-	
+
 	$user = $this->request->data['User'];
 	$photo_user = $this->request->data['Photo'];
 	
@@ -10,6 +9,9 @@
 		$photo_user = $photo_user[0];
 		
 	}
+	
+	
+    echo $this->Html->script(array ('user'));
 	
 ?>
 
@@ -41,23 +43,29 @@
 			?>
 			
 			
+			<?php
 			
-			<form role="form">
+				if(!empty($photo_user)) {
+				$link = array('controller' => 'photos', 'action' => 'delete_guest');
+					
+			?>
+			
+			<form action="<?php echo $this->Html->url($link); ?>" id="userPhotoDelete" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+				<input type="hidden" name="data[Photo][user_id]" value="<?php echo AuthComponent::user('id'); ?>">
+				<input type="hidden" name="data[Photo][id]" value="<?php echo $photo_user['id']; ?>">
 				<div class="form-group">
 					<button type="submit" class="btn btn-default btn-xs">Remover</button>
 				</div>
 			</form>
 			
-			<?php
-				if(!empty($photo_user)) {
-					echo $this->Form->postLink(__('Remover'), array('controller' => 'photos', 'action' => 'delete_guest', $photo_user['id']), null, __('Você tem certeza que deseja apagar # %s?', $photo_user['id'])); 
+			<?php 
 				} 
 			?>
 
 			<?php
 				$link = array('controller' => 'photos', 'action' => 'add_guest');
 			?>
-			<form action="<?php echo $this->Html->url($link); ?>" id="userPhoto" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+			<form action="<?php echo $this->Html->url($link); ?>" id="userPhotoAdd" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 				<input type="hidden" name="data[Photo][user_id]" value="<?php echo AuthComponent::user('id'); ?>">
 				<div class="form-group">
 					<label for="exampleInputFile">Alterar foto do perfil</label>

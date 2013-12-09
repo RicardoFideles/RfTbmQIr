@@ -48,7 +48,7 @@
 			
 			
 			<p class="fonteSiteSouvLight">
-				<a href="#" class="LinkCategoriasLugares fonteSiteSouvLight">
+				<a href="<?php echo $this->Html->url($link); ?>" class="LinkCategoriasLugares fonteSiteSouvLight">
 					<?php echo $establishment['Establishment']['name'] ?>
 				</a>
 			</p>

@@ -288,8 +288,7 @@ class PhotosController extends AppController {
 			
 			$this->Photo->create();
 			if ($this->Photo->save($this->request->data)) {
-				$this->Session->setFlash(__('Foto salva com sucesso.'));
-				return;
+				$this->redirect(array('controller' => 'users', 'action' => 'edit', 'guest' => true));
 			} else {
 				$this->Session->setFlash(__('A foto não pode ser salva. Por favor, tente novamente.'));
 			}
@@ -297,6 +296,9 @@ class PhotosController extends AppController {
 	}
 	
 	public function edit_guest ($id = null, $idModel = null) {
+		
+		$this->layout = 'ajax';
+		
 		$this->Photo->id = $id;
 		if (!$this->Photo->exists()) {
 			throw new NotFoundException(__('Foto inválida.'));
@@ -315,16 +317,39 @@ class PhotosController extends AppController {
 	}
 
 	
-	public function delete_guest ($id = null, $idModel = null) {
-		$this->Photo->id = $id;
-		if (!$this->Photo->exists()) {
-			throw new NotFoundException(__('Imagem inválida.'));
+	public function delete_guest () {
+		
+		$this->layout = 'ajax';
+		
+		$idUserForm = $this->request->data['Photo']['user_id'];
+		$id = AuthComponent::user('id');
+		
+		if ($idUserForm == $id) {
+			
+			$this->loadModel('User');
+		
+	        $this->User->id = $id;
+			
+	        if (!$this->User->exists()) {
+	            throw new NotFoundException(__('Invalid user'));
+	        }
+			if ($this->request->is('post')) {
+				
+				$idPhoto = $this->request->data['Photo']['id'];
+				
+				$this->Photo->id = $idPhoto;
+				if (!$this->Photo->exists()) {
+					throw new NotFoundException(__('Imagem inválida.'));
+				}
+				if ($this->Photo->delete()) {
+					$this->redirect(array('controller' => 'users', 'action' => 'edit', 'guest' => true));
+				} else {
+					$this->Session->setFlash(__('Ocorreu um erro tente novamente.'));
+				}
+			}
+		} else {
+			$this->Session->setFlash(__('Ocorreu um erro tente novamente.'));
 		}
-		if ($this->Photo->delete()) {
-			$this->Session->setFlash(__('Imagem apagada.'));
-			$this->redirect(array('controller' =>'people','action' => 'view', $idModel));
-		}
-		$this->Session->setFlash(__('A imagem não pode ser apagada.'));
-		$this->redirect(array('controller' =>'people','action' => 'view', $idModel));
+		
 	}
 }

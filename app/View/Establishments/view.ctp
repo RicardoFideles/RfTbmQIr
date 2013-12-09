@@ -7,6 +7,7 @@
 
 
 <script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
+
 <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/lightbox.css'); ?>" />
 
 
