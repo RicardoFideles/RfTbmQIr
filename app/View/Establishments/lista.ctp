@@ -130,6 +130,15 @@
 	<div class="col-md-4 col-sm-4 col-xs-6">
 		<p class="InternasPaginacao">
 			<?php
+				$slug = $establishment['Category']['slug'];
+				
+				//Passando a url a ser utilizada pelo paginator.
+				$this->Paginator->options(array(
+				    'url' => array(
+				        'controller' => 'establishments', 'action' => 'lista', 'slug' => $slug,
+				    )
+				));
+				
 				echo $this->Paginator->counter(array(
 				'format' => __('Página {:page} de {:pages}')
 				));
