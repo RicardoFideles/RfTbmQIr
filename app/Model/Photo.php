@@ -29,6 +29,13 @@ class Photo extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Interview' => array(
 			'className' => 'Interview',
 			'foreignKey' => 'interview_id',

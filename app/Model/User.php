@@ -91,4 +91,20 @@ class User extends AppModel {
         }
         return parent::beforeSave();
 	}
+	
+	public $hasMany = array(
+		'Photo' => array(
+			'className' => 'Photo',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 }
