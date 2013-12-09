@@ -172,4 +172,29 @@ class EstablishmentsController extends AppController {
 		}
 		
 	}
+	
+	public function destaqueCapa () {
+		
+		$options = array('conditions' => array('Establishment.destaque' => 'sim'), 'limit' => 3);
+		
+		return $this->Establishment->find('all', $options);
+		
+	}
+
+	public function outros () {
+		
+		$lista = $this->Establishment->find('all');
+		shuffle($lista);
+		
+		$ultimos_tres_destaques = array();
+		
+		if (sizeof($lista) > 3)  {
+			array_push($ultimos_tres_destaques, $lista[0], $lista[1], $lista[2]);
+		}
+		
+		return $ultimos_tres_destaques; 
+		
+	}
+
+
 }

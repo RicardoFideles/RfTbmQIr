@@ -119,4 +119,17 @@ class CategoriesController extends AppController {
 		
 	}
 	
+	public function categoria ($id = null) {
+		
+		$this->Category->id = $id;
+		
+		if (!$this->Category->exists()) {
+			return "";
+		}
+		
+		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
+		return $this->Category->find('first', $options);
+		
+	}
+	
 }
