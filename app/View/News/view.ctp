@@ -43,16 +43,27 @@
 		</p>
 		
 		<p class="MateriasTexto">
-			<div class="MateriasFoto">
-				<div class="MateriasFotoClip">
-					<img src="imagens/MateriaFoto1.jpg" class="img-responsive" />
+			<?php 
+				if (sizeof($news['Photo']) > 0) {
+					$fotoPrincipal = $news['Photo'][0];
+					
+					$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
+			?>
+				<div class="MateriasFoto">
+					<div class="MateriasFotoClip">
+						<img src="<?php echo $this->Html->url($url) ?>" class="CategoriasIconSM" />
+					</div>
+					<div class="MateriasFotoLegenda">
+						<p class="MateriasLegendas">
+							<?php echo $fotoPrincipal['legenda']; ?>
+							<?php if (!empty($fotoPrincipal['credito'])) echo " / "; echo $fotoPrincipal['credito']  ?>
+						</p>
+					</div>
 				</div>
-  				<div class="MateriasFotoLegenda">
-  					<p class="MateriasLegendas">
-  						legenda
-					</p>
-				</div>
-			</div>
+			<?php
+				}
+			?>
+					
 			<?php echo $news['News']['texto']; ?>
 		</p>
 	</div>
