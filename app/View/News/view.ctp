@@ -51,7 +51,7 @@
 			?>
 				<div class="MateriasFoto">
 					<div class="MateriasFotoClip">
-						<img src="<?php echo $this->Html->url($url) ?>" class="CategoriasIconSM" />
+						<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive" />
 					</div>
 					<div class="MateriasFotoLegenda">
 						<p class="MateriasLegendas">
@@ -63,6 +63,7 @@
 			<?php
 				}
 			?>
+			
 					
 			<?php echo $news['News']['texto']; ?>
 		</p>
