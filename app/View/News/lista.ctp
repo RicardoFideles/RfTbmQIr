@@ -53,3 +53,5 @@
 	</div>
 </div>
   <!-- BLOGS PAGINACAO -->
+  
+<?php echo $this->element('estabelecimentos/outros'); ?>

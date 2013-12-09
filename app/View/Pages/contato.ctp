@@ -55,3 +55,10 @@
 	</div>
 </div>
   <!-- CONTATO -->
+  
+<?php 
+	echo $this->element('estabelecimentos/outros', 
+						array(), 
+						array("cache" => array('config' => 'short', 'key' => 'outros_historia')
+		)); 
+?>

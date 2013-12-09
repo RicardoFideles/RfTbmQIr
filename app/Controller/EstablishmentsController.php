@@ -188,8 +188,8 @@ class EstablishmentsController extends AppController {
 		
 		$ultimos_tres_destaques = array();
 		
-		if (sizeof($lista) > 3)  {
-			array_push($ultimos_tres_destaques, $lista[0], $lista[1], $lista[2]);
+		if (sizeof($lista) > 4)  {
+			array_push($ultimos_tres_destaques, $lista[0], $lista[1], $lista[2], $lista[3]);
 		}
 		
 		return $ultimos_tres_destaques; 
