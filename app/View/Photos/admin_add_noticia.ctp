@@ -9,6 +9,14 @@
 	    	<label>Imagem</label>
 	        <span class="field"><?php echo $this->Form->input('imagem' , array('type' => 'file')); ?></span>
 	    </p>
+	        <p>
+	    	<label>Legenda</label>
+	        <span class="field"><?php echo $this->Form->input('legenda'); ?></span>
+	    </p>
+	    <p>
+	    	<label>Crédito</label>
+	        <span class="field"><?php echo $this->Form->input('credito'); ?></span>
+	    </p>
 	    <p>
 	    	<label>Notícia</label>
 	        <span class="field"><?php echo $this->Form->input('news_id'); ?></span>

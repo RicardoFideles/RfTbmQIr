@@ -116,6 +116,12 @@ class NewsController extends AppController {
 		return $this -> News -> find('all', $options);
 	}
 	
+	public function emfoco() {
+		
+		$options = array('conditions'=> array('News.emfoco' =>'sim'), 'order' => array('News.id' => 'desc'));
+		return $this -> News -> find('first', $options);
+	}
+	
 	public function lista () {
 		
 		
