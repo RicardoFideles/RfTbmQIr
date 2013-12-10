@@ -35,6 +35,9 @@
 	Router::connect('/politica-de-privacidade', array('controller' => 'pages', 'action' => 'display', 'politica-de-privacidade'));
 	
 	
+	#registro de votos
+	Router::connect('/votos', array('controller' => 'establishments', 'action' => 'registrar'));
+	
 	#cadastro de usuários
 	Router::connect('/cadastre-se', array('controller' => 'users', 'action' => 'add'));
 		

@@ -2,7 +2,8 @@
 
 	$lista_1 = array();
 	$lista_2 = array();
-		
+	
+	
 	if (sizeof($establishments) > 2) {
 		array_push ($lista_1, $establishments[0], $establishments[1]);
 		unset ($establishments[0], $establishments[1]);
@@ -126,6 +127,11 @@
 	<?php }?>
 
 </div>
+
+<?php
+	if (!empty($establishment) && !empty($establishment['Category']) && !empty($establishment['Category']['slug'])) {
+?>
+
 <div class="row">
 	<div class="col-md-4 col-sm-4 col-xs-6">
 		<p class="InternasPaginacao">
@@ -156,5 +162,10 @@
 		</ul>
 	</div>
 </div>
+
+<?php
+	}
+?>
+
   <!-- ESTABELECIMENTO -->
   

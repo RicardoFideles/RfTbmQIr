@@ -156,10 +156,15 @@ class EstablishmentsController extends AppController {
 				if (empty($page)) {
 					$page = 1;
 				}
+				
+				$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
+		
+				$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
+				
 						
 				$this->Establishment->recursive = 2;
 				
-				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' => array('Establishment.category_id' => $idCategoria));
+				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' => array('Establishment.category_id' => $idCategoria, 'Establishment.city_id' => $id_cidadeSelecionada ));
 		
 				$establishments = $this->paginate();
 		
@@ -183,7 +188,14 @@ class EstablishmentsController extends AppController {
 
 	public function outros () {
 		
-		$lista = $this->Establishment->find('all');
+		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
+		
+		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
+		
+		
+		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada));
+		
+		$lista = $this->Establishment->find('all', $options);
 		shuffle($lista);
 		
 		$ultimos_tres_destaques = array();
@@ -194,6 +206,13 @@ class EstablishmentsController extends AppController {
 		
 		return $ultimos_tres_destaques; 
 		
+	}
+	
+	public function registrar () {
+		var_dump($this->request->data['rating']);
+		var_dump($this->request->query['id']);
+		
+		exit;
 	}
 
 

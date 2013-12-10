@@ -48,8 +48,8 @@ jQuery.fn.rating = function(url, options) {
 	for(var i= 0; i <= settings.maxvalue ; i++){
     if (i == 0) {
 	    if(settings.cancel == true){
-        var div = '<div class="cancel"><a href="#0" title="Cancel Rating">Cancel Rating</a></div>';
-        container.empty().append(div);
+        //var div = '<div class="cancel"><a href="#0" title="Cancel Rating">Cancel Rating</a></div>';
+        //container.empty().append(div);
       }
     } else {
       var $div = $('<div class="star"></div>')
@@ -92,9 +92,12 @@ jQuery.fn.rating = function(url, options) {
 		if(settings.cancel == true){
       settings.curvalue = (stars.index(this) * settings.increment) + settings.increment;
       jQuery.post(container.url, {
-        "rating": jQuery(this).children('a')[0].href.split('#')[1] 
+        "rating": jQuery(this).children('a')[0].href.split('#')[1],
+        "categoria": jQuery(this).children('a').parent().parent().attr('id')
       
-      });
+      }).done(function( data ) {
+    	alert( "call back" );
+  		});
 			return false;
 		} else if (settings.maxvalue == 1) {
 			settings.curvalue = (settings.curvalue == 0) ? 1 : 0;

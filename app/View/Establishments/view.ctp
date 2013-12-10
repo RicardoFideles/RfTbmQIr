@@ -6,9 +6,27 @@
 <?php echo $this->element('facebook/sdk'); ?>
 
 
+<script type="text/javascript" src="<?php echo $this->Html->url('/js/jquery.rating.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
 
+
 <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/lightbox.css'); ?>" />
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/rating.css'); ?>" />
+
+<?php $idEstab =  $establishment['Establishment']['id'] ?>
+<script type="text/javascript">
+
+
+	$(document).ready(function() {
+		$('#visual').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
+		$('#auditiva').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
+		$('#motora').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
+		$('#intelectual').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
+	});
+
+	
+</script>
 
 
 
@@ -63,11 +81,7 @@
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						VISUAL<br />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
+						<div id="visual" class="rating">&nbsp;</div>
 					</div>
 	
 					<div class="col-md-2">
@@ -75,11 +89,7 @@
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						AUDITIVA<br />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
+						<div id="auditiva" class="rating">&nbsp;</div>
 					</div>
 
 					<div class="col-md-2">
@@ -87,11 +97,7 @@
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						MOTORA<br />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
+						<div id="motora" class="rating">&nbsp;</div>
 					</div>
 	
 					<div class="col-md-2">
@@ -99,11 +105,7 @@
 					</div>
 					<div class="col-md-9 col-md-offset-1 marginBottomA EstabelecimentoInfos">
 						INTELECTUAL<br />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
-						<img src="imagens/icon_TOP5Estrelas.png" />
+						<div id="intelectual" class="rating">&nbsp;</div>
 					</div>
 				</div>
 
