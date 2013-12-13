@@ -73,6 +73,7 @@ Cache::config('default', array('engine' => 'File'));
  */
  
  CakePlugin::load('DebugKit');
+ CakePlugin::load('Recaptcha');
  
 
 /**
@@ -110,3 +111,7 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+Configure::write('Recaptcha.publicKey', '6Lc2l-sSAAAAAKA4sxgwC3C2gV_VXGa2WvQtjTE2');
+Configure::write('Recaptcha.privateKey', '6Lc2l-sSAAAAAC7y4ls8MUzEqUutLdxhLFduJJvY');

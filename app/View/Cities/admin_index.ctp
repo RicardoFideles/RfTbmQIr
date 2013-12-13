@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 	<div class="contenttitle radiusbottom0">
-		<h2 class="table"><span>Notícias</span></h2>
+		<h2 class="table"><span>Cidades</span></h2>
 	</div>
 	<div class="dataTables_wrapper" id="dyntable_wrapper">
 		<table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="dyntable">

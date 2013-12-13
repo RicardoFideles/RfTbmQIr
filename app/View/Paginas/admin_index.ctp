@@ -1,11 +1,4 @@
 <div class="content">
-	<ul class="buttonlist">
-		<li>
-			<li><a href="<?php
-				$link = array('controller' => 'paginas', 'action' => 'add');
-				echo $this->Html->url($link); ?>" class="btn btn_book"><span>Adicionar</span></a></li>
-		</li>
-	</ul>
 	<div class="contenttitle radiusbottom0">
 		<h2 class="table"><span>Páginas Estáticas</span></h2>
 	</div>

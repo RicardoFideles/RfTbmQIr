@@ -84,7 +84,7 @@ a.LinkInternasPaginacao:hover {text-decoration:none; color:#e31d51; }
 a.LinkInternasPaginacao:active {text-decoration: none;}
 
 /*INTERNAS*/
-a.LinkRodapeOutrosEstab { font-size:11pt; color: #4c4c4c; line-height:35px;}
+a.LinkRodapeOutrosEstab { font-size:11pt; color: #4c4c4c; line-height:20px;}
 a.LinkRodapeOutrosEstab:link {text-decoration: none;}
 a.LinkRodapeOutrosEstab:visited {text-decoration: none;}
 a.LinkRodapeOutrosEstab:hover {text-decoration:none; color:#e31d51; }
@@ -246,8 +246,8 @@ div {border:0px solid #F00}
 
 .fotoSize {width:100%;}
 .HomeAltMinA {min-height:470px;}
-.HomeAltMinB {min-height:350px;}
-.HomeAltMinC {min-height:300px;}
+.HomeAltMinB {min-height:350px; margin-bottom:20px;}
+.HomeAltMinC {min-height:300px; margin-bottom:20px;}
 .RodapeAltMin {min-height:200px;}
 .InternaAlturaBlog {min-height:70px;}
 .InternaAlturaBlog p { margin:0; padding:0; color: #e31d51; font-size:14pt;}
@@ -339,7 +339,7 @@ hr { margin-top:10px; margin-bottom:10px;}
 .MateriasLegendas { font-size:8pt; font-style:italic;}
 .MateriasFoto { float:left; margin-right:20px; margin-bottom:10px;}
 .MateriasFotoClip { max-width:300px; max-height:400px; overflow:visible;}
-.MateriasFotoLegenda {float:left; position:relative; width:100%;}
+.MateriasFotoLegenda {float:left; position:relative; max-width:300px;}
 .MateriasFoto p { margin-top:10px; margin-bottom:10px;}
 
 .MateriasOutrasTituloCol { font-size:14pt;}
@@ -461,16 +461,19 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 	text-indent:57px;
 	padding-top:3px;
 	position:absolute;
-	z-index:2;
+	z-index:3;
 	color:#FFFFFF;
 }
 
+
+.BoxesCategoriasIcon { position:absolute; z-index:4;}
 
 
 
 
 @media screen and (min-width: 1170px) {
-.BoxesCategoriasFaixaTopo {	width:360px; }
+.BoxesCategoriasFaixaTopo {	width:360px; z-index:2; }
+.HomeMatImageCrop {position: relative; width: auto; height: 210px; overflow: hidden; border: 1px red solid; margin-bottom:10px;}
 }
 
 @media screen and (max-width: 1170px) {
@@ -478,19 +481,26 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .MainMenu > li > a {
 	font-size:9pt !important;
 }
+.BoxesCategoriasFaixaTopo {width:293px; z-index:2; }
+
+.HomeMatImageCrop {position: relative; width: auto; height: 170px; overflow: hidden; border: 1px red solid; margin-bottom:10px;}
 }
 
 @media screen and (max-width: 970px) {
 .BoxesCategoriasFaixaTopo {width:220px; }
 
+.HomeMatImageCrop {position: relative; width: auto; height: 130px; overflow: hidden; border: 1px red solid; margin-bottom:10px;}
+
 }
 
 @media screen and (max-width: 750px) {
 .BoxesCategoriasFaixaTopo {width:595px; }
+.HomeMatImageCrop {position: relative; width: auto; height: 310px; overflow: hidden; border: 1px red solid; margin-bottom:10px;}
 }
 
 @media screen and (max-width: 320px) {
 .BoxesCategoriasFaixaTopo {width:275px; }
+.HomeMatImageCrop {position: relative; width: auto; height: 130px; overflow: hidden; border: 1px red solid; margin-bottom:10px;}
 }
 
 
@@ -733,3 +743,19 @@ border-bottom-color: #1ca48c !important;
 		display: inline;
 }
 
+/*HOME - EM FOCO*/
+a.LinkEmFoco { font-size:11pt; color: #FFFFFF; }
+a.LinkEmFoco:link {text-decoration: none;}
+a.LinkEmFoco:visited {text-decoration: none;}
+a.LinkEmFoco:hover {text-decoration:underline; }
+a.LinkEmFoco:active {text-decoration: none;}
+
+
+
+#containerVotacao .col-md-3 {
+	z-index: 9999;
+}
+
+#recaptcha_widget {
+	padding-top: 20px;
+}

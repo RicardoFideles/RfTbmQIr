@@ -21,14 +21,23 @@
     
 <br clear="all" /><br />
 <div class="content">
-
-	<ul class="buttonlist">
-		<li>
-			<a href="<?php $link = array('controller' => 'Photos', 'action' => 'add_categoria',$category['Category']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
-				<span>Adicionar imagens</span>
-			</a>
-		</li>
-	</ul>
+	
+	<?php
+		if (sizeof($category['Photo']) < 1) {
+	?>
+	
+		<ul class="buttonlist">
+			<li>
+				<a href="<?php $link = array('controller' => 'Photos', 'action' => 'add_categoria',$category['Category']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
+					<span>adicionar ícone</span>
+				</a>
+			</li>
+		</ul>
+		
+	<?php
+		}
+	 ?>
+	
 	<div class="contenttitle">
 		<h2 class="image"><span>Fotos Relacionadas</span></h2>
 	</div>

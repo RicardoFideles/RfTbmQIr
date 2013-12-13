@@ -100,6 +100,10 @@
 								}
 							?>
 						</button>
+						
+						<script>
+							$('.btn.btn-tbqueroirA.btn-xs a').addClass('btn-tbqueroirA');
+						</script>						
 					</li>
 				</ul>
 			</div>
@@ -149,8 +153,16 @@
 						</div>
 					</li>
 					<li>
-						<button class="btn btn-tbqueroirA btn-xs" href="<?php echo $this->Html->url('/cadastre-se'); ?>" type="button">
-							CADASTRE-SE
+						<button class="btn btn-tbqueroirA btn-xs" href="<?php echo $this->Html->url('/cadastre-se'); ?>" type="button" class="btn-tbqueroirA">
+							<?php
+								$nome = AuthComponent::user('name');
+								if (isset($nome)){
+									echo $this->Form->postLink(__('SAIR'), array('controller' => 'users', 'action' => 'logout'));
+									
+								} else {
+									echo $this->Form->postLink(__('CADASTRE-SE'), array('controller' => 'users', 'action' => 'add'));
+								}
+							?>
 						</button>
 					</li>
 				</ul>

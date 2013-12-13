@@ -1,4 +1,7 @@
-<?php echo $this->element('editor/index'); ?>
+<?php 
+	echo $this->element('editor/index'); 
+	$pagina = $this->request->data['Pagina'];
+?>
 
 <div class="content">
 	<ul class="buttonlist">
@@ -17,24 +20,14 @@
     	<?php echo $this->Form->input('id'); ?>
 	    <p class="primeiro">
 	    	<label>Nome</label>
-	        <span class="field"><?php echo $this->Form->input('name'); ?></span>
+	        <span class="field">
+	        	<?php echo $pagina['name'] ?>
+        	</span>
 	    </p>
 	    <p>
 	    	<label>Tipo</label>
 	        <span class="field">
-	        	<?php 
-	        		echo $this->Form->input('tipo', 
-						array(
-            				'options' => array('historia' => 'História', 
-            								   'sobre' => 'Sobre', 
-            								   'politica-de-privacidade' => 'Política de Privacidade',
-            								   'sobre_fotter' => 'Sobre no rodapé',
-            								   'contato' => 'contato',
-              								   'minha-historia' => 'Minha História'
-											   )
-        				)
-					); 
-				?>
+	        	<?php echo $pagina['tipo'] ?>
 			</span>
 	    </p>
 	    <p>

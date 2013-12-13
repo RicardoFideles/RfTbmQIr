@@ -20,8 +20,10 @@
 						$fotoPrincipal = $news['Photo'][0];
 					
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
-				?>                    
-					<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+				?>  
+					<div class="HomeMatImageCrop">
+						<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+					</div>                  
 				<?php
 					}
 				?>
@@ -46,8 +48,10 @@
 						$fotoPrincipal = $person['Photo'][0];
 					
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
-				?>                    
-					<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+				?>   
+					<div class="HomeMatImageCrop">
+						<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+					</div>                 
 				<?php
 					}
 				?>
@@ -72,8 +76,10 @@
 						$fotoPrincipal = $interview['Photo'][0];
 					
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
-				?>                    
-					<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+				?>  
+					<div class="HomeMatImageCrop">
+						<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+					</div>                 
 				<?php
 					}
 				?>

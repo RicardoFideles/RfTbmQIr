@@ -6,7 +6,7 @@
 <?php echo $this->element('facebook/sdk'); ?>
 
 
-<script type="text/javascript" src="<?php echo $this->Html->url('/js/jquery.rating.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Html->url('/js/ratting/jquery.raty.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
 
 
@@ -14,15 +14,59 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/rating.css'); ?>" />
 
-<?php $idEstab =  $establishment['Establishment']['id'] ?>
+<?php 
+	
+	$idEstab =  $establishment['Establishment']['id'];
+	
+	$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
+	$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
+	$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
+	$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
+	
+	
+?>
+
+
 <script type="text/javascript">
 
 
 	$(document).ready(function() {
-		$('#visual').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
-		$('#auditiva').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
-		$('#motora').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
-		$('#intelectual').rating('/votos?id=<?php echo $idEstab;?>', {maxvalue:5, curvalue:1, cancel:false});
+		
+		$('#visual').raty({ readOnly: true, score: <?php echo $media_visual; ?>, path: '/js/ratting/img'});
+		$('#auditiva').raty({ readOnly: true, score: <?php echo $media_auditiva; ?>, path: '/js/ratting/img' });
+		$('#motora').raty({ readOnly: true, score: <?php echo $media_motora; ?>, path: '/js/ratting/img' });
+		$('#intelectual').raty({ readOnly: true, score: <?php echo $media_intelectual; ?>, path: '/js/ratting/img' });
+		
+		$('#visual_usr').raty({
+		  target    : '#visualInput',
+		  targetType: 'number',
+		  path: '/js/ratting/img',
+		  targetKeep: true
+		});
+		
+		$('#auditiva_usr').raty({
+		  target    : '#auditivaInput',
+		  targetType: 'number',
+		  path: '/js/ratting/img',
+		  targetKeep: true
+		});
+		
+		$('#motora_usr').raty({
+		  target    : '#motoraInput',
+		  targetType: 'number',
+		  path: '/js/ratting/img',
+		  targetKeep: true
+
+		});
+		
+		$('#intelectual_usr').raty({
+		  target    : '#intelectualInput',
+		  targetType: 'number',
+		  path: '/js/ratting/img',
+		  targetKeep: true
+
+		});
+				
 	});
 
 	
@@ -177,3 +221,126 @@
 
 </div>
   <!-- ESTABELECIMENTO -->
+  
+<!-- COMENTARIOS-->
+                    
+<div class="row hidden-print">
+	<div class="col-md-12 col-sm-12 col-xs-12 bkgRodapeOutrosEstab marginTopA marginBottomA OutrosEstabTitulo"></div>
+	<div class="col-md-7 col-md-offset-2 col-sm-7 col-xs-7 marginBottomA">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<p class="MateriasOutrasTituloCol fonteSiteSouvMedium textColorC">
+					Comentários <span class="fonteSiteSouvLight">(2)</span>
+				</p>
+				<p>Avalie e comente, sua opinião é importante para nós.</p>
+			</div>
+
+			<div id="containerVotacao">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo $this->Html->url('/imagens/icon_DefVisual.png'); ?> " class="CategoriasIconXXS" />
+						</div>
+						<div class="col-md-8 col-md-offset-1 EstabelecimentoInfos">VISUAL<br />
+							<div id="visual_usr" class="rating">&nbsp;</div>							
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo $this->Html->url('/imagens/icon_DefAuditiva.png'); ?> " class="CategoriasIconXXS" />
+						</div>
+						<div class="col-md-8 col-md-offset-1 EstabelecimentoInfos">AUDITIVA<br />
+							<div id="auditiva_usr" class="rating">&nbsp;</div>							
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo $this->Html->url('/imagens/icon_DefMotora.png'); ?> " class="CategoriasIconXXS" />
+						</div>
+						<div class="col-md-8 col-md-offset-1 EstabelecimentoInfos">MOTORA<br />
+							<div id="motora_usr" class="rating">&nbsp;</div>							
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo $this->Html->url('/imagens/icon_DefIntelectual.png'); ?> " class="CategoriasIconXXS" />
+						</div>
+						<div class="col-md-8 col-md-offset-1 EstabelecimentoInfos">INTELECTUAL<br />
+							<div id="intelectual_usr" class="rating">&nbsp;</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 marginBottomB">
+ 
+					<?php echo $this->Form->create('Comment', array('controller' =>'comments', 'action' => 'add', 'role' => 'form')); ?>
+					
+					<input type="hidden" name="data[Establishment][id]" value="<?php echo $idEstab; ?>" />
+					
+					<input type="hidden" name="data[Establishment][visual]" value="" id="visualInput"/>
+					
+					<input type="hidden" name="data[Establishment][motora]" value="" id="motoraInput"/>
+					
+					<input type="hidden" name="data[Establishment][auditiva]" value="" id="auditivaInput"/>
+					
+					<input type="hidden" name="data[Establishment][intelectual]" value="" id="intelectualInput"/>
+					
+					<?php echo $this->Form->input('texto', array('rows'=>'3', 'class'=>'form-control')); ?>
+					
+					<?php echo $this->Form->input('status', array('type'=>'hidden')); ?>
+					
+					<?php echo $this->Form->input('user_id', array('type'=>'hidden')); ?>
+					
+					<?php echo $this->Form->input('establishment_id', array('type'=>'hidden')); ?>
+										
+					<div id="recaptcha_widget">
+						<?php echo $this->Recaptcha->display(array('recaptchaOptions'=>array('theme' => 'clean'))); ?>
+					</div>
+
+					<br /><br />
+					<button type="submit" class="btn btn-tbqueroirE">Submit</button>
+				<?php echo $this->Form->end();?>
+
+			</div>
+			
+			
+
+			<div class="col-md-12 col-sm-12 col-xs-12">
+
+				<div class="row marginBottomA">
+					<div class="col-md-2 text-center">
+						<img src="imagens/FotoUser.jpg" class="FotoUserXS" /></div>
+						<div class="col-md-10">
+							<p class="ComentarioNome MarginPaddingZera">Rubens Silva</p>
+							<p class="ComentarioTexto MarginPaddingZera">Maravilhoso lugar! Meu filho amou!</p>
+					</div>
+				</div>
+
+
+
+				<!-- PAGINACAO -->
+				<div class="row marginTopB">
+					<div class="col-md-4 col-sm-4 col-xs-6">                    
+						<p class="InternasPaginacao">Página 1 de 3</p>
+					</div>
+
+					<div class="col-md-4 col-sm-4 col-xs-6 text-center">                    
+						<a href="#" class="LinkInternasPaginacao">Anterior</a> | <a href="#" class="LinkInternasPaginacao">Próxima</a>
+					</div>
+				</div>
+				<!-- PAGINACAO -->
+			</div>
+		</div>
+	</div>
+</div>                    
+<!-- COMENTARIOS-->
