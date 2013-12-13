@@ -18,18 +18,50 @@
 	
 	$idEstab =  $establishment['Establishment']['id'];
 	
-	$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
-	$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
-	$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
-	$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
+	$media_visual = 0;
+	
+	if (!empty($establishment['Establishment']['visual']) && !empty($establishment['Establishment']['visual_count'])) {
+		if ($establishment['Establishment']['visual'] > 0 && $establishment['Establishment']['visual_count'] > 0) {
+			$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
+		}
+			
+	}
+	
+	$media_auditiva = 0;
+	
+	if (!empty($establishment['Establishment']['auditiva']) && !empty($establishment['Establishment']['auditiva_count'])) {
+		if ($establishment['Establishment']['auditiva'] > 0 && $establishment['Establishment']['auditiva_count'] > 0) {
+			$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
+		}
+			
+	}
+	
+	$media_motora = 0;
+	
+	if (!empty($establishment['Establishment']['motora']) && !empty($establishment['Establishment']['motora_count'])) {
+		if ($establishment['Establishment']['motora'] > 0 && $establishment['Establishment']['motora_count'] > 0) {
+			$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
+		}
+			
+	}
+	
+	$media_intelectual = 0;
+	
+	if (!empty($establishment['Establishment']['intelectual']) && !empty($establishment['Establishment']['intelectual_count'])) {
+		if ($establishment['Establishment']['intelectual'] > 0 && $establishment['Establishment']['intelectual_count'] > 0) {
+			$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
+		}
+			
+	}
+	
 	
 	
 ?>
 
 
 <script type="text/javascript">
-
-
+	
+	
 	$(document).ready(function() {
 		
 		$('#visual').raty({ readOnly: true, score: <?php echo $media_visual; ?>, path: '/js/ratting/img'});
@@ -41,21 +73,22 @@
 		  target    : '#visualInput',
 		  targetType: 'number',
 		  path: '/js/ratting/img',
-		  targetKeep: true
+		  targetKeep: true,
+		  
 		});
 		
 		$('#auditiva_usr').raty({
 		  target    : '#auditivaInput',
 		  targetType: 'number',
 		  path: '/js/ratting/img',
-		  targetKeep: true
+		  targetKeep: true,
 		});
 		
 		$('#motora_usr').raty({
 		  target    : '#motoraInput',
 		  targetType: 'number',
 		  path: '/js/ratting/img',
-		  targetKeep: true
+		  targetKeep: true,
 
 		});
 		
@@ -63,8 +96,7 @@
 		  target    : '#intelectualInput',
 		  targetType: 'number',
 		  path: '/js/ratting/img',
-		  targetKeep: true
-
+		  targetKeep: true,
 		});
 				
 	});
