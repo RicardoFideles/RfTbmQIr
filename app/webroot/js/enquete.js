@@ -19,7 +19,7 @@ function enviarEnquete() {
 			url: urlAjax,
 			data: data1,
 			success: function(data) {
-				$('#enqueteForm').append(data);
+				$('#enqueteForm').html(data);
 		  	},
 		  	error: function() {
 		  		$('#enqueteForm').append("Ocorreu um erro");
