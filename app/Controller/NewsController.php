@@ -133,7 +133,7 @@ class NewsController extends AppController {
        
 		$this->News->recursive = 2;
 		
-		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('News.id' => 'desc'));
+		$this->paginate = array('limit' => 10 , 'page' => $id, 'order' => array('News.id' => 'desc'));
 
 		$news = $this->paginate();
 

@@ -15,12 +15,12 @@
 			<!-- lg md sm  -->
 			<div class="col-md-6 col-sm-6 hidden-xs">&nbsp;&nbsp;SUA CIDADE: 
 				<div class="btn-group">
-                    <button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><?php echo strtoupper($cidadeSelecionada['City']['name']); ?> <span class="caret setaBranca-caret"></span></button>
+                    <button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $cidadeSelecionada['City']['name']; ?> <span class="caret setaBranca-caret"></span></button>
 					<ul class="dropdown-menu tbqueroirB">
 						<?php foreach($cidades as $key => $cidade): ?>
 							<li>
 								<?php
-									$nome = strtoupper($cidade['City']['name']);
+									$nome = $cidade['City']['name'];
 									$id = $cidade['City']['id'];
 									echo $this->Html->link($nome, array('controller'=>'Cities','action' => 'setCidade', $id));
 								?>
@@ -113,12 +113,12 @@
 			<!-- xs  -->
 			<div class="col-md-6 col-sm-6 col-xs-12 text-center visible-xs">&nbsp;&nbsp;SUA CIDADE: 
 				<div class="btn-group">
-					<button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><?php echo strtoupper($cidadeSelecionada['City']['name']); ?> <span class="caret setaBranca-caret"></span></button>
+					<button class="btn btn-tbqueroirB btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $cidadeSelecionada['City']['name']; ?> <span class="caret setaBranca-caret"></span></button>
 					<ul class="dropdown-menu tbqueroirB">
 						<?php foreach($cidades as $key => $cidade): ?>
 							<li>
 								<?php
-									$nome = strtoupper($cidade['City']['name']);
+									$nome = $cidade['City']['name'];
 									$id = $cidade['City']['id'];
 									echo $this->Html->link($nome, array('controller'=>'Cities','action' => 'setCidade', $id));
 								?>
