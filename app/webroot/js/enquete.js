@@ -19,7 +19,8 @@ function enviarEnquete() {
 			url: urlAjax,
 			data: data1,
 			success: function(data) {
-				$('#enqueteForm').html(data);
+				$('#enqueteForm label').html(data);
+				$('#enqueteForm p button').removel();
 		  	},
 		  	error: function() {
 		  		$('#enqueteForm').append("Ocorreu um erro");
