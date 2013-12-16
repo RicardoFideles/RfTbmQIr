@@ -93,6 +93,14 @@
                         
                         <li>
                         	<a href="<?php 
+                        					$link = array('controller' => 'comments', 'action' => 'index');
+                        					echo $this->Html->url($link);
+                        			?>" 
+                    			class="tables"><span>Comentários</span>
+                			</a>
+                        </li>
+                        <li>
+                        	<a href="<?php 
                         					$link = array('controller' => 'users', 'action' => 'index');
                         					echo $this->Html->url($link);
                         			?>" 

@@ -1,7 +1,7 @@
 <div class="header radius3">
     <div class="headerinner">
         <a href="<?php echo $this->Html->url('/admin'); ?>">
-            <img src="<?php echo $this->Html->url('/images/admin/starlight_admin_template_logo_small.png'); ?>" alt="" />
+            <img src="<?php echo $this->Html->url('/images/admin/LogoSistemaRicardo.png'); ?>" alt="" />
         </a>
         <div class="headright">
             <div class="headercolumn">&nbsp;</div>

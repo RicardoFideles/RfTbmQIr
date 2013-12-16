@@ -40,5 +40,8 @@ class Comment extends AppModel {
  * @var string
  */
 	public $name = 'Comment';
+	
+	
+	
 
 }
