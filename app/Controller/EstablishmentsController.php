@@ -118,6 +118,8 @@ class EstablishmentsController extends AppController {
 		if (!$this -> Establishment -> exists()) {
 			throw new NotFoundException(__('Estabelecimento inexistente'));
 		}
+		
+		$this->Establishment->recursive = 2;
 
 		$establishment = $this -> Establishment -> read(null, $id);
 		

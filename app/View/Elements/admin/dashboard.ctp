@@ -37,7 +37,7 @@
 		                        					$link = array('controller' => 'paginas', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Páginas</span>
+		                    			class="tables"><span>Páginas Estáticas</span>
 		                			</a>
         						</li>
         						<li>
@@ -45,7 +45,7 @@
 		                        					$link = array('controller' => 'news', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Notícias</span>
+		                    			class="tables"><span>Matérias</span>
 		                			</a>
         						</li>
         						<li>
@@ -61,7 +61,7 @@
 		                        					$link = array('controller' => 'people', 'action' => 'index');
 		                        					echo $this->Html->url($link);
 		                        			?>" 
-		                    			class="tables"><span>Histórias</span>
+		                    			class="tables"><span>Minha História</span>
 		                			</a>
         						</li>
         						<li>
@@ -105,6 +105,14 @@
                         					echo $this->Html->url($link);
                         			?>" 
                     			class="tables"><span>Usuários</span>
+                			</a>
+                        </li>
+                        <li>
+                        	<a href="<?php 
+                        					$link = array('controller' => 'users', 'action' => 'guest');
+                        					echo $this->Html->url($link);
+                        			?>" 
+                    			class="tables"><span>Leitores</span>
                 			</a>
                         </li>
                     </ul>

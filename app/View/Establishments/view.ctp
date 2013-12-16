@@ -258,17 +258,22 @@
                     
 <div class="row hidden-print">
 	<div class="col-md-12 col-sm-12 col-xs-12 bkgRodapeOutrosEstab marginTopA marginBottomA OutrosEstabTitulo"></div>
-	<div class="col-md-7 col-md-offset-2 col-sm-7 col-xs-7 marginBottomA">
+	
+	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 marginBottomA">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<p class="MateriasOutrasTituloCol fonteSiteSouvMedium textColorC">
-					Comentários <span class="fonteSiteSouvLight">(2)</span>
+					<?php 
+						$comentarios = $establishment['Comment']; 
+					?>
+					Comentários <span class="fonteSiteSouvLight">(<?php echo sizeof($comentarios); ?>)</span>
 				</p>
+				
 				<p>Avalie e comente, sua opinião é importante para nós.</p>
 			</div>
 
 			<div id="containerVotacao">
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-3 col-xs-6">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="<?php echo $this->Html->url('/imagens/icon_DefVisual.png'); ?> " class="CategoriasIconXXS" />
@@ -279,7 +284,7 @@
 					</div>
 				</div>
 				
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-3 col-xs-6">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="<?php echo $this->Html->url('/imagens/icon_DefAuditiva.png'); ?> " class="CategoriasIconXXS" />
@@ -290,7 +295,7 @@
 					</div>
 				</div>
 				
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-3 col-xs-6">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="<?php echo $this->Html->url('/imagens/icon_DefMotora.png'); ?> " class="CategoriasIconXXS" />
@@ -301,7 +306,7 @@
 					</div>
 				</div>
 				
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-3 col-xs-6">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="<?php echo $this->Html->url('/imagens/icon_DefIntelectual.png'); ?> " class="CategoriasIconXXS" />
@@ -337,6 +342,9 @@
 										
 					<div id="recaptcha_widget">
 						<?php echo $this->Recaptcha->display(array('recaptchaOptions'=>array('theme' => 'clean'))); ?>
+						<div id="msg_retorno">
+							<?php echo $this->Session->flash() ?>
+						</div>
 					</div>
 
 					<br /><br />
@@ -348,29 +356,55 @@
 			
 
 			<div class="col-md-12 col-sm-12 col-xs-12">
-
-				<div class="row marginBottomA">
-					<div class="col-md-2 text-center">
-						<img src="imagens/FotoUser.jpg" class="FotoUserXS" /></div>
-						<div class="col-md-10">
-							<p class="ComentarioNome MarginPaddingZera">Rubens Silva</p>
-							<p class="ComentarioTexto MarginPaddingZera">Maravilhoso lugar! Meu filho amou!</p>
-					</div>
-				</div>
-
-
-
-				<!-- PAGINACAO -->
-				<div class="row marginTopB">
-					<div class="col-md-4 col-sm-4 col-xs-6">                    
-						<p class="InternasPaginacao">Página 1 de 3</p>
-					</div>
-
-					<div class="col-md-4 col-sm-4 col-xs-6 text-center">                    
-						<a href="#" class="LinkInternasPaginacao">Anterior</a> | <a href="#" class="LinkInternasPaginacao">Próxima</a>
-					</div>
-				</div>
-				<!-- PAGINACAO -->
+				
+				<?php
+					
+					foreach ($comentarios as $comentario): ?>
+					
+					<?php
+						
+						if ($comentario['status'] == 'aprovado') {
+					?>
+					
+						<div class="row marginBottomA">
+							<div class="col-md-2 col-sm-2 col-xs-4 text-center">
+								<?php
+								
+									$id_user = $comentario['User']['id']; 
+								
+									$photo_user = $this->requestAction(array('controller' => 'photos', 'action' => 'recuperaFoto', $id_user ));
+									
+									if (!empty($photo_user) && sizeof($photo_user) > 0) {
+										
+										$url = $this->Link->makeLinkImgDir('original', $photo_user['Photo']['imagem'], 'fotos');
+								?>
+									<img src="<?php echo $this->Html->url($url) ?>" class="FotoUserXS" />
+								
+								<?php		
+									}
+								?>		
+								
+							</div>
+							<div class="col-md-10 col-sm-10 col-xs-11">
+								<p class="ComentarioNome MarginPaddingZera">
+									<?php
+										echo $comentario['User']['name']; 
+									?>
+								</p>
+								<p class="ComentarioTexto MarginPaddingZera">
+									<?php
+										echo $comentario['texto'] 
+									?>
+								</p>
+							</div>
+						</div>
+					
+					<?php
+						}
+					
+					?>
+					
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>

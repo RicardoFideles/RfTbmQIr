@@ -22,6 +22,7 @@ class CommentsController extends AppController {
  */
 	public function admin_index() {
 		$this->Comment->recursive = 0;
+		$this->paginate = array('order' => array('Comment.id' => 'desc'));
 		$this->set('comments', $this->Paginator->paginate());
 	}
 
@@ -120,25 +121,33 @@ class CommentsController extends AppController {
 			throw new NotFoundException(__('Invalid comment'));
 		}
 		
+		$commnet = $this->Comment->read(null, $id);
+		$this->Comment->set('status', 'aprovado');
+		
+		if ($this->Comment->save()) {
+			$this->Session->setFlash(__('Comentário aprovado com sucesso.'));
+		} else {
+			$this->Session->setFlash(__('Ocorreu um erro ao tentar aprovar o comentário.'));
+		}
+		return $this->redirect(array('action' => 'index'));
+		
 	}
 	
 	public function add() {
 		if ($this->request->is('post')) {
 			
 			
-			$id = AuthComponent::user('id');
+			$id_user = AuthComponent::user('id');
 			
 			$this->loadModel('User');
 			
-        	$this->User->id = $id;
+        	$this->User->id = $id_user;
         	if (!$this->User->exists()) {
             	$this->Session->setFlash("É necessário estar logado para comentar.");
 					$this->redirect($this->referer());
         	}
 			
 			if ($this->Recaptcha->verify()) {
-				
-				var_dump($this->request->data);
 				
 				$this->loadModel('Establishment');
 				
@@ -148,6 +157,11 @@ class CommentsController extends AppController {
 					$this->Session->setFlash("Ocorreu um erro tente novamente.");
 					$this->redirect($this->referer());
 				}
+				
+				$media_visual = 0;
+				$media_auditiva = 0;
+				$media_motora = 0;
+				$media_intelectual = 0;
 				
 				$establishment = $this->Establishment->read(null, $id);
 				
@@ -161,6 +175,12 @@ class CommentsController extends AppController {
 					
 					$this->Establishment->set('visual', $visual);
 					$this->Establishment->set('visual_count', $total_visual);
+					
+					$media_visual = $visual / $total_visual;
+					
+				} else {
+					
+					$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
 				}
 				
 				
@@ -174,6 +194,13 @@ class CommentsController extends AppController {
 					
 					$this->Establishment->set('auditiva', $auditiva);
 					$this->Establishment->set('auditiva_count', $total_auditiva);
+					
+					
+					$media_visual = $auditiva / $total_auditiva;
+					
+				} else {
+					
+					$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
 				}
 				
 				
@@ -187,6 +214,12 @@ class CommentsController extends AppController {
 					
 					$this->Establishment->set('motora', $motora);
 					$this->Establishment->set('motora_count', $total_motora);
+					
+					$media_motora = $motora / $total_motora; 
+					
+				} else {
+					
+					$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
 				}
 				
 				
@@ -200,17 +233,30 @@ class CommentsController extends AppController {
 					
 					$this->Establishment->set('intelectual', $intelectual);
 					$this->Establishment->set('intelectual_count', $total_intelectual);
+					
+					$media_intelectual = $intelectual / $total_intelectual;
+					
+				} else {
+					
+					$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
 				}
+
+				$media_geral = ($media_auditiva + $media_motora + $media_visual +$media_intelectual) / 4 ;
+				
+				$media_geral = round($media_geral, 2, PHP_ROUND_HALF_DOWN);
+				
+				$this->Establishment->set('media', $media_geral);
 				
 				if ($this->Establishment->save()) {
 					
-					$this->request->data['Comment']['user_id'] = 2;
+					$this->request->data['Comment']['user_id'] = $id_user;
 					$this->request->data['Comment']['status'] = 'aguardando';
 					$this->request->data['Comment']['establishment_id'] = $id;
 					
 					
 					$this->Comment->create();
 					if ($this->Comment->save($this->request->data)) {
+						$this->Session->setFlash(__('Voto computado com sucesso.'));
 						$this->redirect($this->referer());
 					} else {
 						$this->Session->setFlash(__('Ocorreu um erro tente novamente.'));

@@ -9,7 +9,7 @@
 		</li>
 	</ul>
 	 <div class="contenttitle">
-    	<h2 class="form"><span>Histórias</span></h2>
+    	<h2 class="form"><span>Minha História</span></h2>
     </div>
     
      <br />

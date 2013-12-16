@@ -19,16 +19,10 @@
     <?php echo $this->Form->create('Pagina', array('id' => 'form2', 'class' => 'stdform stdform2',  'inputDefaults' => array('label' => false, 'div' => false)));?>
     	<?php echo $this->Form->input('id'); ?>
 	    <p class="primeiro">
-	    	<label>Nome</label>
+	    	<label>Pagina</label>
 	        <span class="field">
 	        	<?php echo $pagina['name'] ?>
         	</span>
-	    </p>
-	    <p>
-	    	<label>Tipo</label>
-	        <span class="field">
-	        	<?php echo $pagina['tipo'] ?>
-			</span>
 	    </p>
 	    <p>
 	    	<label>Texto</label>

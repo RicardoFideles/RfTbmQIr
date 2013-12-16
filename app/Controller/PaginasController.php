@@ -111,7 +111,7 @@ class PaginasController extends AppController {
 	}
 	
 	public function texto_sobre_rodape () {
-		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'texto-sobre-no-rodape'), 'limit' => 1));
+		return $this->Pagina->find('all', array('conditions' => array('Pagina.slug' => 'texto-sobre-o-rodape'), 'limit' => 1));
 	}
 	
 

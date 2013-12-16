@@ -88,6 +88,13 @@ class UsersController extends AppController {
  */
     public function admin_index() {
         $this->User->recursive = 0;
+		$this->paginate = array('conditions' => array('User.role' => 'admin') , 'order' => array('User.id' => 'desc'));
+        $this->set('users', $this->paginate());
+    }
+	
+	public function admin_guest() {
+        $this->User->recursive = 0;
+		$this->paginate = array('conditions' => array('User.role' => 'guest') , 'order' => array('User.id' => 'desc'));
         $this->set('users', $this->paginate());
     }
     
@@ -198,4 +205,5 @@ class UsersController extends AppController {
     public function admin_dashboard() {
         $this->redirect(array('action' => 'home'));
     }
+	
 }

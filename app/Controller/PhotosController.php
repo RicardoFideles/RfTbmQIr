@@ -352,4 +352,18 @@ class PhotosController extends AppController {
 		}
 		
 	}
+	
+	public function recuperaFoto ($id = null) {
+		
+		$this->loadModel('User');
+		
+        $this->User->id = $id;
+		
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+		
+		$options = array('conditions' => array('Photo.user_id' => $id));
+		return $this->Photo->find('first', $options);
+	}
 }

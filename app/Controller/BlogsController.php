@@ -98,7 +98,7 @@ class BlogsController extends AppController {
        
 		$this->Blog->recursive = 2;
 		
-		$this->paginate = array('limit' => 3 , 'page' => $id, 'order' => array('Blog.id' => 'desc'));
+		$this->paginate = array('limit' => 30 , 'page' => $id, 'order' => array('Blog.id' => 'desc'));
 
 		$blogs = $this->paginate();
 

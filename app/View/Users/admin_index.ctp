@@ -20,7 +20,6 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Nome');?></th>
-					<th class="head1"><?php echo $this->Paginator->sort('Permissão');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</thead>
@@ -29,7 +28,6 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Nome');?></th>
-					<th class="head1"><?php echo $this->Paginator->sort('Permissão');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</tfoot>
@@ -39,10 +37,8 @@
 					<tr class="gradeX">
 						<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
 						<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
-						<td><?php echo h($user['User']['role']); ?>&nbsp;</td>
 						<td class="center">
-							<?php echo $this->Html->link(__('Editar Textos'), array('action' => 'edit', $user['User']['id'])); ?>
-							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $user['User']['id'])); ?>
+							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $user['User']['id'])); ?>
 							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $user['User']['id']), null, __('Você tem certeza que deseja apagar # %s?', $user['User']['name'])); ?>
 						</td>
 					</tr>

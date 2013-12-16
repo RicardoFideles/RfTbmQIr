@@ -2,7 +2,7 @@
 <div class="row marginTopB marginBottomB">
 
 	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">                    
-		<p class="TitulosInternas fonteSiteSouvLight">MATÉRIAS</p>
+		<p class="TitulosInternas fonteSiteSouvLight">MINHA HISTÓRIA</p>
 		<hr class="hrTitulos" />
 	</div>
 
