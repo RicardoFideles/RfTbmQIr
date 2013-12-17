@@ -1,6 +1,8 @@
 <!-- FAIXA LOGO -->
 <!-- lg md sm  -->
-
+<?php 
+	$settings =  Configure::read('Config.settings');
+?>
 <div class="row FaixaLogoAltura hidden-xs">
 	<div class="col-md-4 col-md-offset-1 col-sm-6">
 		<a href="<?php echo $this->Html->url('/'); ?>">
@@ -22,8 +24,12 @@
 			
 			<div class="col-md-12 col-sm-12 FaixaLogoRedesSociais fonteSiteSouvLight">
 				<span>SIGA-NOS</span>
-				<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Facebook.png') ?>" width="27" height="27">
-				<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Twitter.png') ?>" width="27" height="27">
+				<a href="<?php echo $settings['Setting']['link_facebook']; ?>">
+					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Facebook.png') ?>" width="27" height="27">
+				</a>
+				<a href="<?php echo $settings['Setting']['link_twitter']; ?>">
+					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Twitter.png') ?>" width="27" height="27">
+				</a>
 			</div>
 		</div>
 	</div>
@@ -51,8 +57,13 @@
 			
 			<div class="col-xs-12 FaixaLogoRedesSociais fonteSiteSouvLight">
 				<span>SIGA-NOS</span>
-				<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Facebook.png') ?>" width="27" height="27">
-				<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Twitter.png') ?>" width="27" height="27">
+				
+				<a href="<?php echo $settings['Setting']['link_facebook']; ?>">
+					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Facebook.png') ?>" width="27" height="27">
+				</a>
+				<a href="<?php echo $settings['Setting']['link_twitter']; ?>">
+					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Twitter.png') ?>" width="27" height="27">
+				</a>
 			</div>
 		</div>
 	</div>

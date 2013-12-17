@@ -20,7 +20,7 @@
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 						
 				?>
-						<img src="<?php echo $this->Html->url($url) ?>" class="CategoriaPosIcon CategoriasIconXS" />
+					<img src="<?php echo $this->Html->url($url) ?>" class="CategoriaPosIcon CategoriasIconXS" />
 				<?php
 					}
 				?>
@@ -42,7 +42,9 @@
 						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 				?>     
 					<div class="HomeMatImageCrop">
-						<img src="<?php echo $this->Html->url($url) ?>"  class="img-responsive fotoSize marginBottomIMG">
+						<a href="<?php echo $this->Html->url($link); ?>">
+							<img src="<?php echo $this->Html->url($url) ?>"  class="img-responsive fotoSize marginBottomIMG">
+						</a>
 					</div>               
 				<?php
 					}

@@ -20,6 +20,7 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Em Foco');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
@@ -29,6 +30,7 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Em Foco');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
@@ -39,6 +41,7 @@
 					<tr class="gradeX">
 						<td><?php echo h($news['News']['id']); ?>&nbsp;</td>
 						<td><?php echo h($news['News']['name']); ?>&nbsp;</td>
+						<td><?php echo $this->Time->format('d.m.Y', $news['News']['created'], null, 'America/Sao_Paulo'); ?>&nbsp;</td>
 						<td><?php echo h($news['News']['emfoco']); ?>&nbsp;</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Editar Textos'), array('action' => 'edit', $news['News']['id'])); ?>

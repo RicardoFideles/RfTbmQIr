@@ -20,6 +20,7 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</thead>
@@ -28,6 +29,7 @@
 				<tr>
 					<th class="head0"><?php echo $this->Paginator->sort('id');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</tfoot>
@@ -37,6 +39,8 @@
 					<tr class="gradeX">
 						<td><?php echo h($person['Person']['id']); ?>&nbsp;</td>
 						<td><?php echo h($person['Person']['name']); ?>&nbsp;</td>
+						<td><?php echo $this->Time->format('d.m.Y', $person['Person']['created'], null, 'America/Sao_Paulo'); ?>&nbsp;</td>
+
 						<td class="center">
 							<?php echo $this->Html->link(__('Editar Textos'), array('action' => 'edit', $person['Person']['id'])); ?>
 							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $person['Person']['id'])); ?>

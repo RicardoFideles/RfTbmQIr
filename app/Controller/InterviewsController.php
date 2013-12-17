@@ -22,6 +22,7 @@ class InterviewsController extends AppController {
  */
 	public function admin_index() {
 		$this->Interview->recursive = 0;
+		$this->paginate = array('order' => array('Interview.id' => 'desc'));
 		$this->set('interviews', $this->Paginator->paginate());
 	}
 

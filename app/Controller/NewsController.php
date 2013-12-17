@@ -22,6 +22,7 @@ class NewsController extends AppController {
 	 */
 	public function admin_index() {
 		$this -> News -> recursive = 0;
+		$this->paginate = array('order' => array('News.id' => 'desc'));
 		$this -> set('news', $this -> Paginator -> paginate());
 	}
 

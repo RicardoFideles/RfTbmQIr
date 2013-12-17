@@ -99,6 +99,8 @@ class AppController extends Controller {
 	        	
         }
 		
+		
+		
 		$cidade = $this->City->findAllById(1);
 		$cidade = $cidade[0];
         Configure::write('Config.cidadeSelecionada', $cidade);
@@ -106,6 +108,14 @@ class AppController extends Controller {
 		if ($this->Session->check('Config.cidadeSelecionada')) {
             Configure::write('Config.cidadeSelecionada', $this->Session->read('Config.cidadeSelecionada'));
         }
+
+		$settings = $this->Setting->find('first');
+		Configure::write('Config.settings', $settings);
+		
+		if ($this->Session->check('Config.settings')) {
+            Configure::write('Config.settings', $this->Session->read('Config.settings'));
+        }
+		
 
         return parent::beforeFilter();  
     }

@@ -13,7 +13,9 @@
 		
 			$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 	?>
-		<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+		<a href="<?php echo $this->Html->url($link); ?>">
+			<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+		</a>
 		
 	<?php
 		}
