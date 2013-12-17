@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 	 <div class="contenttitle">
-    	<h2 class="form"><span><?php echo $interview['Interview']['name'] ?></span></h2>
+    	<h2 class="form"><span>Entrevistas</span></h2>
     </div>
     
      <br />
@@ -25,14 +25,21 @@
     
 <br clear="all" /><br />
 <div class="content">
-
-	<ul class="buttonlist">
-		<li>
-			<a href="<?php $link = array('controller' => 'Photos', 'action' => 'add_entrevista',$interview['Interview']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
-				<span>Adicionar imagens</span>
-			</a>
-		</li>
-	</ul>
+	
+	<?php 
+		if (sizeof($interview['Photo']) <= 0) {
+	?>
+		<ul class="buttonlist">
+			<li>
+				<a href="<?php $link = array('controller' => 'Photos', 'action' => 'add_entrevista',$interview['Interview']['id']); echo $this->Html->url($link); ?>" class="btn btn_book">
+					<span>Adicionar imagens</span>
+				</a>
+			</li>
+		</ul>
+	
+	<?php
+		}
+	?>
 	<div class="contenttitle">
 		<h2 class="image"><span>Fotos Relacionadas</span></h2>
 	</div>

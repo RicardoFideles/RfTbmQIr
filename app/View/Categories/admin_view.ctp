@@ -23,7 +23,7 @@
 <div class="content">
 	
 	<?php
-		if (sizeof($category['Photo']) < 1) {
+		if (sizeof($category['Photo']) <= 0) {
 	?>
 	
 		<ul class="buttonlist">

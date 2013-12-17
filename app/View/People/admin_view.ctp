@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 	 <div class="contenttitle">
-    	<h2 class="form"><span><?php echo $person['Person']['name'] ?></span></h2>
+    	<h2 class="form"><span>Minha História</span></h2>
     </div>
     
      <br />
@@ -26,6 +26,10 @@
     
 <br clear="all" /><br />
 <div class="content">
+	
+	<?php
+		if (sizeof($person['Photo']) <= 0) {
+	?>
 
 	<ul class="buttonlist">
 		<li>
@@ -34,6 +38,11 @@
 			</a>
 		</li>
 	</ul>
+	
+	<?php
+		}
+	 ?>
+	 
 	<div class="contenttitle">
 		<h2 class="image"><span>Fotos Relacionadas</span></h2>
 	</div>

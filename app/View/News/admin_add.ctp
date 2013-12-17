@@ -9,7 +9,7 @@
 		</li>
 	</ul>
 	 <div class="contenttitle">
-    	<h2 class="form"><span>Notícias</span></h2>
+    	<h2 class="form"><span>Matérias</span></h2>
     </div>
     
      <br />
