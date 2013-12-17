@@ -24,6 +24,9 @@
 		</a>
 	</p>
 	<p>
-		<?php echo $destaque['News']['subtitulo'] ?>
+		<?php 
+			$subtitulo = $destaque['News']['subtitulo'];
+			echo $this->String->truncate($subtitulo, 120, $limite='...') ;
+		?>
 	</p> 
 </div>

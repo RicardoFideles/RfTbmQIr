@@ -20,7 +20,7 @@ function enviarEnquete() {
 			data: data1,
 			success: function(data) {
 				$('#enqueteForm label').html(data);
-				$('#enqueteForm p button').removel();
+				$('#enqueteForm p button').remove();
 		  	},
 		  	error: function() {
 		  		$('#enqueteForm').append("Ocorreu um erro");
