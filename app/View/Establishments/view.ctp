@@ -207,8 +207,10 @@
 						?>
 						
 						<div class="fb-share-button" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-type="button_count"></div>
-					</div>					
- 					<img src="<?php echo $this->Html->url('/imagens/icon_Print.png'); ?>" />
+					</div>
+					<a href="javascript:window.print()">
+	 					<img src="<?php echo $this->Html->url('/imagens/icon_Print.png'); ?>" />
+					</a>					
 				</div>
 			
 				<?php echo $establishment['Establishment']['texto']; ?>
