@@ -54,7 +54,7 @@
 	    </p>
 	    
 	    <p>
-    		<label>Informaçoes</label>
+    		<label>Informações</label>
 	        <span class="field"><?php echo $this->Form->input('informacoes', array('rows'=>'5', 'cols'=>'15','class'=>'ckeditor2', 'id'=> 'editor3')); ?></span>
 	    </p>
 	    

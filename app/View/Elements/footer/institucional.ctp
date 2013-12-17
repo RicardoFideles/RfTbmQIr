@@ -70,7 +70,13 @@
 		</p>
 	</div>
 
-	<div class="col-md-5 col-sm-12 col-xs-12 marginTopB marginBottomA"><p class="fonteSiteSouvMedium RodapeTitulo">FACEBOOK</p></div>
+	<div class="col-md-5 col-sm-12 marginTopB marginBottomA">
+		<div class="facebookResponsive">
+			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FTamb%25C3%25A9m-Quero-Ir%2F532360213518427&amp;width=1000&amp;height=230&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:230px;" allowTransparency="true"></iframe>
+		</div>
+	</div>
+
+	
 </div>
 <!-- lg md sm  -->
 
@@ -141,7 +147,11 @@
 		</div>
 
 		<div class="row">                        
-			<div class="col-xs-12 marginBottomA"><p class="fonteSiteSouvMedium RodapeTitulo">FACEBOOK</p></div>
+			<div class="col-xs-12 marginBottomA">
+				<div class="facebookResponsive">
+                  <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FTamb%25C3%25A9m-Quero-Ir%2F532360213518427&amp;width=1000&amp;height=230&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:230px;" allowTransparency="true"></iframe>
+                </div>    
+			</div>
 		</div>
 	</div>
 </div>
