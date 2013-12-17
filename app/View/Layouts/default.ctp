@@ -13,7 +13,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-        echo $this->Html->css(array ('bootstrap.min', 'css_tambemqueroir'));
+        echo $this->Html->css(array ('bootstrap.min', 'css_tambemqueroir','lightbox','rating'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -23,6 +23,8 @@
 	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="<?php echo $this->Html->url('https://code.jquery.com/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo $this->Html->url('/js/bootstrap.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->url('/js/ratting/jquery.raty.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

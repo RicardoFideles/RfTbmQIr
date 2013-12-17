@@ -5,15 +5,6 @@
 ?>
 <?php echo $this->element('facebook/sdk'); ?>
 
-
-<script type="text/javascript" src="<?php echo $this->Html->url('/js/ratting/jquery.raty.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
-
-
-<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/lightbox.css'); ?>" />
-
-<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url('/css/rating.css'); ?>" />
-
 <?php 
 	
 	$idEstab =  $establishment['Establishment']['id'];

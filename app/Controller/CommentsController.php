@@ -180,7 +180,12 @@ class CommentsController extends AppController {
 					
 				} else {
 					
-					$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
+					if (!empty($establishment['Establishment']['visual']) && !empty($establishment['Establishment']['visual_count'])) {
+						if ($establishment['Establishment']['visual'] > 0 && $establishment['Establishment']['visual_count'] > 0) {
+							$media_visual =  $establishment['Establishment']['visual'] / $establishment['Establishment']['visual_count'];
+						}
+							
+					}
 				}
 				
 				
@@ -200,7 +205,12 @@ class CommentsController extends AppController {
 					
 				} else {
 					
-					$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
+					if (!empty($establishment['Establishment']['auditiva']) && !empty($establishment['Establishment']['auditiva_count'])) {
+						if ($establishment['Establishment']['auditiva'] > 0 && $establishment['Establishment']['auditiva_count'] > 0) {
+							$media_auditiva =  $establishment['Establishment']['auditiva'] / $establishment['Establishment']['auditiva_count'];
+						}
+							
+					} 
 				}
 				
 				
@@ -219,7 +229,12 @@ class CommentsController extends AppController {
 					
 				} else {
 					
-					$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
+					if (!empty($establishment['Establishment']['motora']) && !empty($establishment['Establishment']['motora_count'])) {
+						if ($establishment['Establishment']['motora'] > 0 && $establishment['Establishment']['motora_count'] > 0) {
+							$media_motora =  $establishment['Establishment']['motora'] / $establishment['Establishment']['motora_count'];
+						}
+							
+					}
 				}
 				
 				
@@ -238,7 +253,12 @@ class CommentsController extends AppController {
 					
 				} else {
 					
-					$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
+					if (!empty($establishment['Establishment']['intelectual']) && !empty($establishment['Establishment']['intelectual_count'])) {
+						if ($establishment['Establishment']['intelectual'] > 0 && $establishment['Establishment']['intelectual_count'] > 0) {
+							$media_intelectual =  $establishment['Establishment']['intelectual'] / $establishment['Establishment']['intelectual_count'];
+						}
+							
+					}
 				}
 
 				$media_geral = ($media_auditiva + $media_motora + $media_visual +$media_intelectual) / 4 ;

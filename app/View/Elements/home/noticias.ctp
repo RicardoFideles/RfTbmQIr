@@ -32,7 +32,10 @@
 						<?php echo $news['News']['name']; ?>
 					</a>
 				</p>
-				<?php echo $news['News']['subtitulo']; ?>
+				<?php
+					$subtitulo = $news['News']['subtitulo'];
+					echo $this->String->truncate($subtitulo, 150, $limite='...') ;
+				?>
 			</div>
 			
 		<?php endforeach; ?>
@@ -60,7 +63,10 @@
 						<?php echo $person['Person']['name']; ?>
 					</a>
 				</p>
-				<?php echo $person['Person']['subtitulo']; ?>
+				<?php
+					$subtitulo = $person['Person']['subtitulo'];
+					echo $this->String->truncate($subtitulo, 150, $limite='...') ;
+				?>
 			</div>
 			
 		<?php endforeach; ?>
@@ -88,7 +94,10 @@
 						<?php echo $interview['Interview']['name']; ?>
 					</a>
 				</p>
-				<?php echo $interview['Interview']['subtitulo']; ?>
+				<?php
+					$subtitulo = $interview['Interview']['subtitulo'];
+					echo $this->String->truncate($subtitulo, 150, $limite='...') ;
+				?>
 			</div>
 			
 		<?php endforeach; ?>

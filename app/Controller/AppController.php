@@ -39,7 +39,7 @@ class AppController extends Controller {
      * 
      * @var array
      */
-    public $helpers = array('Html', 'Form', 'Session', 'Time', 'Text', 'Number','Cache', 'Link', 'RenderBody');
+    public $helpers = array('Html', 'Form', 'Session', 'Time', 'Text', 'Number','Cache', 'Link', 'RenderBody', 'String');
 	
 	    var $uses = array('Setting','City');
 	

@@ -210,11 +210,18 @@ class EstablishmentsController extends AppController {
 		
 	}
 	
-	public function registrar () {
-		var_dump($this->request->data['rating']);
-		var_dump($this->request->query['id']);
+	public function topHome () {
 		
-		exit;
+		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
+		
+		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
+		
+		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada), 'order' => array('Establishment.media' => 'DESC'), 'limit' => 5);
+		
+		$lista = $this->Establishment->find('all', $options);
+		
+		return $lista;
+		
 	}
 
 

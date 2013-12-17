@@ -55,7 +55,7 @@
 <?php echo $opcao_1; ?>
 <?php  $resultado = (100 * $resultado_1) / $total; ?>
 
-<div class="progress progress-danger">
+<div class="progress progress-bar-success">
 	<div class="bar" style="width: <?php echo $resultado; ?>%"></div>
 	<div class="vote"><?php echo round($resultado); ?>%</div>
 </div>
@@ -71,7 +71,7 @@
 <?php echo $opcao_2; ?>
 <?php $resultado = (100 * $resultado_2) / $total; ?>
 
-<div class="progress progress-danger">
+<div class="progress progress-bar-success">
 	<div class="bar" style="width: <?php echo $resultado; ?>%"></div>
 	<div class="vote"><?php echo round($resultado); ?>%</div>
 </div>
@@ -86,7 +86,7 @@
 <?php echo $opcao_3; ?>
 <?php $resultado = (100 * $resultado_3) / $total; ?>
 
-<div class="progress progress-danger">
+<div class="progress progress-bar-success">
 	<div class="bar" style="width: <?php echo $resultado; ?>%"></div>
 	<div class="vote"><?php echo round($resultado); ?>%</div>
 </div>
@@ -102,7 +102,7 @@
 <?php echo $opcao_4; ?>
 <?php  $resultado = (100 * $resultado_4) / $total; ?>
 
-<div class="progress progress-danger">
+<div class="progress progress-bar-success">
 	<div class="bar" style="width: <?php echo $resultado; ?>%"></div>
 	<div class="vote"><?php echo round($resultado); ?>%</div>
 </div>
@@ -117,7 +117,7 @@
 <?php echo $opcao_5; ?>
 <?php $resultado = (100 * $resultado_5) / $total; ?>
 
-<div class="progress progress-danger">
+<div class="progress progress-bar-success">
 	<div class="bar" style="width: <?php echo $resultado; ?>%"></div>
 	<div class="vote"><?php echo round($resultado); ?>%</div>
 </div>
