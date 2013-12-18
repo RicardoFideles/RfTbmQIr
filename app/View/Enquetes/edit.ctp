@@ -126,6 +126,7 @@
 	} 
 ?>
 
-<div class="votes total"><?php echo $total; ?> votos</div>
+<div class="votes total">
+	Total <?php echo $total; ?> voto(s)</div>
 
 </style>

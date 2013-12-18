@@ -190,7 +190,7 @@
 						$site = $establishment['Establishment']['site'];
 					?>
 					<a href="<?php echo $this->Html->url($site); ?>" class="LinkEstabelecimentoSite">
-						<?php echo $site ?>
+						<?php echo $establishment['Establishment']['name'] ?>
 					</a>
 				</p>
 			</div>

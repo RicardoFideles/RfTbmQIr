@@ -39,7 +39,7 @@
 			
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12 OutrosEstabTexto">
-					Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut srisus.
+					<?php echo $establishment['Establishment']['breve']; ?>
 				</div>
 			</div>
 		</div>

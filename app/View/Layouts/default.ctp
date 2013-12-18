@@ -56,6 +56,7 @@
     
     <?php echo $this->element('footer/index'); ?>
     <?php echo $this->element('footer/copy'); ?>
+    <?php echo $this->element('google/analytics'); ?>
 	
 	
 </body>

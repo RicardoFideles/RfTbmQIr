@@ -24,10 +24,10 @@
 			
 			<div class="col-md-12 col-sm-12 FaixaLogoRedesSociais fonteSiteSouvLight">
 				<span>SIGA-NOS</span>
-				<a href="<?php echo $settings['Setting']['link_facebook']; ?>">
+				<a href="<?php echo $settings['Setting']['link_facebook']; ?>" id="social">
 					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Facebook.png') ?>" width="27" height="27">
 				</a>
-				<a href="<?php echo $settings['Setting']['link_twitter']; ?>">
+				<a href="<?php echo $settings['Setting']['link_twitter']; ?>" id="social">
 					<img src="<?php echo $this->Html->url('/imagens/RedeSocial_Twitter.png') ?>" width="27" height="27">
 				</a>
 			</div>

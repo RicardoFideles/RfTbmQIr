@@ -39,9 +39,9 @@
 					</a>
 				</div>
 			</div>
-			<p class="EstabelecimentoOutrosTexto">
+			<div id="EstabelecimentoOutrosTexto">
 				<?php echo $establishment['Establishment']['informacoes']; ?>
-			</p>
+			</div>
 		</p> 
               
 	<?php endforeach; ?>

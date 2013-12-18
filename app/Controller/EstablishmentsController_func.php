@@ -118,8 +118,6 @@ class EstablishmentsController extends AppController {
 		if (!$this -> Establishment -> exists()) {
 			throw new NotFoundException(__('Estabelecimento inexistente'));
 		}
-		
-		$this->Establishment->recursive = 2;
 
 		$establishment = $this -> Establishment -> read(null, $id);
 		
@@ -140,7 +138,7 @@ class EstablishmentsController extends AppController {
 		
 		$this->loadModel('Category');
 		
-		$this->Category->recursive = 2;
+		$this->Category->recursive = 0;
 		
 		$catTemp = $this->Category->findBySlug($categoria);
 		
@@ -190,14 +188,7 @@ class EstablishmentsController extends AppController {
 
 	public function outros () {
 		
-		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
-		
-		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
-		
-		
-		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada));
-		
-		$lista = $this->Establishment->find('all', $options);
+		$lista = $this->Establishment->find('all');
 		shuffle($lista);
 		
 		$ultimos_tres_destaques = array();
@@ -210,38 +201,11 @@ class EstablishmentsController extends AppController {
 		
 	}
 	
-	public function topHome () {
+	public function registrar () {
+		var_dump($this->request->data['rating']);
+		var_dump($this->request->query['id']);
 		
-		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
-		
-		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
-		
-		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada), 'order' => array('Establishment.media' => 'DESC'), 'limit' => 5);
-		
-		$lista = $this->Establishment->find('all', $options);
-		
-		return $lista;
-		
-	}
-	
-	public function topHomeCategorias ($id = null) {
-		
-		$this->loadModel('Category');
-		
-		if (!$this->Category->exists($id)) {
-			return  '';
-		}
-		
-		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
-		
-		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
-		
-		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada, 'Establishment.category_id' => $id ), 'order' => array('Establishment.media' => 'DESC'), 'limit' => 5);
-		
-		$lista = $this->Establishment->find('all', $options);
-		
-		return $lista;
-		
+		exit;
 	}
 
 

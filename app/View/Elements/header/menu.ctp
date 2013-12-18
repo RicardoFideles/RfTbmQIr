@@ -41,10 +41,10 @@
 							<a href="<?php echo $this->Html->url('/materias') ?>">MATÉRIAS</a>
 						</li>
 						<li>
-							<a href="<?php echo $this->Html->url('/historias') ?>">MINHA HISTÓRIA</a>
+							<a href="<?php echo $this->Html->url('/entrevistas') ?>">ENTREVISTA</a>
 						</li>
 						<li>
-							<a href="<?php echo $this->Html->url('/entrevistas') ?>">ENTREVISTA</a>
+							<a href="<?php echo $this->Html->url('/historias') ?>">MINHA HISTÓRIA</a>
 						</li>
 						<li>
 							<a href="<?php echo $this->Html->url('/blogs') ?>">BLOGS</a>
@@ -76,8 +76,8 @@
 				<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)" class="form-control input-sm">
 					<option value="#" selected="selected">MENU</option>
 					<option value="<?php echo $this->Html->url('/materias') ?>">• ÚLTIMAS: MATÉRIAS</option>
-					<option value="<?php echo $this->Html->url('/historias') ?>">• ÚLTIMAS: MINHA HISTÓRIA</option>
 					<option value="<?php echo $this->Html->url('/entrevistas') ?>">• ÚLTIMAS: ENTREVISTA</option>
+					<option value="<?php echo $this->Html->url('/historias') ?>">• ÚLTIMAS: MINHA HISTÓRIA</option>
 					<option value=<?php echo $this->Html->url('/blogs') ?>#">• ÚLTIMAS: BLOGS</option>
 					
 					<?php foreach($categorias as $key => $categoria): ?>

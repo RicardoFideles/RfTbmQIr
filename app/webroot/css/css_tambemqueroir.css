@@ -849,3 +849,14 @@ a.LinkEmFoco:active {text-decoration: none;}
 }
 
 .HomeBoxesSubTit {min-height:54px;}
+
+#social:hover {
+	text-decoration: none;
+}
+
+#EstabelecimentoOutrosTexto {
+	margin-left: 14px;
+	margin-top: 5px;
+
+
+.facebookResponsive { overflow: hidden; border: 0px solid #d5d5d5; }

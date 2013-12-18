@@ -31,10 +31,28 @@
 
 <!-- ESTABELECIMENTO -->
 <div class="row marginTopB marginBottomB">
-	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">                    
-		<p class="TitulosInternas fonteSiteSouvLight">
-			<?php echo $category['Category']['name']; ?>
-		</p>
+	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">
+		<div class="row">
+			
+			<?php 
+				if (sizeof($category['Photo']) > 0) {
+					$fotoPrincipal = $category['Photo'][0];
+					
+					$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
+			?>
+				<div class="col-md-1 col-sm-1 col-xs-3 printColDEstabelecIcon">
+					<img src="<?php echo $this->Html->url($url) ?>" class="CategoriasIconSM" />
+				</div>
+			<?php
+				}
+			?>
+			
+			<div class="col-md-11 col-sm-11 col-xs-9 printColDEstabelecNome EstabelecimentoCategoriaFixPos">
+				<p class="TitulosInternas fonteSiteSouvLight">
+					<?php echo $category['Category']['name']; ?>
+				</p>
+			</div>
+		</div>
 		<hr class="hrTitulos" />
 	</div>
 
