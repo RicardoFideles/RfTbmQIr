@@ -1,5 +1,8 @@
 <?php
-
+	
+	$id_category = $category['Category']['id'];
+	$destaques = $this->requestAction(array('controller' => 'establishments', 'action' => 'topHomeCategorias', $id_category));
+	
 	$lista_1 = array();
 	$lista_2 = array();
 	
@@ -14,6 +17,17 @@
 	}
 	
 ?>
+
+<script type="text/javascript">
+	
+	
+	$(document).ready(function() {
+		
+		<?php foreach($destaques as $key => $destaque): ?>
+			$('#destaque_<?php echo $key+1; ?>').raty({ readOnly: true, score: <?php echo $destaque['Establishment']['media']; ?>, path: '/js/ratting/img'});
+		<?php endforeach; ?>
+	});
+	</script>
 
 <!-- ESTABELECIMENTO -->
 <div class="row marginTopB marginBottomB">
@@ -44,7 +58,9 @@
 								
 								
 						?>
-							<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
+							<div class="CategImageCrop">
+								<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
+							</div>
 						<?php
 							}
 						?>
@@ -61,7 +77,7 @@
 			<div class="col-md-6 col-sm-6 col-xs-12 marginBottomA">
 				<div class="row">
 					<div class="col-md-2 col-sm-3 col-xs-4 text-center">
-						<img src="imagens/icon_TOP5.png" />
+						<img src="<?php echo $this->Html->url('/imagens/icon_TOP5.png'); ?>" />
 					</div>
 					<div class="col-md-10 col-sm-8 col-xs-8">
 						<p class="Top5RankingBKGTituloP1 fonteSiteSouvDemi">TOP 5 RANKING</p>
@@ -70,22 +86,29 @@
 				</div>
 	        
 				<div class="col-md-12 col-sm-12 col-xs-12 RoundedCornerEmCima RoundedCornerEmBaixo Top5RankingBKGInterna">
-					<div class="row">
-						<div class="col-md-2 col-sm-2 col-xs-1 Top5RankingPosicaoInterna fonteSiteSouvLight">1</div>
-						<div class="col-md-7 col-sm-7 col-xs-7 Top5RankingLugarAvaliacao">
-							<a href="" class="LinkTop5Lugar">
-								UCI - New York City Center
-							</a>
+					
+					<?php foreach($destaques as $key => $destaque): ?>
+						<div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-1 Top5RankingPosicaoInterna fonteSiteSouvLight">
+								<?php echo $key+1; ?>
+							</div>
+							<div class="col-md-7 col-sm-7 col-xs-7 Top5RankingLugarAvaliacao">
+								<?php 
+								$link = array('controller' => 'establishments', 'action' => 'view', 'slug' => $this->Link->makeLink($destaque['Establishment']['slug'], $destaque['Establishment']['id']));
+								 
+							?>
+								<a href="<?php echo $this->Html->url($link); ?>" class="LinkTop5Lugar">
+									<?php echo $destaque['Establishment']['name']; ?>
+								</a>
+								<div id="destaque_<?php echo $key+1; ?>"></div>
+								<br />
+							</div>
+							<div class="row">
+								<hr class="hrTop5Interna" />
+							</div>
 						</div>
-						<div class="col-md-3 col-sm-3 col-xs-4 Top5RankingLugarAvaliacao Top5RankingLugarAvaliacaoStarsInterna">
-							<img src="imagens/icon_TOP5Estrelas.png" />
-							<img src="imagens/icon_TOP5Estrelas.png" />
-							<img src="imagens/icon_TOP5Estrelas.png" />
-							<img src="imagens/icon_TOP5Estrelas.png" />
-							<img src="imagens/icon_TOP5Estrelas.png" />
-						</div>
-					</div>
-  					<div class="row"><hr class="hrTop5Interna" /></div>
+					<?php endforeach; ?>
+					
 				</div>
 			</div>
 			<!-- TOP5 -->                      
@@ -111,7 +134,9 @@
 								$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 								
 						?>
-							<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
+							<div class="CategImageCrop">
+								<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
+							</div>
 						<?php
 							}
 						?>

@@ -43,9 +43,7 @@ class ContatosController extends AppController {
         $nome = $this->request->data['name'];
         $email = $this->request->data['email'];
         $mensagem = $this->request->data['mensagem'];
-        $setor = $this->request->data['setores'];
-        $unidade = $this->request->data['unidades'];
-        $telefone = $this->request->data['telefone'];
+        $assunto = $this->request->data['assunto'];
        
         $mensagem = '<html>
           <head>
@@ -62,15 +60,7 @@ class ContatosController extends AppController {
 	      <br />
 	      <br />
 	      
-	      Telefone : '.$telefone.'
-	      <br />
-	      <br />
-	      
-	      Unidade : '.$unidade.'
-	      <br />
-	      <br />
-	      
-	      Setor : '.$setor.'
+	      Assunto : '.$assunto.'
 	      <br />
 	      <br />
 	      
@@ -82,8 +72,9 @@ class ContatosController extends AppController {
           </html>';
     
        
+	   	$settings =  Configure::read('Config.settings');
 		
-		$emailsender = "webmaster@colegioqi.com.br";
+		$emailsender = $settings['Setting']['email'];
 				
 		if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
 		elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n";
@@ -91,13 +82,13 @@ class ContatosController extends AppController {
 		if(strlen($email) > 0) {
 			$emailremetente = $email;
 		} else {
-			$emailremetente = "comunicacao@colegioqi.com.br";
+			$emailremetente = $emailsender;
 		}
 		
-		$nomeremetente = "Contato do site Colégio Qi";
-		$emaildestinatario = "comunicacao@colegioqi.com.br";
+		$nomeremetente = "Contato do site Também Quero ir";
+		$emaildestinatario = $emailsender;
 		
-		$assunto = "Contato do site - Colégio Qi";
+		$assunto = "Contato do site - Também Quero ir";
 		$mensagemHTML = $mensagem;
 		
 		$headers = "MIME-Version: 1.1".$quebra_linha;

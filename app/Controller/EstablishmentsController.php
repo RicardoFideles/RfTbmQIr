@@ -223,6 +223,26 @@ class EstablishmentsController extends AppController {
 		return $lista;
 		
 	}
+	
+	public function topHomeCategorias ($id = null) {
+		
+		$this->loadModel('Category');
+		
+		if (!$this->Category->exists($id)) {
+			return  '';
+		}
+		
+		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
+		
+		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
+		
+		$options = array('conditions' => array('Establishment.city_id' => $id_cidadeSelecionada, 'Establishment.category_id' => $id ), 'order' => array('Establishment.media' => 'DESC'), 'limit' => 5);
+		
+		$lista = $this->Establishment->find('all', $options);
+		
+		return $lista;
+		
+	}
 
 
 }

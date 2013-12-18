@@ -29,7 +29,7 @@
 				<?php
 					}
 				?>
-				<p>
+				<p  class="HomeBoxesSubTit">
 					<a href="<?php echo $this->Html->url($link); ?>" class="LinkMaterias2 fonteSiteSouvLight">
 						<?php echo $news['News']['name']; ?>
 					</a>
@@ -62,7 +62,7 @@
 				<?php
 					}
 				?>
-				<p>
+				<p  class="HomeBoxesSubTit">
 					<a href="<?php echo $this->Html->url($link); ?>" class="LinkMaterias2 fonteSiteSouvLight">
 						<?php echo $person['Person']['name']; ?>
 					</a>
@@ -95,7 +95,7 @@
 				<?php
 					}
 				?>
-				<p>
+				<p  class="HomeBoxesSubTit">
 					<a href="<?php echo $this->Html->url($link); ?>" class="LinkMaterias2 fonteSiteSouvLight">
 						<?php echo $interview['Interview']['name']; ?>
 					</a>

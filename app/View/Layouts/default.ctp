@@ -20,6 +20,9 @@
 		echo $this->fetch('script');
 	?>
 	
+	<link href="<?php echo $this->Html->url('/img/favicon_pc.png'); ?>" rel="icon" type="image/png" />
+    <link href="<?php echo $this->Html->url('/img/favicon_apple.png'); ?>" rel="apple-touch-icon-precomposed"/>
+	
 	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="<?php echo $this->Html->url('https://code.jquery.com/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo $this->Html->url('/js/bootstrap.min.js'); ?>"></script>

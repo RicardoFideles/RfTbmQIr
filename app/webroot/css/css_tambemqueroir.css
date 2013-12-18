@@ -474,6 +474,7 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 @media screen and (min-width: 1170px) {
 .BoxesCategoriasFaixaTopo {	width:360px; z-index:2; }
 .HomeMatImageCrop {position: relative; width: auto; height: 210px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+.CategImageCrop {position: relative; width: auto; height: 150px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 }
 
 @media screen and (max-width: 1170px) {
@@ -484,6 +485,7 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .BoxesCategoriasFaixaTopo {width:293px; z-index:2; }
 
 .HomeMatImageCrop {position: relative; width: auto; height: 170px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+.CategImageCrop {position: relative; width: auto; height: 120px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 }
 
 @media screen and (max-width: 970px) {
@@ -491,16 +493,21 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 
 .HomeMatImageCrop {position: relative; width: auto; height: 130px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 
+.CategImageCrop {position: relative; width: auto; height: 90px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+
 }
 
 @media screen and (max-width: 750px) {
 .BoxesCategoriasFaixaTopo {width:595px; }
 .HomeMatImageCrop {position: relative; width: auto; height: 310px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+.CategImageCrop {position: relative; width: auto; height: 310px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+
 }
 
 @media screen and (max-width: 320px) {
 .BoxesCategoriasFaixaTopo {width:275px; }
 .HomeMatImageCrop {position: relative; width: auto; height: 130px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+.CategImageCrop {position: relative; width: auto; height: 170px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 }
 
 
@@ -741,6 +748,8 @@ border-bottom-color: #1ca48c !important;
 
 #share_twitter {
 		display: inline;
+		position:absolute;
+  right:170px;
 }
 
 /*HOME - EM FOCO*/
@@ -838,3 +847,5 @@ a.LinkEmFoco:active {text-decoration: none;}
 .progress-bar-success {
 	background-color: #5cb85c;
 }
+
+.HomeBoxesSubTit {min-height:54px;}
