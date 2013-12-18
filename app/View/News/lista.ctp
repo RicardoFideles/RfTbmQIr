@@ -1,4 +1,10 @@
-  <!-- MATERIAS LINKS -->
+<!-- MATERIAS LINKS -->
+
+<?php   $this->set(array(
+	    'title_for_layout' => 'Matérias'
+	));
+?>
+
 <div class="row marginTopB marginBottomB">
 
 	<div class="col-md-12 col-sm-12 col-xs-12 InternaAlturaBlog">                    

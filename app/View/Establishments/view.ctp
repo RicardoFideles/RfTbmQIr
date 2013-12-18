@@ -3,6 +3,12 @@
 	
 	//var_dump($establishment);
 ?>
+
+
+<?php   $this->set(array(
+	    'title_for_layout' => $establishment['Establishment']['name']
+	));
+?>
 <?php echo $this->element('facebook/sdk'); ?>
 
 <?php 

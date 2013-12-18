@@ -18,6 +18,11 @@
 	
 ?>
 
+<?php   $this->set(array(
+	    'title_for_layout' => 'Estabelecimentos'
+	));
+?>
+
 <script type="text/javascript">
 	
 	
