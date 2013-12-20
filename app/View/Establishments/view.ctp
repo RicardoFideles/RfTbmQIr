@@ -227,13 +227,15 @@
 						$fotos = $establishment['Photo'];
 						 
 						foreach ($fotos as $foto): ?>
-						<div class="col-md-3 col-sm-3 col-xs-3 marginBottomA">
-							<?php 
-								$url = $this->Link->makeLinkImgDir('original', $foto['imagem'], 'fotos');
-							?>
-							<a class="example-image-link" href="<?php echo $this->Html->url($url) ?>" data-lightbox="example-set" title="Aqui entra a legenda1">
-								<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" alt="aqui entra o alt 1" />
-							</a>
+						<div class="col-md-3 col-sm-3 col-xs-3 marginBottomA EstabThumbImageCrop">
+							<div>
+								<?php 
+									$url = $this->Link->makeLinkImgDir('original', $foto['imagem'], 'fotos');
+								?>
+								<a class="example-image-link" href="<?php echo $this->Html->url($url) ?>" data-lightbox="example-set" title="Aqui entra a legenda1">
+									<img src="<?php echo $this->Html->url($url) ?>" class="" alt="aqui entra o alt 1" />
+								</a>
+							</div>
 						</div>
 					<?php endforeach; ?>
 				</div>
