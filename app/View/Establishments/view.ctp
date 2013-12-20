@@ -221,9 +221,12 @@
 			
 				<?php echo $establishment['Establishment']['texto']; ?>
 				
-
 				<div class="row">
-					<?php foreach ($fotos as $foto): ?>
+					<?php 
+						
+						$fotos = $establishment['Photo'];
+						 
+						foreach ($fotos as $foto): ?>
 						<div class="col-md-3 col-sm-3 col-xs-3 marginBottomA">
 							<?php 
 								$url = $this->Link->makeLinkImgDir('original', $foto['imagem'], 'fotos');
