@@ -37,6 +37,7 @@
   						<option>Dúvidas</option>
   						<option>Sugestões</option>
   						<option>Reclamações</option>
+  						<option>Outros</option>
 					</select>
 				</div>
 			</div>                                  
