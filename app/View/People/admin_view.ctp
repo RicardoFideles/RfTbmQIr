@@ -2,7 +2,7 @@
 	<ul class="buttonlist">
 		<li>
 			<li><a href="<?php
-				$link = array('controller' => 'news', 'action' => 'index');
+				$link = array('controller' => 'people', 'action' => 'index');
 				echo $this->Html->url($link); ?>" class="btn btn_book"><span>Voltar a lista</span></a></li>
 		</li>
 	</ul>
