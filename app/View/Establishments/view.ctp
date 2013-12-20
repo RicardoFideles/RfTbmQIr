@@ -221,17 +221,6 @@
 			
 				<?php echo $establishment['Establishment']['texto']; ?>
 				
-				<?php 
-					 $fotos = $establishment['Photo'];
-					if (sizeof($establishment['Photo']) > 0) {
-						$fotoPrincipal = $establishment['Photo'][0];
-						
-						$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
-				?>
-					<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG" />
-				<?php
-					}
-				?>
 
 				<div class="row">
 					<?php foreach ($fotos as $foto): ?>
