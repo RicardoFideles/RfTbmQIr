@@ -11,28 +11,35 @@
 			
 			<thead>
 				<tr>
-					<th class="head0"><?php echo $this->Paginator->sort('Autor');?></th>
-					<th class="head0"><?php echo $this->Paginator->sort('Status');?></th>
-					<th class="head1"><?php echo __('Ações');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Estabelecimento');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Autor');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Comentário');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Status');?></th>
+					<th class="head0"><?php echo __('Ações');?></th>
 				</tr>
 			</thead>
 	
 			<tfoot>
 				<tr>
-					<th class="head0"><?php echo $this->Paginator->sort('Autor');?></th>
-					<th class="head0"><?php echo $this->Paginator->sort('Status');?></th>
-					<th class="head1"><?php echo __('Ações');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Estabelecimento');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Autor');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Comentário');?></th>
+					<th class="head1"><?php echo $this->Paginator->sort('Status');?></th>
+					<th class="head0"><?php echo __('Ações');?></th>
 				</tr>
 			</tfoot>
 			
 			<tbody>
 				<?php foreach ($comments as $comment): ?>
 					<tr class="gradeX">
-						 <td><?php echo h($comment['User']['name']); ?>&nbsp;</td>
+						<td><?php echo h($comment['Establishment']['name']); ?>&nbsp;</td>
+						<td><?php echo h($comment['User']['name']); ?>&nbsp;</td>
+						 <td><?php echo h($comment['Comment']['texto']); ?>&nbsp;</td>
 						<td><?php echo h($comment['Comment']['status']); ?>&nbsp;</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Visualizar'), array('action' => 'view', $comment['Comment']['id'])); ?>
-							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $comment['Comment']['id']), null, __('Você tem certeza que deseja apagar # %s?',$comment['Comment']['id'])); ?>
+							<?php echo $this->Form->postLink(__('Aprovar'), array('action' => 'aprove', $comment['Comment']['id']), null, __('Você tem certeza que deseja aprovar # %s?', $comment['Comment']['id'])); ?>
+							<?php echo $this->Form->postLink(__('Rejeitar'), array('action' => 'delete', $comment['Comment']['id']), null, __('Você tem certeza que deseja rejeitar # %s?', $comment['Comment']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

@@ -9,10 +9,12 @@
 				</a>
 			</li>
 			<li>
-				<?php echo $this->Form->postLink(__('Aprovar'), array('action' => 'aprove', $comment['Comment']['id']), array('class' => 'btn btn_book'), __('Você tem certeza que deseja aprovar # %s?', $comment['Comment']['id'])); ?>
+				<form action="/admin/comments/aprove/23" name="post_52b4d85640e77885708940" id="post_52b4d85640e77885708940" style="display:none;" method="post"><input type="hidden" name="_method" value="POST"></form>
+				<a href="#" class="btn btn_book" onclick="if (confirm('Você tem certeza que deseja aprovar # 23?')) { document.post_52b4d85640e77885708940.submit(); } event.returnValue = false; return false;"><span>Aprovar</span></a>
 			</li>
 			<li>
-				<?php echo $this->Form->postLink(__('Rejeitar'), array('action' => 'delete', $comment['Comment']['id']), array('class' => 'btn btn_book'), __('Você tem certeza que deseja rejeitar # %s?', $comment['Comment']['id'])); ?>
+				<form action="/admin/comments/delete/23" name="post_52b4d8c654e36802471680" id="post_52b4d8c654e36802471680" style="display:none;" method="post"><input type="hidden" name="_method" value="POST"></form>
+				<a href="#" class="btn btn_book" onclick="if (confirm('Você tem certeza que deseja rejeitar # 23?')) { document.post_52b4d8c654e36802471680.submit(); } event.returnValue = false; return false;" style="background-color: rgb(247, 247, 247);"><span>Rejeitar</span></a>
 			</li>
 		</li>
 	</ul>
