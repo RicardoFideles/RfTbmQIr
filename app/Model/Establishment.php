@@ -35,6 +35,10 @@ class Establishment extends AppModel {
 				'allowEmpty' => false
 			),
 		),
+		'breve' => array(
+			'rule' => array('maxLength', 150),
+			'message' => 'Quantidade máxima de caracteres excedida.',
+		),
 		'site' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
