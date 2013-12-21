@@ -4,6 +4,24 @@
               	<div class="leftmenu">
             		<ul>
                     	<li class="current"><a href="#" class="dashboard"><span>Painel</span></a></li>
+                    	
+                    	<li>
+                        	<a href="<?php 
+                        					$link = array('controller' => 'users', 'action' => 'index');
+                        					echo $this->Html->url($link);
+                        			?>" 
+                    			class="tables"><span>Administradores do Site</span>
+                			</a>
+                        </li>
+                        <li>
+                        	<a href="<?php 
+                        					$link = array('controller' => 'users', 'action' => 'guest');
+                        					echo $this->Html->url($link);
+                        			?>" 
+                    			class="tables"><span>Usuários Cadastrados</span>
+                			</a>
+                        </li>
+                        
                     	<li >
                         	<a href="#" 
                 			 class="widgets menudrop"><span>Site</span></a>
@@ -97,22 +115,6 @@
                         					echo $this->Html->url($link);
                         			?>" 
                     			class="tables"><span>Comentários</span>
-                			</a>
-                        </li>
-                        <li>
-                        	<a href="<?php 
-                        					$link = array('controller' => 'users', 'action' => 'index');
-                        					echo $this->Html->url($link);
-                        			?>" 
-                    			class="tables"><span>Usuários</span>
-                			</a>
-                        </li>
-                        <li>
-                        	<a href="<?php 
-                        					$link = array('controller' => 'users', 'action' => 'guest');
-                        					echo $this->Html->url($link);
-                        			?>" 
-                    			class="tables"><span>Leitores</span>
                 			</a>
                         </li>
                     </ul>
