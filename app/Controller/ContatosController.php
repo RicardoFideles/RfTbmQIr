@@ -92,7 +92,7 @@ class ContatosController extends AppController {
 		$mensagemHTML = $mensagem;
 		
 		$headers = "MIME-Version: 1.1".$quebra_linha;
-		$headers .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+		$headers .= "Content-type: text/html; charset=UTF-8".$quebra_linha;
 		$headers .= "From: ".$emailsender.$quebra_linha;
 		$headers .= "Return-Path: " . $emailsender . $quebra_linha;
 		$headers .= "Return-Path: " . $emailsender . $quebra_linha;
@@ -123,7 +123,7 @@ class ContatosController extends AppController {
 						<p><b><i>'.$mensagem.'</i></b></p>
 						<hr>';
 		$headers = "MIME-Version: 1.1".$quebra_linha;
-		$headers .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+		$headers .= "Content-type: text/html; charset=UTF-8".$quebra_linha;
 		$headers .= "From: ".$emailsender.$quebra_linha;
 		$headers .= "Return-Path: " . $emailsender . $quebra_linha;
 		$headers .= "Return-Path: " . $emailsender . $quebra_linha;
