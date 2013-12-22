@@ -110,7 +110,9 @@
 	        
 				<div class="col-md-12 col-sm-12 col-xs-12 RoundedCornerEmCima RoundedCornerEmBaixo Top5RankingBKGInterna">
 					
-					<?php foreach($destaques as $key => $destaque): ?>
+					<?php 
+						$tamanho_array = sizeof($destaques);
+						foreach($destaques as $key => $destaque): ?>
 						<div class="row">
 							<div class="col-md-2 col-sm-2 col-xs-1 Top5RankingPosicaoInterna fonteSiteSouvLight">
 								<?php echo $key+1; ?>
@@ -123,13 +125,22 @@
 								<a href="<?php echo $this->Html->url($link); ?>" class="LinkTop5Lugar">
 									<?php echo $destaque['Establishment']['name']; ?>
 								</a>
-								<div id="destaque_<?php echo $key+1; ?>"></div>
 								<br />
 							</div>
-							<div class="row">
-								<hr class="hrTop5Interna" />
-							</div>
+							<div id="destaque_<?php echo $key+1; ?>" class="col-md-3 col-sm-3 col-xs-4 Top5RankingLugarAvaliacao Top5RankingLugarAvaliacaoStarsInterna"></div>
 						</div>
+						
+						<?php 
+							if ($tamanho_array != $key+1) {
+						?>
+						
+						<div class="row">
+							<hr class="hrTop5Interna" />
+						</div>
+						
+						<?php
+							}
+						?>
 					<?php endforeach; ?>
 					
 				</div>

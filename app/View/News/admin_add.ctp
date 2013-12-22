@@ -20,7 +20,7 @@
 	    </p>
 	    <p>
 	    	<label>Subtítulo</label>
-	        <span class="field"><?php echo $this->Form->input('subtitulo'); ?></span>
+	        <span class="field"><?php echo $this->Form->input('subtitulo', array('maxlength' => '150')); ?></span>
 	    </p>
 	    
 	    <p>
@@ -41,4 +41,6 @@
         </p>
     <?php echo $this->Form->end();?>
 </div>
+
+<script type="text/javascript" src="<?php echo $this->Html->url('/js/admin/charcount.js'); ?>"></script>
 

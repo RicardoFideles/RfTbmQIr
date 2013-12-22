@@ -131,15 +131,40 @@
 			<div class="col-md-6 col-sm-6 col-xs-12 text-center visible-xs">
 				<ul class="nav nav-pills">
 					<li class="dropdown">
+						
+						<?php 
+							$nome = AuthComponent::user('name');
+							if (isset($nome)) {
+						?>
+							
+						<button class="btn btn-tbqueroirA btn-xs" type="button">
+							
+						<a href="<?php echo $this->Html->url('/painel') ?>"><?php echo $nome; ?></a>
+						
+						</button>
+						
+						<?php
+							} else {
+								
+						?>
 						<button class="btn btn-tbqueroirA btn-xs dropdown-toggle" type="button" data-toggle="dropdown">LOGIN <span class="caret setaVerde-caret"></span></button>
 						<div class="dropdown-menu pull-left">
-							<form class="form-horizontal formMargin" role="form">
+
+							<?php echo $this->Form->create('User', array('action' => 'login', 'id'=> 'login', 'class' => 'form-horizontal formMargin', 'role' => 'form','inputDefaults' => array('div' => false, 'label' => false))) ?>
+							
 								<div class="form-group">
-									<div class="col-sm-offset-1 col-sm-10"><input type="email" class="form-control" id="inputEmail3" placeholder="Email"></div>
+									<div class="col-sm-offset-1 col-sm-10">
+								        <?php echo $this->Form->input('username', array('id' => 'inputEmail3', 'class' => 'form-control','type' => 'text', 'placeholder' => 'Email')) ?>
+									</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="inputPassword3" placeholder="Senha"></div>
+									<div class="col-sm-offset-1 col-sm-10">
+								        <?php echo $this->Form->input('password', array('type'=> 'password' ,'id' => 'inputPassword3', 'class' => 'form-control','placeholder' => 'Senha')) ?>
+
+									</div>
 								</div>
+								<div class="form-group">
+								
 								<div class="form-group">
 									<div class="col-sm-offset-1  col-sm-10"><div class="checkbox textColorB"><label><input type="checkbox"> Lembrar senha</label></div></div>
 								</div>
@@ -151,6 +176,9 @@
 								</div>
 							</form>
 						</div>
+						<?php 
+						}
+						?>
 					</li>
 					<li>
 						<button class="btn btn-tbqueroirA btn-xs" href="<?php echo $this->Html->url('/cadastre-se'); ?>" type="button" class="btn-tbqueroirA">
@@ -165,6 +193,10 @@
 							?>
 						</button>
 					</li>
+					
+					<script>
+						$('.btn.btn-tbqueroirA a').addClass('btn-tbqueroirA');
+					</script>	
 				</ul>
 			</div>
 			<!-- xs  -->

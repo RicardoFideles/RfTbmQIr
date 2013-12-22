@@ -17,10 +17,11 @@ class Enquete extends AppModel {
 				'rule' => array('notempty'),
 				'message' => 'Campo obrigatório',
 				'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		)
+		),
+		'texto' => array(
+			'rule' => array('maxLength', 340),
+			'message' => 'Quantidade máxima de caracteres excedida.',
+		),
 	);
 }

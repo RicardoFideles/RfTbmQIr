@@ -11,6 +11,7 @@ class News extends AppModel {
  *
  * @var array
  */
+ 
 	public $validate = array(
 		'name' => array(
 			'notempty' => array(
@@ -25,6 +26,10 @@ class News extends AppModel {
 				'message' => 'Preencha o subtítulo',
 				'allowEmpty' => false,
 			),
+			'limit' => array (
+				'rule' => array('maxLength', 150),
+				'message' => 'Quantidade máxima de caracteres excedida.',
+			)
 		),
 		'emfoco' => array(
             'valid' => array(
