@@ -4,7 +4,7 @@
 	$emfoco = $this->requestAction(array('controller' => 'news', 'action' => 'emfoco'));
 	
 ?>
-<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12 hidden-print">
 	<!-- BUSCA E MENU -->
 	
 	<div class="row bkgMenuBuscaTopo1 RoundedCornerEmCima">

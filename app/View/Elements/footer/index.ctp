@@ -1,5 +1,5 @@
 <!-- FOOTER  -->
-<div class="rowFixHorizScroll bkgB faixaTopo_e_Rodape">
+<div class="rowFixHorizScroll bkgB faixaTopo_e_Rodape hidden-print">
 	<div class="container">
 		<div class="row">
 			<!-- lg md sm  -->

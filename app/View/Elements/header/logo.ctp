@@ -3,7 +3,7 @@
 <?php 
 	$settings =  Configure::read('Config.settings');
 ?>
-<div class="row FaixaLogoAltura hidden-xs">
+<div class="row FaixaLogoAltura hidden-xs hidden-print">
 	<div class="col-md-4 col-md-offset-1 col-sm-6">
 		<a href="<?php echo $this->Html->url('/'); ?>">
 			<img src="<?php echo $this->Html->url('/imagens/LogoTopo.png') ?>" class="img-responsive">
@@ -37,7 +37,7 @@
 <!-- lg md sm  -->
 
 <!-- xs  -->
-<div class="row FaixaLogoAltura2 visible-xs">
+<div class="row FaixaLogoAltura2 visible-xs hidden-print">
 	<div class="col-xs-8 col-xs-offset-2">
 		<a href="<?php echo $this->Html->url('/'); ?>">
 			<img src="<?php echo $this->Html->url('/imagens/LogoTopo.png') ?>" class="img-responsive">
@@ -69,4 +69,19 @@
 	</div>
 </div>
 <!-- xs  -->
+
+<script>
+	function fonte(par){
+		tamanho = document.body.style.fontSize;
+		tamanhoPadrao = 14;
+		tamanho = (!tamanho) ? 14 : parseInt(tamanho.substring(0,2));
+		if(par == 'aumentar' && tamanho < 20)
+			tamanho++;
+		else if(par == 'diminuir' && tamanho > 10)
+			tamanho--;
+		else if(par == 'resetarTam')
+			tamanho=tamanhoPadrao;
+		document.body.style.fontSize = tamanho+"px";
+	}
+</script>
 

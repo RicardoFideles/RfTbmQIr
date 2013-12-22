@@ -13,41 +13,6 @@ class Establishment extends AppModel {
  *
  * @var array
  */
-	public $validate = array(
-		'category_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				'message' => 'Selecione uma categoria',
-				'allowEmpty' => false
-			),
-		),
-		'city_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				'message' => 'Selecione uma cidade',
-				'allowEmpty' => false
-			),
-		),
-		'name' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Campo obrigatório',
-				'allowEmpty' => false
-			),
-		),
-		'breve' => array(
-			'rule' => array('maxLength', 150),
-			'message' => 'Quantidade máxima de caracteres excedida.',
-		),
-		'site' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
-				'allowEmpty' => true
-			),
-		)
-	);
-
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

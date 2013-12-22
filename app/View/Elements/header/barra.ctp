@@ -9,7 +9,7 @@
 ?>
 
 <!-- HEADER  -->
-<div class="rowFixHorizScroll bkgA faixaTopo_e_Rodape">
+<div class="rowFixHorizScroll bkgA faixaTopo_e_Rodape hidden-print">
 	<div class="container">
 		<div class="row textColorA">
 			<!-- lg md sm  -->
@@ -85,6 +85,8 @@
 							}
 						?>
 						
+						
+						
 					</li>
 					<li>
 						
@@ -96,15 +98,17 @@
 									echo $this->Form->postLink(__('SAIR'), array('controller' => 'users', 'action' => 'logout'));
 									
 								} else {
-									echo $this->Form->postLink(__('CADASTRE-SE'), array('controller' => 'users', 'action' => 'add'));
+							?>
+								<a href="<?php echo $this->Html->url('/cadastre-se'); ?>" class="btn-tbqueroirA"> CADASTRE-SE </a> 
+							<?php
 								}
 							?>
 						</button>
-						
-						<script>
-							$('.btn.btn-tbqueroirA.btn-xs a').addClass('btn-tbqueroirA');
-						</script>						
 					</li>
+					
+					<script>
+						$('.btn.btn-tbqueroirA.btn-xs a').addClass('btn-tbqueroirA');
+					</script>
 				</ul>
 			</div>
 			<!-- lg md sm  -->
@@ -188,7 +192,9 @@
 									echo $this->Form->postLink(__('SAIR'), array('controller' => 'users', 'action' => 'logout'));
 									
 								} else {
-									echo $this->Form->postLink(__('CADASTRE-SE'), array('controller' => 'users', 'action' => 'add'));
+							?>
+								<a href="<?php echo $this->Html->url('/cadastre-se'); ?>" class="btn-tbqueroirA"> CADASTRE-SE </a> 
+							<?php
 								}
 							?>
 						</button>

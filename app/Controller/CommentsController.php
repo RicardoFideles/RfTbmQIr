@@ -158,6 +158,9 @@ class CommentsController extends AppController {
 					$this->redirect($this->referer());
 				}
 				
+				
+				
+				
 				$media_visual = 0;
 				$media_auditiva = 0;
 				$media_motora = 0;
@@ -165,11 +168,14 @@ class CommentsController extends AppController {
 				
 				$establishment = $this->Establishment->read(null, $id);
 				
+				
+				
 				if (!empty($this->request->data['Establishment']['visual'])) {
+					
 						
 					$visual = $establishment['Establishment']['visual'];
 					$total_visual = $establishment['Establishment']['visual_count'];
-					
+
 					$visual += $this->request->data['Establishment']['visual'];
 					$total_visual += 1;
 					
@@ -267,6 +273,7 @@ class CommentsController extends AppController {
 				
 				$this->Establishment->set('media', $media_geral);
 				
+				
 				if ($this->Establishment->save()) {
 					
 					$this->request->data['Comment']['user_id'] = $id_user;
@@ -284,6 +291,9 @@ class CommentsController extends AppController {
 					}
 					
 					
+				} else {
+					$this->Session->setFlash(__('Ocorreu um erro tente novamente.'));
+					$this->redirect($this->referer());	
 				}
 				
 		    } else {

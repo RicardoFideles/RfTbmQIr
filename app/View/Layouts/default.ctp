@@ -19,6 +19,9 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
+    <link href="<?php echo $this->Html->url('/css/css_tambemqueroir_print.css'); ?>" rel="stylesheet" media="print">
+
 	
 	<link href="<?php echo $this->Html->url('/img/favicon_pc.png'); ?>" rel="icon" type="image/png" />
     <link href="<?php echo $this->Html->url('/img/favicon_apple.png'); ?>" rel="apple-touch-icon-precomposed"/>

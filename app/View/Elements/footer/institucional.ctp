@@ -10,7 +10,7 @@
 
 <!-- RODAPE -->
 <!-- lg md sm  -->
-<div class="row bkgRodape hidden-xs">                    
+<div class="row bkgRodape hidden-xs hidden-print">                    
 	<div class="col-md-3 col-sm-6 col-xs-12 marginTopB marginBottomA">
 		<p class="fonteSiteSouvMedium RodapeTitulo">SOBRE</p>
 		<p class="RodapeTexto">
@@ -81,7 +81,7 @@
 <!-- lg md sm  -->
 
 <!-- xs  -->
-<div class="row bkgRodape visible-xs">                    
+<div class="row bkgRodape visible-xs hidden-print">                    
 	<div class="col-xs-12">
 		<div class="row">
 			<div class="col-xs-12 marginTopB marginBottomA">
