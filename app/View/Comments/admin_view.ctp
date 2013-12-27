@@ -30,18 +30,6 @@
 	        <span class="field"><?php echo $comment['User']['name'] ?></span>
 	    </p>
 	    <p>
-	    	<label>Matéria Comentada</label>
-	        <span class="field"><?php echo $comment['News']['name'] ?></span>
-	    </p>
-	    <p>
-	    	<label>Entrevista Comentada</label>
-	        <span class="field"><?php echo $comment['Interview']['name'] ?></span>
-	    </p>
-	    <p>
-	    	<label>Minha História Comentada</label>
-	        <span class="field"><?php echo $comment['Person']['name'] ?></span>
-	    </p>
-	    <p>
 	    	<label>Estabelecimento Comentado</label>
 	        <span class="field"><?php echo $comment['Establishment']['name'] ?></span>
 	    </p>

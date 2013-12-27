@@ -35,7 +35,25 @@
 						<td><?php echo h($comment['Establishment']['name']); ?>&nbsp;</td>
 						<td><?php echo h($comment['User']['name']); ?>&nbsp;</td>
 						 <td><?php echo h($comment['Comment']['texto']); ?>&nbsp;</td>
-						<td><?php echo h($comment['Comment']['status']); ?>&nbsp;</td>
+						<td class="center_commets">
+							<?php 
+								$status = $comment['Comment']['status'];
+								
+								if ($status == 'aprovado') {
+							?>
+								<img src="<?php echo $this->Html->url('/images/admin/icon_StatusAprovado.png'); ?>" alt="" class="radius2" />
+							<?php
+							
+								} else {
+									if($status == 'aguardando') {
+							?>
+								<img src="<?php echo $this->Html->url('/images/admin/icon_StatusAprovar.png'); ?>" alt="" class="radius2" />
+							<?php
+									} 	
+								}
+							?>
+							&nbsp;
+						</td>
 						<td class="center">
 							<?php echo $this->Html->link(__('Visualizar'), array('action' => 'view', $comment['Comment']['id'])); ?>
 							<?php echo $this->Form->postLink(__('Aprovar'), array('action' => 'aprove', $comment['Comment']['id']), null, __('Você tem certeza que deseja aprovar # %s?', $comment['Comment']['id'])); ?>
@@ -64,3 +82,11 @@
                 
 	<br clear="all" />
 </div>
+
+<style type="text/css">
+
+.center_commets {
+	text-align: center;
+}
+	
+</style>

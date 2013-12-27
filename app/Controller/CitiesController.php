@@ -24,7 +24,7 @@ class CitiesController extends AppController {
 		$this->City->recursive = 0;
 		$this->set('cities', $this->Paginator->paginate());
 	}
-
+	
 /**
  * add method
  *

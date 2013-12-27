@@ -24,6 +24,35 @@ class EstablishmentsController extends AppController {
 		$this->Establishment->recursive = 0;
 		$this->set('establishments', $this->Paginator->paginate());
 	}
+	
+	public function admin_destaque() {
+		$this->Establishment->recursive = 0;
+		$this->paginate = array('conditions' => array('Establishment.destaque' => 'sim'));
+		$this->set('establishments', $this->Paginator->paginate());
+	}
+	
+	public function admin_lista($cidade = null, $categoria = null) {
+		
+		if (!empty($cidade) && !empty($categoria)) {
+			$conditions = array('conditions' => array('Establishment.city_id' => $cidade, 'Establishment.category_id' => $categoria, 'Establishment.destaque' => 'sim'));
+		} else {
+			if (!empty($cidade)) {
+				$conditions = array('conditions' => array('Establishment.city_id' => $cidade, 'Establishment.destaque' => 'sim'));
+			} else {
+				$conditions = array('conditions' => array('Establishment.destaque' => 'sim'));
+			}
+		}
+		
+		
+		$establishments = $this->Establishment->find('all', $conditions);
+		
+		$options = array('conditions' => array('City.' . $this->City->primaryKey => $cidade));
+		
+		$this->loadModel('City');
+		$city = $this->City->find('first', $options);
+		
+		$this->set(compact ('establishments', 'city'));
+	}
 
 /**
  * view method
@@ -86,6 +115,31 @@ class EstablishmentsController extends AppController {
 		$cities = $this->Establishment->City->find('list');
 		$this->set(compact('categories', 'cities'));
 	}
+	
+	public function admin_edit_destaque($id = null) {
+		
+		if (!$this->Establishment->exists($id)) {
+			throw new NotFoundException(__('Invalid establishment'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			$id_cidade = $this->request->data['Establishment']['city_id'];
+		
+			
+			if ($this->Establishment->save($this->request->data)) {
+				$this->Session->setFlash(__('The establishment has been saved.'));
+				return $this->redirect(array('action' => 'lista', $id_cidade ));
+			} else {
+				$this->Session->setFlash(__('The establishment could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Establishment.' . $this->Establishment->primaryKey => $id));
+			$this->request->data = $this->Establishment->find('first', $options);
+		}
+		$categories = $this->Establishment->Category->find('list');
+		$cities = $this->Establishment->City->find('list');
+		$this->set(compact('categories', 'cities'));
+	}
 
 /**
  * delete method
@@ -106,6 +160,20 @@ class EstablishmentsController extends AppController {
 			$this->Session->setFlash(__('The establishment could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function admin_pesquisar($id_cidade = null) {
+		
+		$id_categoria = $this->request->data['Establishment']['category_id'];
+		
+		$this->layout = 'ajax';
+		
+		$options = array('conditions' => array('Establishment.city_id' => $id_cidade, 'Establishment.category_id' => $id_categoria));
+		
+		$establishments = $this->Establishment->find('all', $options);
+		
+		$this -> set(compact('establishments'));
+		
 	}
 	
 	public function view($id = null) {
@@ -182,7 +250,12 @@ class EstablishmentsController extends AppController {
 	
 	public function destaqueCapa () {
 		
-		$options = array('conditions' => array('Establishment.destaque' => 'sim'), 'limit' => 3);
+		$cidadeSelecionada =  Configure::read('Config.cidadeSelecionada');
+		
+		$id_cidadeSelecionada = $cidadeSelecionada['City']['id'];
+		
+		
+		$options = array('conditions' => array('Establishment.destaque' => 'sim', 'Establishment.city_id' => $id_cidadeSelecionada), 'limit' => 3);
 		
 		return $this->Establishment->find('all', $options);
 		

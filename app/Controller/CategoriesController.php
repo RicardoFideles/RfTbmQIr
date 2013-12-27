@@ -119,6 +119,15 @@ class CategoriesController extends AppController {
 		
 	}
 	
+	public function admin_lista_categorias ($id_cidade = null) {
+		
+		if (empty($id_cidade)) {
+			$id_cidade = 1;
+		}
+		
+		return  $this->Category->query('Select * from categories where id in (Select category_id from categories_cities where city_id =' .$id_cidade.');');
+	}
+	
 	public function categoria ($id = null) {
 		
 		$this->Category->id = $id;

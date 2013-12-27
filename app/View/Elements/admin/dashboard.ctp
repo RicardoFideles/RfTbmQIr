@@ -1,3 +1,7 @@
+<?php
+	$cidades = $this->requestAction(array('controller' => 'Cities', 'action' => 'cidades', 'admin' => false));
+?>
+
 <div class="mainleft">
           	<div class="mainleftinner">
             
@@ -117,6 +121,21 @@
                     			class="tables"><span>Comentários</span>
                 			</a>
                         </li>
+                        <li >
+                        	<a href="#" 
+                			 class="widgets menudrop"><span>Destaque na Home</span></a>
+                			 <ul>
+        			 			<?php foreach($cidades as $key => $cidade): ?>
+									<?php $id_cidade = $cidade['City']['id']; ?>
+									<li>
+										<a href="<?php $link = array('controller' => 'establishments', 'action' => 'lista', $id_cidade);echo $this->Html->url($link); ?>" class="btn btn_book">
+											<span><?php echo $cidade['City']['name']; ?></span>
+										</a>
+									</li>
+								<?php endforeach; ?>
+    			 			</ul>
+			 			</li>
+                        
                     </ul>
                         
                 </div><!--leftmenu-->

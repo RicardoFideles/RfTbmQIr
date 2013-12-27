@@ -20,7 +20,10 @@
 	    </p>
 	    <p>
 	    	<label>Subtítulo</label>
-	        <span class="field"><?php echo $this->Form->input('subtitulo', array('maxlength' => '150')); ?></span>
+	    	<div class="container_count">
+	        	<span class="field float"><?php echo $this->Form->input('subtitulo', array('class' => 'subtitulo float')); ?></span>
+	        	<span class="contador field"></span>
+	    	</div>
 	    </p>
 	    
 	    <p>
@@ -42,5 +45,27 @@
     <?php echo $this->Form->end();?>
 </div>
 
-<script type="text/javascript" src="<?php echo $this->Html->url('/js/admin/charcount.js'); ?>"></script>
+<script type="text/javascript">
+	
+	jQuery(function (){ 
+		jQuery(".subtitulo").keyup(function(){
+			var limite = 10;
+			var tamanho = jQuery(this).val().length;
+			
+			if(tamanho > limite)
+				tamanho -= 1;
+				var contador = limite - tamanho;
+				
+				jQuery(".contador").text(contador + 'caracteres restantes');
+				
+			if (limite >= tamanho) {
+				var txt = jQuery(this).val().substring(0, limite);
+				jQuery(this).val(txt)
+			} else if(tamanho > limite )
+				jQuery(".contador").css("color","#FF0000");
+		});
+	});
+	
+	
+</script>
 
