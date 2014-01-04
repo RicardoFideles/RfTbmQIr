@@ -42,9 +42,10 @@
 	        <span class="field"><?php echo $this->Form->input('site'); ?></span>
 	    </p>
 	    
-	    <p>
+	     <p>
     		<label>Texto breve</label>
-	        <span class="field"><?php echo $this->Form->input('breve', array('rows'=>'5', 'cols'=>'15','class'=>'ckeditor2', 'id'=> 'editor4')); ?></span>
+	        <span class="field"><?php echo $this->Form->input('breve', array('class' => 'breve' , 'maxlength' => '140')); ?></span>
+        	<span class="contador breve field ">140 caracteres restantes</span>
 	    </p>
 	    
 	    
@@ -63,3 +64,10 @@
         </p>
     <?php echo $this->Form->end();?>
 </div>
+
+<script type="text/javascript">
+	
+	jQuery('.breve').keyup(function() { jQuery('.breve.subtitulo').html(this.value.length + ' restantes'); });
+	
+	
+</script>
