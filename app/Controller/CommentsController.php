@@ -106,11 +106,14 @@ class CommentsController extends AppController {
 		if (!$this->Comment->exists()) {
 			throw new NotFoundException(__('Invalid comment'));
 		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Comment->delete()) {
-			$this->Session->setFlash(__('The comment has been deleted.'));
+		
+		$commnet = $this->Comment->read(null, $id);
+		$this->Comment->set('status', 'rejeitado');
+		
+		if ($this->Comment->save()) {
+			$this->Session->setFlash(__('Comentário aprovado com sucesso.'));
 		} else {
-			$this->Session->setFlash(__('The comment could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('Ocorreu um erro ao tentar aprovar o comentário.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
