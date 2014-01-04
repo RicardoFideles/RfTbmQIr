@@ -46,9 +46,9 @@ $tinybrowser['docroot'] = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
 $tinybrowser['unixpermissions'] = 0777;
 
 // File upload paths (set to absolute by default)
-$tinybrowser['path']['image'] = '/RfTbmQIr/app/webroot/uploads/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
-$tinybrowser['path']['media'] = '/RfTbmQIr/app/webroot/uploads/media/'; // Media files location
-$tinybrowser['path']['file']  = '/RfTbmQIr/app/webroot/uploads/files/'; // Other files location
+$tinybrowser['path']['image'] = '/app/webroot/uploads/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
+$tinybrowser['path']['media'] = '/app/webroot/uploads/media/'; // Media files location
+$tinybrowser['path']['file']  = '/app/webroot/uploads/files/'; // Other files location
 
 // File link paths - these are the paths that get passed back to TinyMCE or your application (set to equal the upload path by default)
 $tinybrowser['link']['image'] = $tinybrowser['path']['image']; // Image links
