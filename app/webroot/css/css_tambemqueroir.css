@@ -475,6 +475,7 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .BoxesCategoriasFaixaTopo {	width:360px; z-index:2; }
 .HomeMatImageCrop {position: relative; width: auto; height: 210px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 .CategImageCrop {position: relative; width: auto; height: 150px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+.HomeDestaqueMatImageCrop {position: relative; width: auto; height: 300px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 
 /*THUMBNAILS CROP VERTIVAL ALIGN*/
 .EstabThumbImageCrop {height: 90px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
@@ -497,6 +498,7 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .EstabThumbImageCrop {height: 60px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 .EstabThumbImageCrop div { height:100%; background-color:#000; overflow:hidden; border:0px solid #999; }
 .EstabThumbImageCrop div img { width:115px; height:auto; min-height:100%; }
+.HomeDestaqueMatImageCrop {position: relative; width: auto; height: 300px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 
 }
 
@@ -524,6 +526,8 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .EstabThumbImageCrop div { height:100%; background-color:#000; overflow:hidden; border:0px solid #999; }
 .EstabThumbImageCrop div img { width:128px; height:auto; min-height:100%; }
 
+.HomeDestaqueMatImageCrop {position: relative; width: auto; height: 300px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
+
 }
 
 @media screen and (max-width: 320px) {
@@ -535,6 +539,8 @@ li.RodapeTextoListLI:before {content: "•"; color: #e21d51; /* or whatever colo
 .EstabThumbImageCrop {height: 30px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}
 .EstabThumbImageCrop div { height:100%; background-color:#000; overflow:hidden; border:0px solid #999; }
 .EstabThumbImageCrop div img { width:50px; height:auto; min-height:100%; }
+
+.HomeDestaqueMatImageCrop {position: relative; width: auto; height: 200px; overflow: hidden; border: 0px red solid; margin-bottom:10px;}‰
 }
 
 
