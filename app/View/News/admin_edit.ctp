@@ -17,11 +17,13 @@
     	<?php echo $this->Form->input('id'); ?>
 	    <p class="primeiro">
 	    	<label>Título</label>
-	        <span class="field"><?php echo $this->Form->input('name'); ?></span>
+	        <span class="field"><?php echo $this->Form->input('name', array('class' => 'titulo float', 'maxlength' => '140')); ?></span>
+	        <span class="contador titulo field">140 caracteres restantes</span>
 	    </p>
 	    <p>
 	    	<label>Subtítulo</label>
-	        <span class="field"><?php echo $this->Form->input('subtitulo'); ?></span>
+        	<span class="field"><?php echo $this->Form->input('subtitulo', array('class' => 'subtitulo float', 'maxlength' => '140')); ?></span>
+        	<span class="contador subtitulo field ">140 caracteres restantes</span>
 	    </p>
 	    
 	    <p>
@@ -29,6 +31,24 @@
 	        <span class="field">
 	        	<?php 
 	        		echo $this->Form->input('emfoco', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+				?>
+			</span>
+	    </p>
+	    
+	    <p>
+	    	<label>Destaque na Capa</label>
+	        <span class="field">
+	        	<?php 
+	        		echo $this->Form->input('destaque_home', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+				?>
+			</span>
+	    </p>
+	    
+	    <p>
+	    	<label>Status</label>
+	        <span class="field">
+	        	<?php 
+	        		echo $this->Form->input('status', array('options' => array('publicado' => 'Publicado','rascunho' => 'Rascunho'))); 
 				?>
 			</span>
 	    </p>
@@ -43,3 +63,11 @@
     <?php echo $this->Form->end();?>
 </div>
 
+
+<script type="text/javascript">
+	
+	jQuery('.subtitulo').keyup(function() { jQuery('.contador.subtitulo').html(this.value.length + ' restantes'); });
+	jQuery('.titulo').keyup(function() { jQuery('.contador.titulo').html(this.value.length + ' restantes'); });
+	
+	
+</script>
