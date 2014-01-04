@@ -2,6 +2,11 @@
 	$destaque = $this->requestAction(array('controller' => 'news', 'action' => 'destaqueCapa'));
 ?>
 
+
+<?php 
+	if ($destaque!= null && sizeof($destaque) > 0) {
+?>
+
 <!-- MATERIA -->
 <div class="col-md-6 col-sm-8 col-xs-12 HomeAltMinA">
 	<?php 
@@ -14,7 +19,9 @@
 			$url = $this->Link->makeLinkImgDir('original', $fotoPrincipal['imagem'], 'fotos');
 	?>
 		<a href="<?php echo $this->Html->url($link); ?>">
-			<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+			<div class="HomeDestaqueMatImageCrop">
+				<img src="<?php echo $this->Html->url($url) ?>" class="img-responsive fotoSize marginBottomIMG">
+			</div>
 		</a>
 		
 	<?php
@@ -27,8 +34,11 @@
 	</p>
 	<p>
 		<?php 
-			$subtitulo = $destaque['News']['subtitulo'];
-			echo $this->String->truncate($subtitulo, 120, $limite='...') ;
+			echo $destaque['News']['subtitulo'];
 		?>
 	</p> 
 </div>
+
+<?php
+	}
+?>
