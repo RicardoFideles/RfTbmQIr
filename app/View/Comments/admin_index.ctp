@@ -49,7 +49,11 @@
 							?>
 								<img src="<?php echo $this->Html->url('/images/admin/icon_StatusAprovar.png'); ?>" alt="" class="radius2" />
 							<?php
-									} 	
+									} else {
+							?>
+								<img src="<?php echo $this->Html->url('/images/admin/icon_StatusNegado.png'); ?>" alt="" class="radius2" />
+							<?php
+									}	
 								}
 							?>
 							&nbsp;
