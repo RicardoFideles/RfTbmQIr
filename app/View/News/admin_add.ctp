@@ -29,7 +29,7 @@
 	    	<label>Em Foco</label>
 	        <span class="field">
 	        	<?php 
-	        		echo $this->Form->input('emfoco', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+	        		echo $this->Form->input('emfoco', array('options' => array('sim' => 'Sim','nao' => 'Não'), 'empty' => 'Selecione uma opção')); 
 				?>
 			</span>
 	    </p>
@@ -38,7 +38,7 @@
 	    	<label>Destaque na Capa</label>
 	        <span class="field">
 	        	<?php 
-	        		echo $this->Form->input('destaque_home', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+	        		echo $this->Form->input('destaque_home', array('options' => array('sim' => 'Sim','nao' => 'Não'), 'empty' => 'Selecione uma opção')); 
 				?>
 			</span>
 	    </p>

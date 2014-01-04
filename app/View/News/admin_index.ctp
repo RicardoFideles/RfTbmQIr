@@ -22,6 +22,7 @@
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Em Foco');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Status');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</thead>
@@ -32,6 +33,7 @@
 					<th class="head1"><?php echo $this->Paginator->sort('Título');?></th>
 					<th class="head1"><?php echo $this->Paginator->sort('Cadastrado em:');?></th>
 					<th class="head0"><?php echo $this->Paginator->sort('Em Foco');?></th>
+					<th class="head0"><?php echo $this->Paginator->sort('Status');?></th>
 					<th class="head1"><?php echo __('Ações');?></th>
 				</tr>
 			</tfoot>
@@ -43,7 +45,14 @@
 						<td><?php echo h($news['News']['name']); ?>&nbsp;</td>
 						<td><?php echo $this->Time->format('d.m.Y', $news['News']['created'], null, 'America/Sao_Paulo'); ?>&nbsp;</td>
 						<td><?php echo h($news['News']['emfoco']); ?>&nbsp;</td>
+						<td><?php echo h($news['News']['status']); ?>&nbsp;</td>
 						<td class="center">
+							<?php
+								$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($news['News']['slug'], $news['News']['id']), 'admin' => false);  
+							?>
+							<a href="<?php echo $this->Html->url($link); ?>" class="LinkListaEntrevistas" target="_blank">
+								Preview
+							</a>
 							<?php echo $this->Html->link(__('Editar Textos'), array('action' => 'edit', $news['News']['id'])); ?>
 							<?php echo $this->Html->link(__('Editar Fotos'), array('action' => 'view', $news['News']['id'])); ?>
 							<?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $news['News']['id']), null, __('Você tem certeza que deseja apagar # %s?', $news['News']['name'])); ?>

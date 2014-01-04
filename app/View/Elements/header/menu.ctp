@@ -1,7 +1,7 @@
 <?php
 	$categorias = $this->requestAction(array('controller' => 'Categories', 'action' => 'menu'));
 	
-	$emfoco = $this->requestAction(array('controller' => 'news', 'action' => 'emfoco'));
+	$tickers = $this->requestAction(array('controller' => 'news', 'action' => 'emfoco'));
 	
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 hidden-print">
@@ -9,10 +9,18 @@
 	
 	<div class="row bkgMenuBuscaTopo1 RoundedCornerEmCima">
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 hidden-xs text-left">
-			<?php
-				$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($emfoco['News']['slug'], $emfoco['News']['id'])); 
-			?>
-			<p class="EmFoco textColorA">EM FOCO: <a href="<?php echo $this->Html->url($link) ?>" class="LinkEmFoco"><?php echo $emfoco['News']['name']; ?></a></p>
+			
+			<ul id="js-news" class="js-hidden">
+				
+				<?php foreach($tickers as $key => $emfoco): ?>
+					<li>
+						<?php
+							$link = array('controller' => 'news', 'action' => 'view', 'slug' => $this->Link->makeLink($emfoco['News']['slug'], $emfoco['News']['id'])); 
+						?>
+						<a href="<?php echo $this->Html->url($link) ?>" class="LinkEmFoco"><?php echo $emfoco['News']['name']; ?></a>
+			   		</li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 		
 		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
@@ -97,3 +105,10 @@
 	</div>
 	<!-- BUSCA E MENU -->
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#js-news').ticker();
+    });
+</script>
+

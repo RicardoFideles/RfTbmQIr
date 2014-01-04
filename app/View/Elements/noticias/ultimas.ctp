@@ -1,5 +1,6 @@
 <?php
-	$noticias = $this->requestAction(array('controller' => 'News', 'action' => 'ultimas'));
+	$id_corrente = $news['News']['id'];
+	$noticias = $this->requestAction(array('controller' => 'News', 'action' => 'ultimas', $id_corrente));
 ?>
 
 <div class="col-md-3 printColI">

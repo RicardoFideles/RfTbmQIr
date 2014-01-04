@@ -112,15 +112,15 @@ class NewsController extends AppController {
 		$this -> set(compact('news'));
 	}
 	
-	public function ultimas() {
-		$options = array('order' => array('News.id' => 'desc'), 'limit' => 4);
+	public function ultimas($id = null) {
+		$options = array('conditions' => array('News.id !=' => $id, 'News.status' =>'publicado'), 'order' => array('News.id' => 'desc'), 'limit' => 4);
 		return $this -> News -> find('all', $options);
 	}
 	
 	public function emfoco() {
 		
-		$options = array('conditions'=> array('News.emfoco' =>'sim'), 'order' => array('News.id' => 'desc'));
-		return $this -> News -> find('first', $options);
+		$options = array('conditions'=> array('News.emfoco' =>'sim', 'News.status' =>'publicado'), 'order' => array('News.id' => 'desc'));
+		return $this -> News -> find('all', $options);
 	}
 	
 	public function lista () {
@@ -134,7 +134,7 @@ class NewsController extends AppController {
        
 		$this->News->recursive = 2;
 		
-		$this->paginate = array('limit' => 10 , 'page' => $id, 'order' => array('News.id' => 'desc'));
+		$this->paginate = array('limit' => 10 , 'page' => $id, 'conditions'=> array( 'News.status' =>'publicado'), 'order' => array('News.id' => 'desc'));
 
 		$news = $this->paginate();
 
@@ -148,7 +148,7 @@ class NewsController extends AppController {
 	}
 	
 	public function ultimasCapa() {
-		$options = array('order' => array('News.id' => 'desc'), 'limit' => 2);
+		$options = array('conditions'=> array( 'News.status' =>'publicado'),'order' => array('News.id' => 'desc'), 'limit' => 2);
 		return $this -> News -> find('all', $options);
 	}
 	

@@ -21,6 +21,8 @@
 	?>
 
     <link href="<?php echo $this->Html->url('/css/css_tambemqueroir_print.css'); ?>" rel="stylesheet" media="print">
+    <link href="<?php echo $this->Html->url('/css/ticker-style.css'); ?>" rel="stylesheet">
+    
 
 	
 	<link href="<?php echo $this->Html->url('/img/favicon_pc.png'); ?>" rel="icon" type="image/png" />
@@ -29,6 +31,7 @@
 	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="<?php echo $this->Html->url('https://code.jquery.com/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo $this->Html->url('/js/bootstrap.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->url('/js/jquery.ticker.js'); ?>" ></script>
 	<script type="text/javascript" src="<?php echo $this->Html->url('/js/ratting/jquery.raty.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->url('/js/lightbox-2.6.min.js'); ?>"></script>
 

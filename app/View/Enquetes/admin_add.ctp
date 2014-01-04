@@ -22,15 +22,15 @@
 	    	<label>Status</label>
 	    	<span class="field">
 		    	<?php 
-	        		echo $this->Form->input('status', array('options' => array('aberta' => 'Aberta','encerrada' => 'Encerrada'))); 
+	        		echo $this->Form->input('status', array('options' => array('aberta' => 'Aberta','encerrada' => 'Encerrada'), 'empty' => 'Selecione uma opção')); 
 				?>
     		</span>
 	    </p>
 	    <p>
-	    	<label>Destaque</label>
+	    	<label>Exibir na home</label>
 	        <span class="field">
 	        	<?php 
-					echo $this->Form->input('destaque', array('options' => array('sim' => 'Sim','nao' => 'Não'))); 
+					echo $this->Form->input('destaque', array('options' => array('sim' => 'Sim','nao' => 'Não'), 'empty' => 'Selecione uma opção')); 
         		?>
     		</span>
 	    </p>
