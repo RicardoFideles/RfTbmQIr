@@ -143,7 +143,7 @@ class NewsController extends AppController {
 	}
 
 	public function destaqueCapa() {
-		$options = array('order' => array('News.id' => 'desc'));
+		$options = array('conditions'=> array('News.destaque_home' =>'sim', 'News.status' =>'publicado'),'order' => array('News.id' => 'desc'));
 		return $this -> News -> find('first', $options);
 	}
 	
